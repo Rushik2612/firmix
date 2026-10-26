@@ -1,0 +1,718 @@
+{
+  "spec_version": "0.1",
+  "entries": [
+    {
+      "file": "dev/d01.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "INT-01",
+      "anchor_line": 10,
+      "accepted_lines": [
+        10,
+        57
+      ],
+      "anchor_snippet": "static uint8_t button_pressed;",
+      "note": "Flag set in HAL_GPIO_EXTI_Callback, polled in main's wait loop, not volatile. At -O1/-O2 GCC loads it once and emits an infinite self-branch (verified in disassembly). press_count is ISR-only and is NOT a bug."
+    },
+    {
+      "file": "dev/d02.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "INT-01",
+      "note": "Same program as d01, flag still not volatile, but every task-side read is inside __disable_irq()/__enable_irq() (memory-clobber barrier), so the loop re-reads it each pass (verified in disassembly). Not a bug per SPEC INT-01 'is not'."
+    },
+    {
+      "file": "dev/d03.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "INT-02",
+      "anchor_line": 86,
+      "accepted_lines": [
+        86
+      ],
+      "anchor_snippet": "rx_count--;",
+      "note": "rx_count-- in main is a load/sub/store (ldrb at 0xb8, strb at 0xca at -O2, six instructions apart). The USART2 RxCplt callback (priority 6) can run in that gap and its rx_count++ is overwritten, so the count drifts and bytes are lost or replayed. rx_count and rx_buf are volatile, so INT-01 does not apply; rx_head is ISR-only, rx_tail is main-only, rx_byte is only handed to HAL by address."
+    },
+    {
+      "file": "dev/d04.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 71,
+      "accepted_lines": [
+        71
+      ],
+      "anchor_snippet": "HAL_UART_Transmit(&huart2, heartbeat_msg",
+      "note": "Polling HAL_UART_Transmit called from HAL_TIM_PeriodElapsedCallback (TIM2 ISR, priority 5). It occupies the ISR for ~0.6 ms per message at 115200 baud, and its timeout depends on HAL_GetTick, which cannot advance because SysTick runs at the lowest priority and cannot preempt TIM2."
+    },
+    {
+      "file": "dev/d05.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "RTOS-01",
+      "anchor_line": 42,
+      "accepted_lines": [
+        42
+      ],
+      "anchor_snippet": "xSemaphoreGive(button_sem);",
+      "note": "xSemaphoreGive (not the FromISR variant) is called from the EXTI callback. RTOS-03 does not apply: EXTI15_10 priority is 6, which is >= 5. The semaphore is created before gpio_init enables the IRQ."
+    },
+    {
+      "file": "dev/d06.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 50,
+      "accepted_lines": [
+        50
+      ],
+      "anchor_snippet": "return LOG_ERR_TOO_LONG;",
+      "note": "The mutex is taken successfully, then len > LOG_MAX_LEN returns without a give. diag_task's 65-byte message (limit 48) reaches this path once a minute, after which every log_write times out with LOG_ERR_BUSY."
+    },
+    {
+      "file": "dev/d07.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "RTOS-03",
+      "anchor_line": 60,
+      "accepted_lines": [
+        46,
+        60
+      ],
+      "anchor_snippet": "xQueueSendFromISR(rx_queue, &rx_byte, &woken);",
+      "note": "USART2 runs at priority 2, more urgent than configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5), yet its callback calls a FreeRTOS API. FreeRTOS critical sections only mask priorities >= 5, so this ISR can preempt kernel code and corrupt the queue. The call is the FromISR variant, so RTOS-01 does not apply."
+    },
+    {
+      "file": "dev/d08.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "PER-01",
+      "anchor_line": 51,
+      "accepted_lines": [
+        39,
+        51
+      ],
+      "anchor_snippet": "HAL_SPI_Init(&hspi1);",
+      "note": "SPI1 is initialized but __HAL_RCC_SPI1_CLK_ENABLE() never appears. GPIOA and GPIOB clocks are enabled. With the peripheral clock off, register writes are ignored and the transfers time out."
+    },
+    {
+      "file": "dev/d09.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "PER-02",
+      "anchor_line": 35,
+      "accepted_lines": [
+        35
+      ],
+      "anchor_snippet": "HAL_GPIO_WritePin(DOOR_PORT, DOOR_PIN, GPIO_PIN_SET);",
+      "note": "DOOR_PIN (PB2) is configured GPIO_MODE_INPUT with a pull-up but is written with HAL_GPIO_WritePin in the alarm path. The alarm pin PB1 is only ever driven low, so the alarm never sounds. Intended: ALARM_PORT/ALARM_PIN."
+    },
+    {
+      "file": "dev/d10.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 64,
+      "accepted_lines": [
+        61,
+        64
+      ],
+      "anchor_snippet": "samples[i] = (uint16_t)HAL_ADC_GetValue(&hadc1);",
+      "note": "The loop bound i <= SAMPLE_COUNT writes samples[16] on a 16-element array, one element (2 bytes) past the end. GCC does not warn, even at -O2 with -Wall -Wextra -Warray-bounds."
+    },
+    {
+      "file": "dev/d11.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "MEM-02",
+      "anchor_line": 60,
+      "accepted_lines": [
+        60
+      ],
+      "anchor_snippet": "HAL_UART_Transmit_IT(&huart2, (uint8_t *)msg, (uint16_t)n);",
+      "note": "msg is a stack array handed to the interrupt-driven transmit. send_status returns immediately, and the transfer keeps reading msg after its stack frame is gone."
+    },
+    {
+      "file": "dev/d12.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "INT-02",
+      "note": "Two ISRs (EXTI0 and EXTI1) at equal priority 6 both do press_events++ through the shared callback. Equal priority never preempts, so the increment is never interrupted, and main reads the counter with one aligned 32-bit load. Not a bug per INT-02 'is not'."
+    },
+    {
+      "file": "files/f001.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "INT-02",
+      "note": "rx_count is changed in the USART1 callback (rx_count++) and in rx_pop (rx_count--), which looks like the classic lost-update, but rx_pop does its read-modify-write inside __disable_irq()/__enable_irq(), so the ISR cannot run in the gap. rx_head is ISR-only, rx_tail is main-only, rx_byte is only handed to HAL by address."
+    },
+    {
+      "file": "files/f002.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-01",
+      "anchor_line": 58,
+      "accepted_lines": [
+        58
+      ],
+      "anchor_snippet": "xQueueSend(rx_queue, &rx_byte, 0);",
+      "note": "The USART1 RX callback (priority 7, so FromISR APIs would be legal) calls plain xQueueSend instead of xQueueSendFromISR. The plain API uses task-level critical sections and may try to block or yield from interrupt context, which can corrupt kernel state. RTOS-03 does not apply (7 >= 5)."
+    },
+    {
+      "file": "files/f003.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-01",
+      "anchor_line": 25,
+      "accepted_lines": [
+        25
+      ],
+      "anchor_snippet": "HAL_GPIO_Init(STATUS_PORT, &gpio);",
+      "note": "STATUS_PORT is GPIOC (PC13), but the file only ever calls __HAL_RCC_GPIOA_CLK_ENABLE(). With the GPIOC clock off, HAL_GPIO_Init's register writes are ignored, so the pin stays an input and every HAL_GPIO_WritePin(STATUS_PORT, ...) does nothing. GPIOA and USART2 clocks are enabled correctly."
+    },
+    {
+      "file": "files/f004.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-02",
+      "anchor_line": 28,
+      "accepted_lines": [
+        27,
+        28
+      ],
+      "anchor_snippet": "HAL_GPIO_Init(UART_PORT, &gpio);",
+      "note": "PA2/PA3 carry USART2 TX/RX, which on STM32F411 is alternate function 7 (GPIO_AF7_USART2), but the pins are configured with GPIO_AF4_I2C1. The mode is correctly AF_PP, so only the AF number is wrong; the pins are routed to I2C1 and the UART never reaches the pins. Clocks for GPIOA/GPIOB/USART2 are all enabled."
+    },
+    {
+      "file": "files/f005.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "MEM-02",
+      "note": "send_value passes a local array to HAL_UART_Transmit_IT, but then spins on tx_done, which the TxCplt callback sets, so the function cannot return until the transfer has finished reading the buffer. tx_done is volatile and cleared before the transfer starts. Not a bug per SPEC MEM-02 'is not' (function waits for completion)."
+    },
+    {
+      "file": "files/f006.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-02",
+      "anchor_line": 71,
+      "accepted_lines": [
+        18,
+        20,
+        71,
+        72
+      ],
+      "anchor_snippet": "HAL_GPIO_WritePin(BACKLIGHT_PORT, BACKLIGHT_PIN,",
+      "note": "gpio_init puts both LIGHT_PIN (PA1) and BACKLIGHT_PIN (PA4) in GPIO_MODE_ANALOG with one HAL_GPIO_Init call, but main drives PA4 with HAL_GPIO_WritePin. An analog-mode pin's output driver is disconnected, so the backlight never changes. PA1 as an ADC input is correct."
+    },
+    {
+      "file": "files/f007.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "RTOS-03",
+      "note": "The only FromISR call (xSemaphoreGiveFromISR) is made from the TIM4 callback at priority 6, which is >= 5. The much more urgent EXTI2 fault ISR (priority 1) calls no FreeRTOS API: it only writes a GPIO and sets a volatile flag. Not a bug per SPEC RTOS-03 'is not'."
+    },
+    {
+      "file": "files/f008.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "PER-01",
+      "note": "No clock-enable macro appears in uart1_init or timer3_init, but HAL_UART_Init calls this file's HAL_UART_MspInit (enables GPIOA and USART1) and HAL_TIM_Base_Init calls HAL_TIM_Base_MspInit (enables TIM3) before any register is touched. GPIOA is also enabled in led_init. Not a bug per SPEC PER-01 'is not'."
+    },
+    {
+      "file": "files/f009.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 39,
+      "accepted_lines": [
+        39
+      ],
+      "anchor_snippet": "HAL_Delay(DEBOUNCE_MS);",
+      "note": "HAL_Delay is called from HAL_GPIO_EXTI_Callback (EXTI15_10, priority 6). HAL_Delay spins on the SysTick counter, but SysTick runs at priority 15 and cannot preempt this ISR, so the tick never advances and the button handler hangs forever."
+    },
+    {
+      "file": "files/f010.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-01",
+      "anchor_line": 50,
+      "accepted_lines": [
+        50
+      ],
+      "anchor_snippet": "xTaskNotifyGive(sampler_handle);",
+      "note": "The TIM2 update callback (priority 6) calls xTaskNotifyGive, the task-level notify macro, instead of vTaskNotifyGiveFromISR. sampler_handle is written by xTaskCreate before the timer is started, so INT-01 does not apply."
+    },
+    {
+      "file": "files/f011.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-01",
+      "anchor_line": 46,
+      "accepted_lines": [
+        46
+      ],
+      "anchor_snippet": "vTaskDelay(pdMS_TO_TICKS(SETTLE_MS));",
+      "note": "The EXTI15_10 callback (priority 8) calls vTaskDelay for debouncing. vTaskDelay must only be called from a task; in an ISR it tries to put the current context to sleep. The FromISR give later in the same callback is correct and is not the bug. No HAL_Delay is used, so INT-03 does not apply."
+    },
+    {
+      "file": "files/f012.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "PER-02",
+      "note": "DATA_PIN (PB3) is a single-wire bidirectional line. It is written only right after data_pin_output() (open-drain output) and read only right after data_pin_input(), so the pin mode always matches its use even though the last HAL_GPIO_Init in the file configures it as an input. Not a bug per SPEC PER-02 'is not'."
+    },
+    {
+      "file": "files/f013.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-02",
+      "anchor_line": 62,
+      "accepted_lines": [
+        62
+      ],
+      "anchor_snippet": "HAL_UART_Receive_IT(&huart2, reply, (uint16_t)sizeof(reply));",
+      "note": "reply is an 8-byte local array in request_status(). HAL_UART_Receive_IT only arms the receive and returns, so request_status returns immediately and the incoming bytes are written by the USART2 interrupt into a stack frame that has already been popped and reused. The earlier polling HAL_UART_Transmit of the static query buffer is fine."
+    },
+    {
+      "file": "files/f014.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-01",
+      "anchor_line": 9,
+      "accepted_lines": [
+        9,
+        75
+      ],
+      "anchor_snippet": "static uint8_t conversion_done;",
+      "note": "conversion_done is set in HAL_ADC_ConvCpltCallback (ADC IRQ, priority 6) and polled in sample_once without volatile. At -O2 GCC loads it once after HAL_ADC_Start_IT and, if zero, emits 'b .' (infinite self-branch), verified in disassembly. alert_count is main-only and is not a bug."
+    },
+    {
+      "file": "files/f015.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-01",
+      "anchor_line": 10,
+      "accepted_lines": [
+        10,
+        56,
+        58
+      ],
+      "anchor_snippet": "static uint32_t tick_ms;",
+      "note": "tick_ms is incremented in the TIM3 update callback and read in wait_ms without volatile. At -O2 GCC hoists the load: wait_ms(ON_TIME_MS) compiles to an empty 'b .' loop, so the LED turns on and the program hangs (disassembly checked). The read in main is a single aligned 32-bit load, so INT-02 does not apply."
+    },
+    {
+      "file": "files/f016.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-02",
+      "anchor_line": 49,
+      "accepted_lines": [
+        49,
+        51
+      ],
+      "anchor_snippet": "uint32_t pulses = pulse_count;",
+      "note": "read_flow_rate reads pulse_count and then zeroes it (read-and-reset). The EXTI1 callback (priority 6) can preempt between the two accesses; its increment is overwritten by the zeroing store, so pulses are lost and the flow rate reads low. pulse_count is volatile, so INT-01 does not apply."
+    },
+    {
+      "file": "files/f017.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-02",
+      "anchor_line": 69,
+      "accepted_lines": [
+        69
+      ],
+      "anchor_snippet": "HAL_SPI_Transmit_IT(&hspi1, frame, 4U);",
+      "note": "frame is a 4-byte local array in set_level(). HAL_SPI_Transmit_IT returns right away and the SPI1 interrupt keeps reading frame while main moves on; the stack slot is overwritten by the next calls, so the DAC receives corrupted bytes. Chip select is released in the TxCplt callback, which does not make the function wait."
+    },
+    {
+      "file": "files/f018.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-02",
+      "anchor_line": 55,
+      "accepted_lines": [
+        55
+      ],
+      "anchor_snippet": "uint64_t now = uptime_us;",
+      "note": "uptime_us is a 64-bit counter updated in the TIM4 callback (priority 4) and read in main with ldrd (two word accesses, not atomic as a pair). If the low word wraps between the two loads, main sees a value up to 2^32 us off, so the blink check misfires. Variable is volatile."
+    },
+    {
+      "file": "files/f019.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 50,
+      "accepted_lines": [
+        50
+      ],
+      "anchor_snippet": "printf(\"uptime=%lu s tick=%lu\\r\\n\",",
+      "note": "printf is called from the TIM5 update callback (priority 9). printf is non-reentrant (shared stdio state, may allocate) and blocks on the retargeted UART output; in ISR context it can deadlock against a printf in progress in main-level code or stall every lower-priority interrupt."
+    },
+    {
+      "file": "files/f020.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "RTOS-01",
+      "note": "Every FreeRTOS call made from the USART2 callback (priority 6) is the FromISR variant, followed by portYIELD_FROM_ISR. The plain xQueueReset, xSemaphoreGive and vTaskDelay calls are all made from tasks. Priority 6 >= 5, so RTOS-03 does not apply either."
+    },
+    {
+      "file": "files/f021.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "MEM-01",
+      "note": "Same shapes as the buggy files, but every write is guarded: len is clamped to PAYLOAD_MAX before the receive loop, read_line stops at LINE_MAX_LEN - 1, and the name is copied with strncpy to NAME_LEN - 1 followed by an explicit terminator. Not a bug per SPEC MEM-01 'is not'."
+    },
+    {
+      "file": "files/f022.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-03",
+      "anchor_line": 45,
+      "accepted_lines": [
+        31,
+        45
+      ],
+      "anchor_snippet": "xSemaphoreGiveFromISR(key_sem, &woken);",
+      "note": "EXTI0 is set to priority 1, which is more urgent than configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5), yet its callback calls xSemaphoreGiveFromISR. FreeRTOS critical sections only mask priorities >= 5, so this ISR can preempt kernel code while the semaphore is being modified. The call is the FromISR variant, so RTOS-01 does not apply."
+    },
+    {
+      "file": "files/f023.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-01",
+      "anchor_line": 43,
+      "accepted_lines": [
+        35,
+        43,
+        45
+      ],
+      "anchor_snippet": "HAL_UART_Init(&huart2);",
+      "note": "console_init calls HAL_UART_Init before __HAL_RCC_USART2_CLK_ENABLE(). The baud rate and control registers are written while the USART2 clock is still off, so the writes are lost and the UART never gets configured; enabling the clock afterwards is too late. GPIOA is enabled before its use."
+    },
+    {
+      "file": "files/f024.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-01",
+      "anchor_line": 9,
+      "accepted_lines": [
+        9,
+        74
+      ],
+      "anchor_snippet": "static uint8_t spi_done;",
+      "note": "spi_done is set in HAL_SPI_TxCpltCallback (SPI1 IRQ, priority 7) and polled in write_register without volatile. At -O2 the flag is loaded once after HAL_SPI_Transmit_IT, then 'b .' if zero (verified in disassembly). tx_frame is static, not on the stack, so MEM-02 does not apply."
+    },
+    {
+      "file": "files/f025.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 56,
+      "accepted_lines": [
+        56
+      ],
+      "anchor_snippet": "while (__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET) {",
+      "note": "The USART6 RX callback (priority 7) busy-waits with no timeout for the transmission-complete flag after writing DR. If the line stalls or the flag never sets, the ISR never returns and all interrupts of lower priority are starved. No FreeRTOS calls are involved."
+    },
+    {
+      "file": "files/f026.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-03",
+      "anchor_line": 52,
+      "accepted_lines": [
+        38,
+        52
+      ],
+      "anchor_snippet": "vTaskNotifyGiveFromISR(worker_handle, &woken);",
+      "note": "TIM3 runs at priority 4 (< 5) and its update callback calls vTaskNotifyGiveFromISR. Interrupts more urgent than the syscall ceiling must not call any FreeRTOS API. worker_handle is written by xTaskCreate before the timer starts, so INT-01 does not apply."
+    },
+    {
+      "file": "files/f027.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 68,
+      "accepted_lines": [
+        68
+      ],
+      "anchor_snippet": "HAL_I2C_Master_Transmit(&hi2c1, DISPLAY_ADDR, cmd, 2U, 50U);",
+      "note": "update_contrast() is called from HAL_GPIO_EXTI_Callback (EXTI9_5, priority 8) and performs a polling I2C transmit. The 50 ms timeout is measured with HAL_GetTick, which cannot advance because SysTick (priority 15) cannot preempt the ISR, so a stuck bus hangs the ISR for ever. The blocking call is one function away from the callback."
+    },
+    {
+      "file": "files/f028.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 51,
+      "accepted_lines": [
+        51
+      ],
+      "anchor_snippet": "memcpy(frame, header_template, sizeof(header_template));",
+      "note": "header_template is 20 bytes but frame is FRAME_SIZE = 16 bytes, so the memcpy writes 4 bytes past the end of the stack array (the macro was not updated when the header grew). GCC does warn about this one on a full compile: -Wstringop-overflow at -O0 and -Warray-bounds at -O2 (but not with -fsyntax-only), so this file is a case the GCC baseline can catch."
+    },
+    {
+      "file": "files/f029.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 58,
+      "accepted_lines": [
+        58
+      ],
+      "anchor_snippet": "payload[i] = byte;",
+      "note": "receive_message reads a length byte (0..255) from the UART and stores that many bytes into payload[PAYLOAD_MAX = 32] with no check of len against the buffer size. A frame announcing len > 32 overwrites memory after payload. GCC cannot know len, so it is silent."
+    },
+    {
+      "file": "files/f030.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "INT-03",
+      "note": "The USART2 RX callback only starts an interrupt-driven transmit (HAL_UART_Transmit_IT from a static buffer) and re-arms HAL_UART_Receive_IT; both return immediately. The polling HAL_UART_Transmit and HAL_Delay appear only in main, in task context. Not a bug per SPEC INT-03 'is not'."
+    },
+    {
+      "file": "files/f031.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 57,
+      "accepted_lines": [
+        57
+      ],
+      "anchor_snippet": "return -2;",
+      "note": "sensor_read takes bus_mutex, and when the I2C transmit fails it returns -2 without calling xSemaphoreGive. The other failure path and the success path do give. After one bus error the mutex is held forever, so every later sensor_read times out with -1."
+    },
+    {
+      "file": "files/f032.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 89,
+      "accepted_lines": [
+        89
+      ],
+      "anchor_snippet": "return ERR_RANGE;",
+      "note": "store_command takes store_mutex, then the STORE_ERASE case returns ERR_RANGE for addr >= STORE_SIZE from inside the switch, skipping the xSemaphoreGive after the switch. maintenance_task reaches that address after 16 sectors, after which every store_command fails with ERR_BUSY."
+    },
+    {
+      "file": "files/f033.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-03",
+      "anchor_line": 75,
+      "accepted_lines": [
+        59,
+        75
+      ],
+      "anchor_snippet": "xQueueSendFromISR(sample_queue, &value, &woken);",
+      "note": "The ADC interrupt priority is the macro ADC_IRQ_PRIO = 2U, so the effective priority is 2 (< 5), yet its callback calls xQueueSendFromISR. A detector has to resolve the #define to see the violation."
+    },
+    {
+      "file": "files/f034.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "INT-01",
+      "note": "scan_requested is written by the EXTI15_10 callback (priority 6) and is not volatile, but the only task-side access is take_scan_request(), which reads and clears it inside taskENTER_CRITICAL()/taskEXIT_CRITICAL(). That masks priorities >= 5, which includes the ISR, and the section acts as a compiler barrier. Not a bug per SPEC INT-01 'is not' and not INT-02 (read-and-reset is protected)."
+    },
+    {
+      "file": "files/f035.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-02",
+      "anchor_line": 64,
+      "accepted_lines": [
+        64,
+        71
+      ],
+      "anchor_snippet": "event_flags &= (uint8_t)~EVT_BUTTON;",
+      "note": "Main clears event bits with a load/and/store on event_flags while the EXTI callbacks (priority 6) OR new bits into the same byte. An event arriving between main's load and store is erased, so a button press or limit hit is lost. event_flags is volatile; the two EXTI ISRs have equal priority, so ISR-vs-ISR is not the issue."
+    },
+    {
+      "file": "files/f036.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-02",
+      "anchor_line": 89,
+      "accepted_lines": [
+        89,
+        90
+      ],
+      "anchor_snippet": "uint32_t width = latest.width_us;",
+      "note": "The TIM2 capture callback (priority 6) updates width_us then stamp_ms of one capture record; main reads the two fields separately with no protection. A capture landing between the two reads gives main a width from one pulse and a stamp from the next. Fields are volatile."
+    },
+    {
+      "file": "files/f037.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 65,
+      "accepted_lines": [
+        65
+      ],
+      "anchor_snippet": "histogram[value / BIN_WIDTH]++;",
+      "note": "The ADC is 12-bit (0..4095) and BIN_WIDTH is 400, so value / 400 reaches 10 for readings of 4000 or more, but histogram has only HIST_BINS = 10 entries (0..9). That reading increments the element one past the end. The index comes from sampled data with no clamp. GCC is silent."
+    },
+    {
+      "file": "files/f038.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-02",
+      "anchor_line": 72,
+      "accepted_lines": [
+        72
+      ],
+      "anchor_snippet": "HAL_I2C_Master_Transmit_IT(&hi2c1, EXPANDER_ADDR, cmd, 2U);",
+      "note": "cmd is a 2-byte local array in expander_write(). The interrupt-driven I2C master transmit returns immediately, but the I2C1 event interrupt reads cmd bytes later, after expander_write has returned and the stack has been reused, so the expander gets wrong register or value bytes."
+    },
+    {
+      "file": "files/f039.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-03",
+      "anchor_line": 60,
+      "accepted_lines": [
+        46,
+        60
+      ],
+      "anchor_snippet": "xQueueSendToBackFromISR(line_queue, &rx_byte, &woken);",
+      "note": "USART1 is set with HAL_NVIC_SetPriority(USART1_IRQn, 3, 1): preempt priority 3, sub-priority 1. With priority grouping 4 the sub-priority is ignored, so the ISR runs at 3 (< 5) and calls xQueueSendToBackFromISR from there."
+    },
+    {
+      "file": "files/f040.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 70,
+      "accepted_lines": [
+        70
+      ],
+      "anchor_snippet": "strcpy(device_name, &rx_line[5]);",
+      "note": "rx_line holds up to 63 received characters, but strcpy copies everything after 'name=' (up to 58 bytes) into device_name[NAME_LEN = 16] with no length check. A name longer than 15 characters overflows into the next object. The earlier write into rx_line is correctly bounded and is not the bug."
+    },
+    {
+      "file": "files/f041.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-02",
+      "anchor_line": 21,
+      "accepted_lines": [
+        18,
+        21
+      ],
+      "anchor_snippet": "HAL_GPIO_Init(SPI_PORT, &gpio);",
+      "note": "SPI1 is used, so PA5 (SCK) and PA7 (MOSI) must be AF5 pins, but they are configured as GPIO_MODE_OUTPUT_PP with no alternate function. The SPI peripheral is never connected to the pins, so the DAC sees no clock or data. PA4 as a plain output for chip select is correct."
+    },
+    {
+      "file": "files/f042.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-01",
+      "anchor_line": 35,
+      "accepted_lines": [
+        29,
+        35
+      ],
+      "anchor_snippet": "HAL_TIM_Base_Init(&htim2);",
+      "note": "TIM2 is configured and started, but __HAL_RCC_TIM2_CLK_ENABLE() never appears anywhere in the file (only GPIOA and GPIOB clocks are enabled). The timer never counts, so the update interrupt and the LED toggle never happen."
+    },
+    {
+      "file": "files/f043.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "MEM-02",
+      "anchor_line": 62,
+      "accepted_lines": [
+        62
+      ],
+      "anchor_snippet": "HAL_UART_Transmit_IT(&huart1, (uint8_t *)line, (uint16_t)n);",
+      "note": "line is a 40-byte local array. The 5 ms HAL_Delay after the call is not a completion check: at 9600 baud a 24-byte message takes about 25 ms, so report_reading returns while the USART1 interrupt is still sending from the dead stack frame. SPEC MEM-02 says HAL_Delay is not proof of completion."
+    },
+    {
+      "file": "files/f044.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-01",
+      "anchor_line": 69,
+      "accepted_lines": [
+        69
+      ],
+      "anchor_snippet": "xQueueSendToBack(sample_queue, &value, 0);",
+      "note": "post_sample() is called only from HAL_ADC_ConvCpltCallback (ADC IRQ, priority 7), so it runs in ISR context, and it uses xQueueSendToBack instead of xQueueSendToBackFromISR. The bug is one function away from the callback."
+    },
+    {
+      "file": "files/f045.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 57,
+      "accepted_lines": [
+        57
+      ],
+      "anchor_snippet": "return;",
+      "note": "report_status takes console_mutex, then returns early when level == 0 without giving it. monitor_task starts with level 0, so the very first call leaks the mutex and banner_task and every later report_status can never print again. The earlier 'return;' (take failed) is correct."
+    },
+    {
+      "file": "files/f046.c",
+      "split": "test",
+      "label": "clean",
+      "near_miss_of": "RTOS-02",
+      "note": "adc_read_locked takes adc_mutex and every path after a successful take, including the error goto out, ends at the label that stops the ADC and calls xSemaphoreGive. The only return before the label (-1) happens when the take itself failed. wake_sem is a binary semaphore used for signaling and is correctly never 'given back'."
+    },
+    {
+      "file": "files/f047.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-01",
+      "anchor_line": 67,
+      "accepted_lines": [
+        55,
+        67
+      ],
+      "anchor_snippet": "HAL_ADC_Init(&hadc1);",
+      "note": "ADC1 is initialized and read, but __HAL_RCC_ADC1_CLK_ENABLE() is missing, while the GPIO ports and USART1 have their clocks enabled. HAL_ADC_PollForConversion times out every pass, so the LED never reflects the level and no adc= line is ever printed."
+    },
+    {
+      "file": "files/f048.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 54,
+      "accepted_lines": [
+        42,
+        46,
+        54
+      ],
+      "anchor_snippet": "return -2;",
+      "note": "settings_save takes settings_mutex, then both validation failures goto reject, which returns -2 without calling xSemaphoreGive. config_task submits version 2 every fifth round, which leaks the mutex and blocks settings_load in blink_task for ever. The leak path is a goto to a bare return."
+    },
+    {
+      "file": "files/f049.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "PER-02",
+      "anchor_line": 49,
+      "accepted_lines": [
+        24,
+        26,
+        49
+      ],
+      "anchor_snippet": "HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);",
+      "note": "HEARTBEAT_PIN (PB1) is configured GPIO_MODE_INPUT but toggled with HAL_GPIO_TogglePin. Writes to the ODR of an input pin have no effect on the pad, so the heartbeat LED never blinks. STATUS_PIN is a proper output and BTN_PIN is a proper input."
+    },
+    {
+      "file": "files/f050.c",
+      "split": "test",
+      "label": "buggy",
+      "bug_type": "INT-01",
+      "anchor_line": 10,
+      "accepted_lines": [
+        10,
+        65
+      ],
+      "anchor_snippet": "static uint8_t home_found;",
+      "note": "home_found is set in the EXTI4 callback (priority 8) and polled in find_home's timed wait loop without volatile. At -O2 GCC deletes the whole wait loop and reads the flag once right after motor_run, so homing is reported as failed every time (disassembly checked). home_failures is main-only."
+    }
+  ]
+}
