@@ -1,0 +1,763 @@
+{
+ "gcc": {
+  "f001": [],
+  "f002": [],
+  "f003": [],
+  "f004": [],
+  "f005": [],
+  "f006": [],
+  "f007": [],
+  "f008": [],
+  "f009": [],
+  "f010": [],
+  "f011": [],
+  "f012": [],
+  "f013": [],
+  "f014": [],
+  "f015": [],
+  "f016": [],
+  "f017": [],
+  "f018": [],
+  "f019": [],
+  "f020": [],
+  "f021": [],
+  "f022": [],
+  "f023": [],
+  "f024": [],
+  "f025": [],
+  "f026": [],
+  "f027": [],
+  "f028": [
+   {
+    "line": 51,
+    "msg": "'memcpy' forming offset [16, 19] is out of the bounds [0, 16] of object 'frame' with type 'uint8_t[16]' {aka 'unsigned char[16]'} [-Warray-bounds=]",
+    "opt": "-O2"
+   },
+   {
+    "line": 51,
+    "msg": "'memcpy' writing 20 bytes into a region of size 16 overflows the destination [-Wstringop-overflow=]",
+    "opt": "-O0"
+   }
+  ],
+  "f029": [],
+  "f030": [],
+  "f031": [],
+  "f032": [],
+  "f033": [],
+  "f034": [],
+  "f035": [],
+  "f036": [],
+  "f037": [],
+  "f038": [],
+  "f039": [],
+  "f040": [],
+  "f041": [],
+  "f042": [],
+  "f043": [],
+  "f044": [],
+  "f045": [],
+  "f046": [],
+  "f047": [],
+  "f048": [],
+  "f049": [],
+  "f050": []
+ },
+ "cppcheck": {
+  "f001": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f002": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f003": [],
+  "f004": [
+   {
+    "line": 50,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'n' can be reduced."
+   }
+  ],
+  "f005": [
+   {
+    "line": 50,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f006": [],
+  "f007": [
+   {
+    "line": 70,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   },
+   {
+    "line": 78,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f008": [
+   {
+    "line": 10,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   },
+   {
+    "line": 27,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 79,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f009": [
+   {
+    "line": 36,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f010": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f011": [
+   {
+    "line": 41,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f012": [],
+  "f013": [
+   {
+    "line": 50,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f014": [
+   {
+    "line": 63,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hadc' can be declared as pointer to const"
+   }
+  ],
+  "f015": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 58,
+    "id": "duplicateExpression",
+    "severity": "style",
+    "msg": "Same expression on both sides of '-' because 'tick_ms' and 'start' represent the same value."
+   }
+  ],
+  "f016": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f017": [
+   {
+    "line": 52,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hspi' can be declared as pointer to const"
+   }
+  ],
+  "f018": [
+   {
+    "line": 46,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f019": [
+   {
+    "line": 44,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 46,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'seconds' can be reduced."
+   }
+  ],
+  "f020": [
+   {
+    "line": 57,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f021": [],
+  "f022": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f023": [],
+  "f024": [
+   {
+    "line": 56,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hspi' can be declared as pointer to const"
+   }
+  ],
+  "f025": [],
+  "f026": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f027": [
+   {
+    "line": 76,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f028": [
+   {
+    "line": 51,
+    "id": "bufferAccessOutOfBounds",
+    "severity": "error",
+    "msg": "Buffer is accessed out of bounds: frame"
+   }
+  ],
+  "f029": [],
+  "f030": [
+   {
+    "line": 52,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f031": [],
+  "f032": [],
+  "f033": [],
+  "f034": [
+   {
+    "line": 39,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f035": [
+   {
+    "line": 51,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f036": [
+   {
+    "line": 67,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 69,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'previous' can be reduced."
+   },
+   {
+    "line": 70,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'current' can be reduced."
+   }
+  ],
+  "f037": [
+   {
+    "line": 55,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'value' can be reduced."
+   }
+  ],
+  "f038": [
+   {
+    "line": 58,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hi2c' can be declared as pointer to const"
+   }
+  ],
+  "f039": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f040": [],
+  "f041": [],
+  "f042": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f043": [
+   {
+    "line": 49,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f044": [],
+  "f045": [],
+  "f046": [],
+  "f047": [
+   {
+    "line": 78,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'level' can be reduced."
+   },
+   {
+    "line": 79,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'n' can be reduced."
+   }
+  ],
+  "f048": [
+   {
+    "line": 14,
+    "id": "unusedStructMember",
+    "severity": "style",
+    "msg": "struct member 'settings_t::brightness' is never used."
+   },
+   {
+    "line": 16,
+    "id": "unusedStructMember",
+    "severity": "style",
+    "msg": "struct member 'settings_t::name' is never used."
+   }
+  ],
+  "f049": [],
+  "f050": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ]
+ },
+ "combined": {
+  "f001": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f002": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f003": [],
+  "f004": [
+   {
+    "line": 50,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'n' can be reduced."
+   }
+  ],
+  "f005": [
+   {
+    "line": 50,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f006": [],
+  "f007": [
+   {
+    "line": 70,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   },
+   {
+    "line": 78,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f008": [
+   {
+    "line": 10,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   },
+   {
+    "line": 27,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 79,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f009": [
+   {
+    "line": 36,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f010": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f011": [
+   {
+    "line": 41,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f012": [],
+  "f013": [
+   {
+    "line": 50,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f014": [
+   {
+    "line": 63,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hadc' can be declared as pointer to const"
+   }
+  ],
+  "f015": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 58,
+    "id": "duplicateExpression",
+    "severity": "style",
+    "msg": "Same expression on both sides of '-' because 'tick_ms' and 'start' represent the same value."
+   }
+  ],
+  "f016": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f017": [
+   {
+    "line": 52,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hspi' can be declared as pointer to const"
+   }
+  ],
+  "f018": [
+   {
+    "line": 46,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f019": [
+   {
+    "line": 44,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 46,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'seconds' can be reduced."
+   }
+  ],
+  "f020": [
+   {
+    "line": 57,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f021": [],
+  "f022": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f023": [],
+  "f024": [
+   {
+    "line": 56,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hspi' can be declared as pointer to const"
+   }
+  ],
+  "f025": [],
+  "f026": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f027": [
+   {
+    "line": 76,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f028": [
+   {
+    "line": 51,
+    "msg": "'memcpy' forming offset [16, 19] is out of the bounds [0, 16] of object 'frame' with type 'uint8_t[16]' {aka 'unsigned char[16]'} [-Warray-bounds=]",
+    "opt": "-O2"
+   },
+   {
+    "line": 51,
+    "msg": "'memcpy' writing 20 bytes into a region of size 16 overflows the destination [-Wstringop-overflow=]",
+    "opt": "-O0"
+   },
+   {
+    "line": 51,
+    "id": "bufferAccessOutOfBounds",
+    "severity": "error",
+    "msg": "Buffer is accessed out of bounds: frame"
+   }
+  ],
+  "f029": [],
+  "f030": [
+   {
+    "line": 52,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f031": [],
+  "f032": [],
+  "f033": [],
+  "f034": [
+   {
+    "line": 39,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f035": [
+   {
+    "line": 51,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ],
+  "f036": [
+   {
+    "line": 67,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   },
+   {
+    "line": 69,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'previous' can be reduced."
+   },
+   {
+    "line": 70,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'current' can be reduced."
+   }
+  ],
+  "f037": [
+   {
+    "line": 55,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'value' can be reduced."
+   }
+  ],
+  "f038": [
+   {
+    "line": 58,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'hi2c' can be declared as pointer to const"
+   }
+  ],
+  "f039": [
+   {
+    "line": 55,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f040": [],
+  "f041": [],
+  "f042": [
+   {
+    "line": 47,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'htim' can be declared as pointer to const"
+   }
+  ],
+  "f043": [
+   {
+    "line": 49,
+    "id": "constParameterPointer",
+    "severity": "style",
+    "msg": "Parameter 'huart' can be declared as pointer to const"
+   }
+  ],
+  "f044": [],
+  "f045": [],
+  "f046": [],
+  "f047": [
+   {
+    "line": 78,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'level' can be reduced."
+   },
+   {
+    "line": 79,
+    "id": "variableScope",
+    "severity": "style",
+    "msg": "The scope of the variable 'n' can be reduced."
+   }
+  ],
+  "f048": [
+   {
+    "line": 14,
+    "id": "unusedStructMember",
+    "severity": "style",
+    "msg": "struct member 'settings_t::brightness' is never used."
+   },
+   {
+    "line": 16,
+    "id": "unusedStructMember",
+    "severity": "style",
+    "msg": "struct member 'settings_t::name' is never used."
+   }
+  ],
+  "f049": [],
+  "f050": [
+   {
+    "line": 40,
+    "id": "funcArgNamesDifferent",
+    "severity": "style",
+    "msg": "Function 'HAL_GPIO_EXTI_Callback' argument 1 names different: declaration 'GPIO_Pin' definition 'pin'."
+   }
+  ]
+ }
+}
