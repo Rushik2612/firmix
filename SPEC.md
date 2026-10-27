@@ -59,7 +59,7 @@ on the test set.
   related variables, while another context that can preempt it also writes the
   data; no critical section or IRQ masking. *(v0.2: read-and-reset added; it is
   the same lost-update failure.)*
-- *Not a bug:* single aligned load/store of <= 32 bits; two ISRs of equal priority.
+- *Not a bug:* a single aligned load or store of <= 32 bits; two ISRs of equal priority. A read-modify-write (`x++`, `x--`, `x |= m`, `x = x + n`) is NOT a single load/store, even on a `uint8_t`.
 - *Anchor:* the unprotected access (the lower-priority side for ISR-vs-ISR).
 - *Candidate rule:* RMW / multi-word access to a shared variable outside any
   critical-section region, with the preemption check applied.

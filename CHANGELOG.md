@@ -40,3 +40,24 @@ Known remaining miss: d09 (verifier misapplies the PER-02 exemption "reading an 
 "guard" for an early return at line 50 that skips it. Added a code rule: a cited guard that comes AFTER the suspect
 line cannot protect it, so the refutation is rejected. Plumbing-test fixture corrected (its guard was after the suspect).
 Also noted: d09 and d10 flicker between runs (model nondeterminism); final eval must repeat runs.
+
+(15) Step 8c: fixer agent added (src/agents/fixer.py, tools/run_fixer.py, tools/test_fixer_plumbing.py). LLM proposes
+line-range edits; code decides success: edits well formed, compiles, no new warnings, rule no longer flags the bug type
+in that function, small diff. Up to 2 retries with the exact failure fed back. Dev set only so far.
+
+(16) Fixer hardening (dev only). First real run: the model's d01 fix was correct but it copied the prompt's line-number
+label into the code ("  10: static volatile ..."), so it never compiled. Code now strips 'NN|' / 'NN:' labels from new_text
+(not valid C anyway) and the prompt tells the model not to copy them. Patched files are saved as bytes (Windows was adding CRs).
+
+(17) Fixer prompt (dev only). Hand review of the first dev run found one WRONG fix that passed all code checks:
+d09 PER-02 -- the model turned the door-sensor input (DOOR_PIN) into a push-pull output to silence the rule, which would
+break the sensor; the right fix is to remove the stray write. d03: the model proposed a mutex against an ISR race (a mutex
+cannot protect against an interrupt). Added two general principles to the prompt: fix the faulty use, not the setup other
+code relies on; use a critical section (not a mutex) against ISRs. Lesson for README: "bug removed" is judged by the same
+rule that found it, so hand review of fixes is part of the evaluation. Reported dev fix success 8/10 is really 7/10.
+
+(18) Fixer FROZEN on dev after entry 17. Two identical runs: 9/10 by the rule, 8/10 by hand review. d01 correct (volatile).
+d03 fails all 3 attempts (the model picks the right idea, a critical section, but its edit deletes an opening brace, so it
+does not compile). d09 still WRONG (changes the door-sensor input pin to an output); it passes every code check, so it is
+documented as a known wrong fix and is why the final evaluation reports hand-verified correctness next to the rule-based number.
+No further fixer tuning.
