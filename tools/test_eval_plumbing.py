@@ -53,6 +53,25 @@ check("single LLM: out-of-range line -> hallucination flag, no crash", by["PER-0
 fs, _ = run_single(Fake([]), "dev/d12.c")
 check("single LLM: empty answer on a clean file -> no findings", fs == [])
 
+from agents.single import run_single_variant
+class Seq:
+    """returns the same JSON for every call and counts calls"""
+    def __init__(self, payload): self.payload, self.calls = payload, 0
+    def chat(self, messages, tools=None, fmt=None):
+        self.calls += 1
+        return {"message": {"content": json.dumps(self.payload)}, "prompt_tokens": 1, "completion_tokens": 1}
+chk = {"checks": [{"bug_type": t, "reason": "x", "code_quote": "", "line": 0, "present": False} for t in ("INT-01", "INT-02")] +
+       [{"bug_type": "MEM-01", "reason": "x", "code_quote": SRC[ln - 1].strip(), "line": ln, "present": True}]}
+fs, _ = run_single_variant(Seq(chk), "dev/d10.c", "checklist")
+check("checklist variant: only present=true entries become findings", [f.bug_type for f in fs] == ["MEM-01"] and fs[0].quote_on_line)
+llm = Seq({"findings": [good]})
+fs, _ = run_single_variant(llm, "dev/d10.c", "pertype")
+check("pertype variant: ten calls per file, ids outside the asked type ignored by schema/enum use", llm.calls == 10)
+fs, _ = run_single_variant(Seq({"findings": [good]}), "dev/d10.c", "open")
+check("open variant parses findings", len(fs) == 1 and fs[0].quote_on_line)
+fs, _ = run_single_variant(Seq("not even json"), "dev/d10.c", "open")
+check("open variant: garbage answer does not crash", fs == [])
+
 with tempfile.TemporaryDirectory() as t:
     p = subprocess.run([sys.executable, str(ROOT / "tools/run_eval.py"), "--split", "dev", "--setups", "rules", "--out", t],
                        capture_output=True, text=True)

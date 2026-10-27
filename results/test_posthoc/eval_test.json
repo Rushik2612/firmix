@@ -1,0 +1,394 @@
+{
+ "results": {
+  "single_pertype": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 4,
+      "fn": 8,
+      "fp": 23,
+      "reported": 27,
+      "halluc": 1,
+      "loose": 6
+     },
+     "RTOS": {
+      "tp": 3,
+      "fn": 9,
+      "fp": 8,
+      "reported": 11,
+      "halluc": 1,
+      "loose": 7
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 8,
+      "reported": 8,
+      "halluc": 1,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 2,
+      "fn": 6,
+      "fp": 3,
+      "reported": 5,
+      "halluc": 0,
+      "loose": 2
+     },
+     "ALL": {
+      "tp": 9,
+      "fn": 31,
+      "fp": 42,
+      "reported": 51,
+      "halluc": 3,
+      "loose": 15
+     }
+    },
+    "findings": {
+     "files/f001.c": [
+      [
+       "INT-01",
+       11,
+       true
+      ],
+      [
+       "PER-02",
+       94,
+       true
+      ]
+     ],
+     "files/f002.c": [],
+     "files/f003.c": [
+      [
+       "INT-03",
+       65,
+       true
+      ]
+     ],
+     "files/f004.c": [
+      [
+       "INT-03",
+       61,
+       true
+      ]
+     ],
+     "files/f005.c": [
+      [
+       "MEM-02",
+       65,
+       true
+      ],
+      [
+       "PER-02",
+       81,
+       true
+      ],
+      [
+       "INT-03",
+       82,
+       true
+      ]
+     ],
+     "files/f006.c": [
+      [
+       "INT-03",
+       73,
+       true
+      ]
+     ],
+     "files/f007.c": [
+      [
+       "INT-01",
+       16,
+       true
+      ]
+     ],
+     "files/f008.c": [
+      [
+       "PER-01",
+       40,
+       true
+      ]
+     ],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [
+      [
+       "PER-01",
+       17,
+       true
+      ]
+     ],
+     "files/f013.c": [],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "INT-03",
+       96,
+       true
+      ]
+     ],
+     "files/f015.c": [],
+     "files/f016.c": [
+      [
+       "INT-02",
+       43,
+       true
+      ]
+     ],
+     "files/f017.c": [],
+     "files/f018.c": [],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [
+      [
+       "PER-01",
+       22,
+       true
+      ],
+      [
+       "MEM-01",
+       96,
+       true
+      ]
+     ],
+     "files/f022.c": [],
+     "files/f023.c": [],
+     "files/f024.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "INT-03",
+       72,
+       true
+      ],
+      [
+       "MEM-02",
+       72,
+       true
+      ],
+      [
+       "RTOS-01",
+       72,
+       true
+      ]
+     ],
+     "files/f025.c": [
+      [
+       "INT-01",
+       8,
+       true
+      ],
+      [
+       "INT-02",
+       58,
+       true
+      ]
+     ],
+     "files/f026.c": [],
+     "files/f027.c": [
+      [
+       "INT-01",
+       12,
+       true
+      ],
+      [
+       "INT-02",
+       65,
+       true
+      ]
+     ],
+     "files/f028.c": [],
+     "files/f029.c": [
+      [
+       "MEM-01",
+       58,
+       true
+      ]
+     ],
+     "files/f030.c": [
+      [
+       "INT-01",
+       8,
+       true
+      ]
+     ],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       61,
+       false
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       101,
+       true
+      ]
+     ],
+     "files/f033.c": [
+      [
+       "RTOS-03",
+       75,
+       true
+      ]
+     ],
+     "files/f034.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f035.c": [
+      [
+       "INT-01",
+       15,
+       true
+      ],
+      [
+       "RTOS-01",
+       69,
+       true
+      ],
+      [
+       "INT-03",
+       70,
+       false
+      ]
+     ],
+     "files/f036.c": [
+      [
+       "INT-01",
+       14,
+       true
+      ],
+      [
+       "INT-02",
+       74,
+       true
+      ]
+     ],
+     "files/f037.c": [
+      [
+       "PER-02",
+       91,
+       false
+      ],
+      [
+       "INT-03",
+       93,
+       true
+      ]
+     ],
+     "files/f038.c": [],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       46,
+       true
+      ],
+      [
+       "RTOS-01",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ],
+      [
+       "PER-02",
+       71,
+       true
+      ]
+     ],
+     "files/f041.c": [
+      [
+       "INT-03",
+       66,
+       true
+      ]
+     ],
+     "files/f042.c": [
+      [
+       "INT-03",
+       62,
+       true
+      ]
+     ],
+     "files/f043.c": [],
+     "files/f044.c": [],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       52,
+       true
+      ]
+     ],
+     "files/f046.c": [
+      [
+       "RTOS-02",
+       71,
+       true
+      ]
+     ],
+     "files/f047.c": [
+      [
+       "INT-03",
+       96,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       37,
+       true
+      ],
+      [
+       "PER-01",
+       72,
+       true
+      ]
+     ],
+     "files/f049.c": [],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 500,
+    "tokens": 698080
+   }
+  ]
+ },
+ "fixes": []
+}

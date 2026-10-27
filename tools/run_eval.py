@@ -29,13 +29,15 @@ sys.path.insert(0, str(ROOT / "src"))
 from agents.llm import OllamaLLM, LLMError                 # noqa: E402
 from agents.findings import Finding                         # noqa: E402
 from agents.pipeline import run_planned                     # noqa: E402
-from agents.single import run_single                         # noqa: E402
+from agents.single import run_single, run_single_variant                         # noqa: E402
 from agents.fixer import fix_finding                         # noqa: E402
 from codefacts import api as cf                              # noqa: E402
 
 GROUPS = {"INT": "interrupts", "RTOS": "RTOS", "PER": "peripherals/HAL", "MEM": "memory"}
-LLM_SETUPS = ("single", "agents", "full")
-LABEL = {"rules": "Rules only (code-facts, no LLM)", "single": "Single LLM (no tools)",
+LLM_SETUPS = ("single", "single_open", "single_checklist", "single_pertype", "agents", "full")
+LABEL = {"rules": "Rules only (code-facts, no LLM)", "single": "Single LLM v1 (no tools, 'only if confident')",
+         "single_open": "Single LLM, open prompt (no tools)", "single_checklist": "Single LLM, per-type checklist (no tools)",
+         "single_pertype": "Single LLM, one call per bug type (no tools)",
          "agents": "Agents, no verifier", "full": "Full Firmix"}
 
 
@@ -56,6 +58,8 @@ def run_one(setup, llm, file):
         return run_rules(file)
     if setup == "single":
         return run_single(llm, file)[0]
+    if setup.startswith("single_"):
+        return run_single_variant(llm, file, setup.split("_", 1)[1])[0]
     return run_planned(llm, file, use_verifier=(setup == "full"))[0]
 
 

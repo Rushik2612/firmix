@@ -47,4 +47,4 @@ class OllamaLLM:
         self.prompt_tokens += pt
         self.completion_tokens += ct
         self.calls += 1
-        return {"message": data["message"], "prompt_tokens": pt, "completion_tokens": ct}
+        return {"message": data["message"], "prompt_tokens": pt, "completion_tokens": ct, "done_reason": data.get("done_reason")}

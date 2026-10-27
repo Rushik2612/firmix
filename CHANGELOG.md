@@ -126,3 +126,49 @@ Predictions, stated in advance: candidate stage ceiling is 38/40 = 95% recall on
 recall will land between 60% and 85%; precision between 85% and 100%, lower than on dev because the agents were tuned on dev; the
 single LLM stays below 15% recall; the fixer's rule-based success rate is below 90% and the hand-verified rate is lower still.
 Whatever comes out is what the README reports, including anything worse than predicted.
+
+(26) TEST-SET RESULT, main run (pinned, 40 buggy + 10 clean, run at tag pre-test-eval; nothing changed after seeing it).
+Exact-line recall / precision: rules-only 95% (38/40) / 84%; single LLM 0% (0/40) / 0%; agents without verifier 92% (37/40) / 90%;
+full Firmix 82% (33/40) / 100%. Predictions made in entry (25): recall 60-85% (held), precision 85-100% (held), single LLM <15% (held),
+fixer rule-based success <90% (held). Stage accounting on test: candidate gaps f029 and f036 (2 bugs); the judge dropped 1 true bug
+(f004); the verifier dropped 4 true bugs (f003, f024, f037, f041) and removed all 4 remaining false positives (f001 x2, f012 x2). On
+F1 the three non-baseline setups are about equal (rules 0.89, agents 0.91, full 0.90): the LLM stages TRADE recall for precision.
+Fixer on the 35 true-positive attempts: compiles 25/35, rule-based success 20/35; hand review of the 20 (results/test_main/
+fix_review.json, DRAFT verdicts to be spot-checked): 16 correct, 1 partial (f028), 3 wrong although they pass every code check:
+f048 (label moved inside the if, both validation failures now fall through; give is dead code), f006 (turns the ADC input PA1
+into an output), f025 (deletes the wait and leaves a comment). By type: INT-02 0/4, INT-03 1/4, RTOS-01 1/4 fixed.
+Hallucination for the tool-grounded setups (16-17%) is a sloppy model quote on a tool-proposed line, not an invented location.
+OPEN: the single-LLM baseline reported 17 findings in only two files (f001, f005, both clean) and nothing elsewhere. Possible silent
+parse failures or truncation in my harness; tools/diagnose_single.py (dev only, read-only) added to check. llm.chat now also returns
+done_reason (instrumentation only, no behaviour change). Robustness run (temperature 0.3, 3 seeds) still pending.
+
+(27) TEST-SET ROBUSTNESS RUN (temperature 0.3, seeds 42/43/44, same tag pre-test-eval). Full Firmix: precision 99% +- 2 (one
+false positive in one of three runs, zero in the other two), exact-line recall 78% +- 4 (31, 30, 33 of 40 found); the pinned run's
+33/40 (82%) sits inside that range. Per group (mean +- sd): interrupts 81% +- 13, RTOS 89% +- 5, peripherals/HAL 58% +- 14 (weakest;
+precision 93% +- 12), memory 79% +- 14. Single LLM: 0/40 in all three runs (5, 6 and 6 false positives), so its 0% is stable, not a
+fluke of one sample. Tokens: single 133k, full 145k per run (about the same cost; full Firmix makes 142 calls vs 50).
+Reporting rule for the README: headline numbers are the pinned run; the sampled run is the stability statement.
+
+(28) SINGLE-LLM BASELINE DIAGNOSIS. tools/diagnose_single.py on dev: 0 parse failures, 0 truncated answers, but the v1 baseline returned
+the empty list ({"findings":[]}, 6-7 tokens) for ALL 20 dev files in that run. So the pre-registered 0/40 on test is real but weak
+evidence: the v1 prompt ('report only what you are confident about, empty list if none') under schema-constrained decoding makes the
+8B model say nothing, and in earlier runs it was unstable (sometimes ~16 findings, sometimes none). v1's test result stays in the README
+as the pre-registered result.
+Equal-effort fix: three tool-free variants (all with the same SPEC rule text and the same pinned model), developed and chosen on the
+DEV split only: single_open (same single call, no 'only if confident'), single_checklist (one call, one forced yes/no entry per bug type),
+single_pertype (ten calls per file, one rule each). The best-on-dev variant will be run ONCE on test as an extra row, clearly labelled
+POST-HOC (decided after seeing the v1 test result). Agents, verifier, fixer, rules, prompts and benchmark are NOT changed.
+
+(29) SINGLE-LLM VARIANTS ON DEV (20 files, 13 buggy, pinned): open P 4% / R 23% / 69 reported (66 false); checklist P 9% / R 38% (54% right-type-anywhere)
+/ 55 reported, hallucination 47%; one-call-per-bug-type P 21% / R 38% (54%) / 24 reported, hallucination 8%, 200 calls and 261k tokens
+(Full Firmix on the same dev set: P 100%, R 92%, 50 calls, 50k tokens). Best on dev by precision with equal recall: single_pertype.
+POST-HOC DECISION (made after seeing the v1 test result, so it is labelled post-hoc in the README): run single_pertype ONCE on the
+test split, pinned settings, as an extra baseline row. Command:
+  python tools/run_eval.py --split test --allow-test --setups single_pertype --repeats 1 --out results/test_posthoc
+The pre-registered v1 result (0/40) stays in the README unchanged. Nothing else changes.
+
+(30) POST-HOC BASELINE ROW ON TEST (single_pertype, chosen on dev in entry 29, run once, pinned): precision 18% (9 TP, 42 FP), exact-line
+recall 22% (9/40), right-type-anywhere-in-file recall 38%, hallucination 6%, 500 LLM calls, 698k tokens. Prediction (precision < 30%, recall
+< 50%) held. Full Firmix on the same split: precision 100%, recall 82%, 142 calls, 145k tokens. Per group, single_pertype exact-line recall:
+interrupts 33%, RTOS 25%, peripherals/HAL 0%, memory 25%. LABEL IN README: post-hoc (decided after the v1 result). The evaluation is now
+COMPLETE; no further test-split runs.

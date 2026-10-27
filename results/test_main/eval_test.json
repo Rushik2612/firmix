@@ -1,0 +1,1907 @@
+{
+ "results": {
+  "rules": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 11,
+      "fn": 1,
+      "fp": 1,
+      "reported": 13,
+      "halluc": 0,
+      "loose": 11
+     },
+     "RTOS": {
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "reported": 13,
+      "halluc": 0,
+      "loose": 12
+     },
+     "peripherals/HAL": {
+      "tp": 8,
+      "fn": 0,
+      "fp": 2,
+      "reported": 12,
+      "halluc": 0,
+      "loose": 8
+     },
+     "memory": {
+      "tp": 7,
+      "fn": 1,
+      "fp": 4,
+      "reported": 11,
+      "halluc": 0,
+      "loose": 7
+     },
+     "ALL": {
+      "tp": 38,
+      "fn": 2,
+      "fp": 7,
+      "reported": 49,
+      "halluc": 0,
+      "loose": 38
+     }
+    },
+    "findings": {
+     "files/f001.c": [
+      [
+       "MEM-01",
+       59,
+       true
+      ],
+      [
+       "MEM-01",
+       73,
+       true
+      ]
+     ],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [
+      [
+       "PER-01",
+       25,
+       true
+      ]
+     ],
+     "files/f004.c": [
+      [
+       "PER-02",
+       28,
+       true
+      ],
+      [
+       "PER-02",
+       28,
+       true
+      ]
+     ],
+     "files/f005.c": [
+      [
+       "MEM-02",
+       65,
+       true
+      ]
+     ],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       true
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [
+      [
+       "PER-02",
+       58,
+       true
+      ],
+      [
+       "PER-02",
+       60,
+       true
+      ]
+     ],
+     "files/f013.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [
+      [
+       "INT-02",
+       49,
+       true
+      ]
+     ],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [
+      [
+       "INT-03",
+       50,
+       true
+      ]
+     ],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       true
+      ]
+     ],
+     "files/f023.c": [
+      [
+       "PER-01",
+       43,
+       true
+      ]
+     ],
+     "files/f024.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f025.c": [
+      [
+       "INT-03",
+       56,
+       true
+      ]
+     ],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       true
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [
+      [
+       "RTOS-03",
+       75,
+       true
+      ]
+     ],
+     "files/f034.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f035.c": [
+      [
+       "INT-02",
+       64,
+       true
+      ],
+      [
+       "INT-02",
+       71,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [
+      [
+       "MEM-01",
+       65,
+       true
+      ],
+      [
+       "MEM-01",
+       77,
+       true
+      ]
+     ],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [
+      [
+       "PER-02",
+       21,
+       true
+      ],
+      [
+       "PER-02",
+       21,
+       true
+      ]
+     ],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [
+      [
+       "PER-01",
+       67,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       true
+      ],
+      [
+       "RTOS-02",
+       46,
+       true
+      ]
+     ],
+     "files/f049.c": [
+      [
+       "PER-02",
+       49,
+       true
+      ]
+     ],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 0,
+    "tokens": 0
+   }
+  ],
+  "single": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 10,
+      "reported": 10,
+      "halluc": 1,
+      "loose": 0
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 7,
+      "reported": 7,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 0,
+      "fn": 40,
+      "fp": 17,
+      "reported": 17,
+      "halluc": 1,
+      "loose": 0
+     }
+    },
+    "findings": {
+     "files/f001.c": [
+      [
+       "INT-01",
+       11,
+       true
+      ],
+      [
+       "INT-01",
+       12,
+       true
+      ],
+      [
+       "INT-01",
+       13,
+       true
+      ],
+      [
+       "PER-01",
+       27,
+       true
+      ],
+      [
+       "PER-02",
+       33,
+       true
+      ],
+      [
+       "PER-01",
+       34,
+       true
+      ],
+      [
+       "PER-01",
+       44,
+       true
+      ],
+      [
+       "INT-03",
+       56,
+       false
+      ],
+      [
+       "INT-02",
+       60,
+       true
+      ],
+      [
+       "INT-02",
+       74,
+       true
+      ],
+      [
+       "INT-02",
+       75,
+       true
+      ]
+     ],
+     "files/f002.c": [],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "PER-01",
+       23,
+       true
+      ],
+      [
+       "PER-01",
+       29,
+       true
+      ],
+      [
+       "PER-01",
+       39,
+       true
+      ],
+      [
+       "INT-02",
+       67,
+       true
+      ],
+      [
+       "INT-03",
+       82,
+       true
+      ]
+     ],
+     "files/f006.c": [],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [],
+     "files/f010.c": [],
+     "files/f011.c": [],
+     "files/f012.c": [],
+     "files/f013.c": [],
+     "files/f014.c": [],
+     "files/f015.c": [],
+     "files/f016.c": [],
+     "files/f017.c": [],
+     "files/f018.c": [],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [],
+     "files/f023.c": [],
+     "files/f024.c": [],
+     "files/f025.c": [],
+     "files/f026.c": [],
+     "files/f027.c": [],
+     "files/f028.c": [],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [],
+     "files/f032.c": [],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [],
+     "files/f039.c": [],
+     "files/f040.c": [],
+     "files/f041.c": [],
+     "files/f042.c": [],
+     "files/f043.c": [],
+     "files/f044.c": [],
+     "files/f045.c": [],
+     "files/f046.c": [],
+     "files/f047.c": [],
+     "files/f048.c": [],
+     "files/f049.c": [],
+     "files/f050.c": []
+    },
+    "calls": 50,
+    "tokens": 133166
+   }
+  ],
+  "agents": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 11,
+      "fn": 1,
+      "fp": 0,
+      "reported": 12,
+      "halluc": 1,
+      "loose": 11
+     },
+     "RTOS": {
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "reported": 13,
+      "halluc": 4,
+      "loose": 12
+     },
+     "peripherals/HAL": {
+      "tp": 7,
+      "fn": 1,
+      "fp": 2,
+      "reported": 9,
+      "halluc": 2,
+      "loose": 7
+     },
+     "memory": {
+      "tp": 7,
+      "fn": 1,
+      "fp": 2,
+      "reported": 9,
+      "halluc": 0,
+      "loose": 7
+     },
+     "ALL": {
+      "tp": 37,
+      "fn": 3,
+      "fp": 4,
+      "reported": 43,
+      "halluc": 7,
+      "loose": 37
+     }
+    },
+    "findings": {
+     "files/f001.c": [
+      [
+       "MEM-01",
+       59,
+       true
+      ],
+      [
+       "MEM-01",
+       73,
+       true
+      ]
+     ],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [
+      [
+       "PER-01",
+       25,
+       true
+      ]
+     ],
+     "files/f004.c": [],
+     "files/f005.c": [],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       false
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [
+      [
+       "PER-02",
+       58,
+       true
+      ],
+      [
+       "PER-02",
+       60,
+       false
+      ]
+     ],
+     "files/f013.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [
+      [
+       "INT-02",
+       49,
+       true
+      ]
+     ],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [
+      [
+       "INT-03",
+       50,
+       false
+      ]
+     ],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       false
+      ]
+     ],
+     "files/f023.c": [
+      [
+       "PER-01",
+       43,
+       true
+      ]
+     ],
+     "files/f024.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f025.c": [
+      [
+       "INT-03",
+       56,
+       true
+      ]
+     ],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       false
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [
+      [
+       "RTOS-03",
+       75,
+       false
+      ]
+     ],
+     "files/f034.c": [],
+     "files/f035.c": [
+      [
+       "INT-02",
+       64,
+       true
+      ],
+      [
+       "INT-02",
+       71,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [
+      [
+       "MEM-01",
+       65,
+       true
+      ]
+     ],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [
+      [
+       "PER-02",
+       21,
+       true
+      ]
+     ],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [
+      [
+       "PER-01",
+       67,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       true
+      ],
+      [
+       "RTOS-02",
+       46,
+       false
+      ]
+     ],
+     "files/f049.c": [
+      [
+       "PER-02",
+       49,
+       true
+      ]
+     ],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 98,
+    "tokens": 106166
+   }
+  ],
+  "full": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 10,
+      "fn": 2,
+      "fp": 0,
+      "reported": 11,
+      "halluc": 1,
+      "loose": 10
+     },
+     "RTOS": {
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "reported": 13,
+      "halluc": 4,
+      "loose": 12
+     },
+     "peripherals/HAL": {
+      "tp": 5,
+      "fn": 3,
+      "fp": 0,
+      "reported": 5,
+      "halluc": 1,
+      "loose": 5
+     },
+     "memory": {
+      "tp": 6,
+      "fn": 2,
+      "fp": 0,
+      "reported": 6,
+      "halluc": 0,
+      "loose": 6
+     },
+     "ALL": {
+      "tp": 33,
+      "fn": 7,
+      "fp": 0,
+      "reported": 35,
+      "halluc": 6,
+      "loose": 33
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       false
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [],
+     "files/f013.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [
+      [
+       "INT-02",
+       49,
+       true
+      ]
+     ],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [
+      [
+       "INT-03",
+       50,
+       false
+      ]
+     ],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       false
+      ]
+     ],
+     "files/f023.c": [
+      [
+       "PER-01",
+       43,
+       true
+      ]
+     ],
+     "files/f024.c": [],
+     "files/f025.c": [
+      [
+       "INT-03",
+       56,
+       true
+      ]
+     ],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       false
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [
+      [
+       "RTOS-03",
+       75,
+       false
+      ]
+     ],
+     "files/f034.c": [],
+     "files/f035.c": [
+      [
+       "INT-02",
+       64,
+       true
+      ],
+      [
+       "INT-02",
+       71,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [
+      [
+       "PER-01",
+       67,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       true
+      ],
+      [
+       "RTOS-02",
+       46,
+       false
+      ]
+     ],
+     "files/f049.c": [
+      [
+       "PER-02",
+       49,
+       true
+      ]
+     ],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 142,
+    "tokens": 144962
+   }
+  ]
+ },
+ "fixes": [
+  {
+   "file": "files/f002.c",
+   "bug_type": "RTOS-01",
+   "line": 58,
+   "function": "HAL_UART_RxCpltCallback",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The bug is caused by calling `xQueueSend` from an ISR context. To fix this, we need to use the `xQueueSendFromISR` function instead.",
+   "diff": "--- \n+++ \n@@ -58 +58 @@\n-        xQueueSend(rx_queue, &rx_byte, 0);\n+        xQueueSendFromISR(rx_queue, &rx_byte, pdFALSE);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"queue.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define RX_QUEUE_LEN    32U\n\nUART_HandleTypeDef huart1;\n\nstatic QueueHandle_t rx_queue;\nstatic uint8_t rx_byte;\n\nstatic void uart1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_9 | GPIO_PIN_10;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART1;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart1.Instance          = USART1;\n    huart1.Init.BaudRate     = 115200U;\n    huart1.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart1.Init.StopBits     = UART_STOPBITS_1;\n    huart1.Init.Parity       = UART_PARITY_NONE;\n    huart1.Init.Mode         = UART_MODE_RX;\n    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart1.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart1);\n\n    HAL_NVIC_SetPriority(USART1_IRQn, 7, 0);\n    HAL_NVIC_EnableIRQ(USART1_IRQn);\n}\n\nvoid USART1_IRQHandler(void)\n{\n    HAL_UART_IRQHandler(&huart1);\n}\n\nvoid HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)\n{\n    if (huart->Instance == USART1) {\n        xQueueSendFromISR(rx_queue, &rx_byte, pdFALSE);\n        HAL_UART_Receive_IT(&huart1, &rx_byte, 1U);\n    }\n}\n\nstatic void command_task(void *arg)\n{\n    uint8_t c;\n\n    (void)arg;\n\n    for (;;) {\n        if (xQueueReceive(rx_queue, &c, portMAX_DELAY) == pdTRUE) {\n            if (c == 'l') {\n                HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n            }\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n\n    rx_queue = xQueueCreate(RX_QUEUE_LEN, sizeof(uint8_t));\n    uart1_init();\n    HAL_UART_Receive_IT(&huart1, &rx_byte, 1U);\n\n    xTaskCreate(command_task, \"cmd\", 128, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 713,
+   "run": 1
+  },
+  {
+   "file": "files/f006.c",
+   "bug_type": "PER-02",
+   "line": 71,
+   "function": "main",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The PA4 pin is configured as analog (line 20), but it is being written to using HAL_GPIO_WritePin (line 71), which is a contradiction. To fix this, we need to change the pin mode from analog to output.",
+   "diff": "--- \n+++ \n@@ -18 +18 @@\n-    gpio.Mode = GPIO_MODE_ANALOG;\n+    gpio.Mode = GPIO_MODE_OUTPUT_PP;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LIGHT_PORT      GPIOA\n#define LIGHT_PIN       GPIO_PIN_1\n#define BACKLIGHT_PORT  GPIOA\n#define BACKLIGHT_PIN   GPIO_PIN_4\n#define DARK_LEVEL      900U\n\nADC_HandleTypeDef hadc1;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin  = LIGHT_PIN | BACKLIGHT_PIN;\n    gpio.Mode = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(GPIOA, &gpio);\n}\n\nstatic void adc1_init(void)\n{\n    ADC_ChannelConfTypeDef ch = {0};\n\n    __HAL_RCC_ADC1_CLK_ENABLE();\n\n    hadc1.Instance                   = ADC1;\n    hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV6;\n    hadc1.Init.Resolution            = ADC_RESOLUTION_12B;\n    hadc1.Init.ScanConvMode          = DISABLE;\n    hadc1.Init.ContinuousConvMode    = DISABLE;\n    hadc1.Init.DiscontinuousConvMode = DISABLE;\n    hadc1.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;\n    hadc1.Init.ExternalTrigConv      = ADC_SOFTWARE_START;\n    hadc1.Init.DataAlign             = ADC_DATAALIGN_RIGHT;\n    hadc1.Init.NbrOfConversion       = 1U;\n    hadc1.Init.DMAContinuousRequests = DISABLE;\n    hadc1.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;\n    HAL_ADC_Init(&hadc1);\n\n    ch.Channel      = ADC_CHANNEL_1;\n    ch.Rank         = 1U;\n    ch.SamplingTime = ADC_SAMPLETIME_144CYCLES;\n    HAL_ADC_ConfigChannel(&hadc1, &ch);\n}\n\nstatic uint32_t read_light(void)\n{\n    uint32_t value = 0U;\n\n    HAL_ADC_Start(&hadc1);\n    if (HAL_ADC_PollForConversion(&hadc1, 10U) == HAL_OK) {\n        value = HAL_ADC_GetValue(&hadc1);\n    }\n    HAL_ADC_Stop(&hadc1);\n\n    return value;\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    adc1_init();\n\n    for (;;) {\n        uint32_t light = read_light();\n\n        HAL_GPIO_WritePin(BACKLIGHT_PORT, BACKLIGHT_PIN,\n                          (light < DARK_LEVEL) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n        HAL_Delay(100U);\n    }\n}\n",
+   "tokens": 842,
+   "run": 1
+  },
+  {
+   "file": "files/f009.c",
+   "bug_type": "INT-03",
+   "line": 39,
+   "function": "HAL_GPIO_EXTI_Callback",
+   "success": false,
+   "compiles": true,
+   "bug_removed": false,
+   "new_warnings": 1,
+   "changed_lines": 6,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch adds compiler warnings:\nimplicit declaration of function 'vTaskDelay' [-Wimplicit-function-declaration]",
+   "explanation": "The bug is caused by calling `HAL_Delay` inside an ISR, which is blocking and not reentrant. To fix this, we replace `HAL_Delay` with a non-blocking delay using a counter and `vTaskDelay` from FreeRTOS, which is safe to use in an ISR context. The function `vTaskDelay` must be declared or included to",
+   "diff": "--- \n+++ \n@@ -39,3 +39,3 @@\n-        HAL_Delay(DEBOUNCE_MS);\n-        if (HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN) == GPIO_PIN_RESET) {\n-            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n+    uint32_t delay_start = HAL_GetTick();\n+    while ((HAL_GetTick() - delay_start) < DEBOUNCE_MS) {\n+        vTaskDelay(1);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BTN_PORT        GPIOC\n#define BTN_PIN         GPIO_PIN_13\n#define DEBOUNCE_MS     20U\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOC_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin  = BTN_PIN;\n    gpio.Mode = GPIO_MODE_IT_FALLING;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(BTN_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);\n}\n\nvoid EXTI15_10_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(BTN_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n{\n    if (pin == BTN_PIN) {\n    uint32_t delay_start = HAL_GetTick();\n    while ((HAL_GetTick() - delay_start) < DEBOUNCE_MS) {\n        vTaskDelay(1);\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    for (;;) {\n        __WFI();\n    }\n}\n",
+   "tokens": 3483,
+   "run": 1
+  },
+  {
+   "file": "files/f010.c",
+   "bug_type": "RTOS-01",
+   "line": 50,
+   "function": "HAL_TIM_PeriodElapsedCallback",
+   "success": false,
+   "compiles": true,
+   "bug_removed": false,
+   "new_warnings": 1,
+   "changed_lines": 7,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch adds compiler warnings:\nimplicit declaration of function 'xTaskNotifyGiveFromISR'; did you mean 'vTaskNotifyGiveFromISR'? [-Wimplicit-function-declaration]",
+   "explanation": "The function `vTaskNotifyGiveFromISR` requires the correct include for FreeRTOS. The correct function is `xTaskNotifyGiveFromISR` and the code must include the appropriate header. The fix replaces the function call with the correct one and adds the necessary include.",
+   "diff": "--- \n+++ \n@@ -46 +46,2 @@\n-\n+#include \"FreeRTOS.h\"\n+#include \"task.h\"\n@@ -50 +51,3 @@\n-        xTaskNotifyGive(sampler_handle);\n+    if (xTaskNotifyGiveFromISR(sampler_handle, pdFALSE) == pdTRUE) {\n+        portYIELD_FROM_ISR(pdTRUE);\n+    }",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define SAMPLE_STACK    128U\n\nTIM_HandleTypeDef htim2;\n\nstatic TaskHandle_t sampler_handle;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void timer2_init(void)\n{\n    __HAL_RCC_TIM2_CLK_ENABLE();\n\n    htim2.Instance               = TIM2;\n    htim2.Init.Prescaler         = 15999U;\n    htim2.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim2.Init.Period            = 199U;\n    htim2.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim2);\n\n    HAL_NVIC_SetPriority(TIM2_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(TIM2_IRQn);\n}\n\nvoid TIM2_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim2);\n}\n#include \"FreeRTOS.h\"\n#include \"task.h\"\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    if (htim->Instance == TIM2) {\n    if (xTaskNotifyGiveFromISR(sampler_handle, pdFALSE) == pdTRUE) {\n        portYIELD_FROM_ISR(pdTRUE);\n    }\n    }\n}\n\nstatic void sampler_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    xTaskCreate(sampler_task, \"sampler\", SAMPLE_STACK, NULL, 3, &sampler_handle);\n\n    timer2_init();\n    HAL_TIM_Base_Start_IT(&htim2);\n\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 2790,
+   "run": 1
+  },
+  {
+   "file": "files/f011.c",
+   "bug_type": "RTOS-01",
+   "line": 46,
+   "function": "HAL_GPIO_EXTI_Callback",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 3,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 54, 'msg': \"invalid storage class for function 'led_task'\"}\n{'line': 77, 'msg': 'expected declaration or statement at end of input'}",
+   "explanation": "The original code had a function declaration missing, and the patch introduced a syntax error. The correct fix is to replace the incorrect function call with the correct ISR-safe variant and ensure the function declaration is properly formatted.",
+   "diff": "--- \n+++ \n@@ -46 +46 @@\n-        vTaskDelay(pdMS_TO_TICKS(SETTLE_MS));\n+    if (vTaskDelayFromISR(pdMS_TO_TICKS(SETTLE_MS)) == pdFALSE) {",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BTN_PORT        GPIOC\n#define BTN_PIN         GPIO_PIN_13\n#define SETTLE_MS       15U\n\nstatic SemaphoreHandle_t press_sem;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOC_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin  = BTN_PIN;\n    gpio.Mode = GPIO_MODE_IT_FALLING;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(BTN_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 8, 0);\n    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);\n}\n\nvoid EXTI15_10_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(BTN_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n{\n    BaseType_t woken = pdFALSE;\n\n    if (pin == BTN_PIN) {\n    if (vTaskDelayFromISR(pdMS_TO_TICKS(SETTLE_MS)) == pdFALSE) {\n        if (HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN) == GPIO_PIN_RESET) {\n            xSemaphoreGiveFromISR(press_sem, &woken);\n        }\n    }\n    portYIELD_FROM_ISR(woken);\n}\n\nstatic void led_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        if (xSemaphoreTake(press_sem, portMAX_DELAY) == pdTRUE) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n\n    press_sem = xSemaphoreCreateBinary();\n    gpio_init();\n\n    xTaskCreate(led_task, \"led\", 128, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 3177,
+   "run": 1
+  },
+  {
+   "file": "files/f013.c",
+   "bug_type": "MEM-02",
+   "line": 62,
+   "function": "request_status",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The local array 'reply' is passed to an asynchronous HAL function, which may return before the transfer completes. To fix this, we need to use a static buffer to avoid stack buffer issues.",
+   "diff": "--- \n+++ \n@@ -59 +59 @@\n-    uint8_t reply[8];\n+    static uint8_t reply[8];",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nUART_HandleTypeDef huart2;\n\nstatic uint8_t query[] = \"ST?\\r\\n\";\n\nstatic void uart2_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART2_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_2 | GPIO_PIN_3;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART2;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart2.Instance          = USART2;\n    huart2.Init.BaudRate     = 9600U;\n    huart2.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart2.Init.StopBits     = UART_STOPBITS_1;\n    huart2.Init.Parity       = UART_PARITY_NONE;\n    huart2.Init.Mode         = UART_MODE_TX_RX;\n    huart2.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart2.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart2);\n\n    HAL_NVIC_SetPriority(USART2_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(USART2_IRQn);\n}\n\nvoid USART2_IRQHandler(void)\n{\n    HAL_UART_IRQHandler(&huart2);\n}\n\nvoid HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)\n{\n    if (huart->Instance == USART2) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nstatic void request_status(void)\n{\n    static uint8_t reply[8];\n\n    HAL_UART_Transmit(&huart2, query, (uint16_t)(sizeof(query) - 1U), 100U);\n    HAL_UART_Receive_IT(&huart2, reply, (uint16_t)sizeof(reply));\n}\n\nint main(void)\n{\n    HAL_Init();\n    uart2_init();\n\n    for (;;) {\n        request_status();\n        HAL_Delay(2000U);\n    }\n}\n",
+   "tokens": 712,
+   "run": 1
+  },
+  {
+   "file": "files/f014.c",
+   "bug_type": "INT-01",
+   "line": 9,
+   "function": null,
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The variable 'conversion_done' is shared between an ISR and task code but is not declared as 'volatile', which leads to potential data races. To fix this, we need to declare 'conversion_done' as 'volatile'.",
+   "diff": "--- \n+++ \n@@ -9 +9 @@\n-static uint8_t conversion_done;\n+static volatile uint8_t conversion_done;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define ALERT_LEVEL     3000U\n\nADC_HandleTypeDef hadc1;\n\nstatic volatile uint8_t conversion_done;\nstatic uint32_t alert_count;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin  = GPIO_PIN_0;\n    gpio.Mode = GPIO_MODE_ANALOG;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void adc1_init(void)\n{\n    ADC_ChannelConfTypeDef ch = {0};\n\n    __HAL_RCC_ADC1_CLK_ENABLE();\n\n    hadc1.Instance                   = ADC1;\n    hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV4;\n    hadc1.Init.Resolution            = ADC_RESOLUTION_12B;\n    hadc1.Init.ScanConvMode          = DISABLE;\n    hadc1.Init.ContinuousConvMode    = DISABLE;\n    hadc1.Init.DiscontinuousConvMode = DISABLE;\n    hadc1.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;\n    hadc1.Init.ExternalTrigConv      = ADC_SOFTWARE_START;\n    hadc1.Init.DataAlign             = ADC_DATAALIGN_RIGHT;\n    hadc1.Init.NbrOfConversion       = 1U;\n    hadc1.Init.DMAContinuousRequests = DISABLE;\n    hadc1.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;\n    HAL_ADC_Init(&hadc1);\n\n    ch.Channel      = ADC_CHANNEL_0;\n    ch.Rank         = 1U;\n    ch.SamplingTime = ADC_SAMPLETIME_144CYCLES;\n    HAL_ADC_ConfigChannel(&hadc1, &ch);\n\n    HAL_NVIC_SetPriority(ADC_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(ADC_IRQn);\n}\n\nvoid ADC_IRQHandler(void)\n{\n    HAL_ADC_IRQHandler(&hadc1);\n}\n\nvoid HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)\n{\n    if (hadc->Instance == ADC1) {\n        conversion_done = 1U;\n    }\n}\n\nstatic uint32_t sample_once(void)\n{\n    conversion_done = 0U;\n    HAL_ADC_Start_IT(&hadc1);\n\n    while (conversion_done == 0U) {\n    }\n\n    return HAL_ADC_GetValue(&hadc1);\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    adc1_init();\n\n    for (;;) {\n        uint32_t level = sample_once();\n\n        if (level > ALERT_LEVEL) {\n            alert_count++;\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_SET);\n        } else {\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_RESET);\n        }\n        HAL_Delay(20U);\n    }\n}\n",
+   "tokens": 927,
+   "run": 1
+  },
+  {
+   "file": "files/f015.c",
+   "bug_type": "INT-01",
+   "line": 10,
+   "function": null,
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The variable 'tick_ms' is shared between an ISR and task code but is not declared as 'volatile', which can lead to the compiler optimizing away reads of the variable in the task code. Adding 'volatile' to the declaration ensures that the compiler does not optimize away the reads.",
+   "diff": "--- \n+++ \n@@ -10 +10 @@\n-static uint32_t tick_ms;\n+static volatile uint32_t tick_ms;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define ON_TIME_MS      100U\n#define OFF_TIME_MS     400U\n\nTIM_HandleTypeDef htim3;\n\nstatic volatile uint32_t tick_ms;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void timer3_init(void)\n{\n    __HAL_RCC_TIM3_CLK_ENABLE();\n\n    htim3.Instance               = TIM3;\n    htim3.Init.Prescaler         = 15U;\n    htim3.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim3.Init.Period            = 999U;\n    htim3.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim3);\n\n    HAL_NVIC_SetPriority(TIM3_IRQn, 5, 0);\n    HAL_NVIC_EnableIRQ(TIM3_IRQn);\n    HAL_TIM_Base_Start_IT(&htim3);\n}\n\nvoid TIM3_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim3);\n}\n\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    if (htim->Instance == TIM3) {\n        tick_ms++;\n    }\n}\n\nstatic void wait_ms(uint32_t duration)\n{\n    uint32_t start = tick_ms;\n\n    while ((tick_ms - start) < duration) {\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    timer3_init();\n\n    for (;;) {\n        HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_SET);\n        wait_ms(ON_TIME_MS);\n        HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_RESET);\n        wait_ms(OFF_TIME_MS);\n    }\n}\n",
+   "tokens": 922,
+   "run": 1
+  },
+  {
+   "file": "files/f016.c",
+   "bug_type": "INT-02",
+   "line": 49,
+   "function": "read_flow_rate",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 5,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 40, 'msg': 'old-style parameter declarations in prototyped function definition'}\n{'line': 41, 'msg': \"storage class specified for parameter 'read_flow_rate'\"}",
+   "explanation": "The error is due to an old-style function definition without a prototype. The fix is to add a function prototype for `read_flow_rate` before its definition.",
+   "diff": "--- \n+++ \n@@ -40,0 +41 @@\n+static uint32_t read_flow_rate(void);\n@@ -49 +50,2 @@\n-    uint32_t pulses = pulse_count;\n+    uint32_t pulses = 0U;\n+    taskENTER_CRITICAL();\n@@ -51,0 +54 @@\n+    taskEXIT_CRITICAL();",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define SENSOR_PORT     GPIOA\n#define SENSOR_PIN      GPIO_PIN_1\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define PULSES_PER_UNIT 450U\n#define WINDOW_MS       1000U\n#define FLOW_LIMIT      40U\n\nstatic volatile uint32_t pulse_count;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin  = SENSOR_PIN;\n    gpio.Mode = GPIO_MODE_IT_RISING;\n    gpio.Pull = GPIO_PULLDOWN;\n    HAL_GPIO_Init(SENSOR_PORT, &gpio);\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI1_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(EXTI1_IRQn);\n}\n\nvoid EXTI1_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(SENSOR_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\nstatic uint32_t read_flow_rate(void);\n{\n    if (pin == SENSOR_PIN) {\n        pulse_count++;\n    }\n}\n\nstatic uint32_t read_flow_rate(void)\n{\n    uint32_t pulses = 0U;\n    taskENTER_CRITICAL();\n\n    pulse_count = 0U;\n    taskEXIT_CRITICAL();\n    return pulses / PULSES_PER_UNIT;\n}\n\nint main(void)\n{\n    uint32_t next_report;\n\n    HAL_Init();\n    gpio_init();\n\n    next_report = HAL_GetTick() + WINDOW_MS;\n\n    for (;;) {\n        if ((int32_t)(HAL_GetTick() - next_report) >= 0) {\n            uint32_t rate = read_flow_rate();\n\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN,\n                              (rate > FLOW_LIMIT) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n            next_report += WINDOW_MS;\n        }\n    }\n}\n",
+   "tokens": 3526,
+   "run": 1
+  },
+  {
+   "file": "files/f017.c",
+   "bug_type": "MEM-02",
+   "line": 69,
+   "function": "set_level",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The local array 'frame' is passed to an asynchronous HAL function, which may return before the transfer completes. To fix this, we need to ensure the buffer is not local and is instead a static or global buffer to prevent it from being modified or freed before the transfer completes.",
+   "diff": "--- \n+++ \n@@ -61 +61 @@\n-    uint8_t frame[4];\n+    static uint8_t frame[4];",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define CS_PORT         GPIOA\n#define CS_PIN          GPIO_PIN_4\n\nSPI_HandleTypeDef hspi1;\n\nstatic void spi1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_SPI1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_5 | GPIO_PIN_7;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF5_SPI1;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = CS_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(CS_PORT, &gpio);\n    HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET);\n\n    hspi1.Instance               = SPI1;\n    hspi1.Init.Mode              = SPI_MODE_MASTER;\n    hspi1.Init.Direction         = SPI_DIRECTION_2LINES;\n    hspi1.Init.DataSize          = SPI_DATASIZE_8BIT;\n    hspi1.Init.CLKPolarity       = SPI_POLARITY_LOW;\n    hspi1.Init.CLKPhase          = SPI_PHASE_1EDGE;\n    hspi1.Init.NSS               = SPI_NSS_SOFT;\n    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;\n    hspi1.Init.FirstBit          = SPI_FIRSTBIT_MSB;\n    hspi1.Init.TIMode            = SPI_TIMODE_DISABLE;\n    hspi1.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLE;\n    hspi1.Init.CRCPolynomial     = 10U;\n    HAL_SPI_Init(&hspi1);\n\n    HAL_NVIC_SetPriority(SPI1_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(SPI1_IRQn);\n}\n\nvoid SPI1_IRQHandler(void)\n{\n    HAL_SPI_IRQHandler(&hspi1);\n}\n\nvoid HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)\n{\n    if (hspi->Instance == SPI1) {\n        HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET);\n    }\n}\n\nstatic void set_level(uint8_t level)\n{\n    static uint8_t frame[4];\n\n    frame[0] = 0x40U;\n    frame[1] = level;\n    frame[2] = (uint8_t)~level;\n    frame[3] = 0x00U;\n\n    HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_RESET);\n    HAL_SPI_Transmit_IT(&hspi1, frame, 4U);\n}\n\nint main(void)\n{\n    uint8_t level = 0U;\n\n    HAL_Init();\n    spi1_init();\n\n    for (;;) {\n        set_level(level);\n        level = (uint8_t)(level + 16U);\n        HAL_Delay(100U);\n    }\n}\n",
+   "tokens": 785,
+   "run": 1
+  },
+  {
+   "file": "files/f018.c",
+   "bug_type": "INT-02",
+   "line": 55,
+   "function": "uptime_now",
+   "success": false,
+   "compiles": true,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 9,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch adds compiler warnings:\nimplicit declaration of function 'taskENTER_CRITICAL' [-Wimplicit-function-declaration]\nimplicit declaration of function 'taskEXIT_CRITICAL' [-Wimplicit-function-declaration]",
+   "explanation": "The original code did not include the necessary FreeRTOS header for `taskENTER_CRITICAL` and `taskEXIT_CRITICAL`, and the function `uptime_now` was missing a return statement. The fix adds the missing return and includes the required header.",
+   "diff": "--- \n+++ \n@@ -55 +55,2 @@\n-    uint64_t now = uptime_us;\n+    uint64_t now;\n+    taskENTER_CRITICAL();\n@@ -56,0 +58,5 @@\n+{\n+    now = uptime_us;\n+\n+\n+    taskEXIT_CRITICAL();\n@@ -57,0 +64 @@\n+}",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BLINK_PERIOD_US 500000ULL\n\nTIM_HandleTypeDef htim4;\n\nstatic volatile uint64_t uptime_us;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void timer4_init(void)\n{\n    __HAL_RCC_TIM4_CLK_ENABLE();\n\n    htim4.Instance               = TIM4;\n    htim4.Init.Prescaler         = 15U;\n    htim4.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim4.Init.Period            = 999U;\n    htim4.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim4);\n\n    HAL_NVIC_SetPriority(TIM4_IRQn, 4, 0);\n    HAL_NVIC_EnableIRQ(TIM4_IRQn);\n    HAL_TIM_Base_Start_IT(&htim4);\n}\n\nvoid TIM4_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim4);\n}\n\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    if (htim->Instance == TIM4) {\n        uptime_us += 1000U;\n    }\n}\n\nstatic uint64_t uptime_now(void)\n{\n    uint64_t now;\n    taskENTER_CRITICAL();\n\n{\n    now = uptime_us;\n\n\n    taskEXIT_CRITICAL();\n    return now;\n}\n}\n\nint main(void)\n{\n    uint64_t last_toggle = 0U;\n\n    HAL_Init();\n    gpio_init();\n    timer4_init();\n\n    for (;;) {\n        uint64_t now = uptime_now();\n\n        if ((now - last_toggle) >= BLINK_PERIOD_US) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n            last_toggle = now;\n        }\n    }\n}\n",
+   "tokens": 3666,
+   "run": 1
+  },
+  {
+   "file": "files/f019.c",
+   "bug_type": "INT-03",
+   "line": 50,
+   "function": "HAL_TIM_PeriodElapsedCallback",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 3,
+   "changed_lines": 9,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 66, 'msg': 'expected declaration or statement at end of input'}",
+   "explanation": "The bug is caused by calling `printf` inside an ISR, which is not reentrant and can block the system. To fix this, we replace `printf` with `HAL_UART_Transmit` which is designed for use in ISRs and is reentrant. We also declare `huart1` as a global variable to avoid the undeclaration error.",
+   "diff": "--- \n+++ \n@@ -42 +42 @@\n-}\n+UART_HandleTypeDef huart1;\n@@ -50,3 +50,4 @@\n-        printf(\"uptime=%lu s tick=%lu\\r\\n\",\n-               (unsigned long)seconds, (unsigned long)HAL_GetTick());\n-    }\n+         uint32_t uptime = seconds;\n+         uint32_t tick = HAL_GetTick();\n+         HAL_UART_Transmit(&huart1, (uint8_t*)&uptime, sizeof(uptime), HAL_MAX_DELAY);\n+         HAL_UART_Transmit(&huart1, (uint8_t*)&tick, sizeof(tick), HAL_MAX_DELAY);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <stdio.h>\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n\nTIM_HandleTypeDef htim5;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void timer5_init(void)\n{\n    __HAL_RCC_TIM5_CLK_ENABLE();\n\n    htim5.Instance               = TIM5;\n    htim5.Init.Prescaler         = 15999U;\n    htim5.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim5.Init.Period            = 999U;\n    htim5.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim5);\n\n    HAL_NVIC_SetPriority(TIM5_IRQn, 9, 0);\n    HAL_NVIC_EnableIRQ(TIM5_IRQn);\n    HAL_TIM_Base_Start_IT(&htim5);\n}\n\nvoid TIM5_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim5);\nUART_HandleTypeDef huart1;\n\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    static uint32_t seconds;\n\n    if (htim->Instance == TIM5) {\n        seconds++;\n         uint32_t uptime = seconds;\n         uint32_t tick = HAL_GetTick();\n         HAL_UART_Transmit(&huart1, (uint8_t*)&uptime, sizeof(uptime), HAL_MAX_DELAY);\n         HAL_UART_Transmit(&huart1, (uint8_t*)&tick, sizeof(tick), HAL_MAX_DELAY);\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    timer5_init();\n\n    for (;;) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        HAL_Delay(250U);\n    }\n}\n",
+   "tokens": 3557,
+   "run": 1
+  },
+  {
+   "file": "files/f022.c",
+   "bug_type": "RTOS-03",
+   "line": 45,
+   "function": "HAL_GPIO_EXTI_Callback",
+   "success": false,
+   "compiles": true,
+   "bug_removed": false,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch compiles, but the same rule still flags this bug type in function HAL_GPIO_EXTI_Callback. Fix the actual cause described in the rule.",
+   "explanation": "The EXTI0_IRQn has a priority of 1, which is less than 5, and calls xSemaphoreGiveFromISR from its ISR handler. This violates the RTOS-03 rule. To fix this, we need to increase the priority of EXTI0_IRQn to at least 5.",
+   "diff": "--- \n+++ \n@@ -32 +32 @@\n-    HAL_NVIC_EnableIRQ(EXTI0_IRQn);\n+    HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define KEY_PORT        GPIOA\n#define KEY_PIN         GPIO_PIN_0\n\nstatic SemaphoreHandle_t key_sem;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin  = KEY_PIN;\n    gpio.Mode = GPIO_MODE_IT_RISING;\n    gpio.Pull = GPIO_PULLDOWN;\n    HAL_GPIO_Init(KEY_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI0_IRQn, 1, 0);\n    HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);\n}\n\nvoid EXTI0_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(KEY_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n{\n    BaseType_t woken = pdFALSE;\n\n    if (pin == KEY_PIN) {\n        xSemaphoreGiveFromISR(key_sem, &woken);\n    }\n    portYIELD_FROM_ISR(woken);\n}\n\nstatic void key_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        if (xSemaphoreTake(key_sem, portMAX_DELAY) == pdTRUE) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n\n    key_sem = xSemaphoreCreateBinary();\n    gpio_init();\n\n    xTaskCreate(key_task, \"key\", 128, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 2930,
+   "run": 1
+  },
+  {
+   "file": "files/f023.c",
+   "bug_type": "PER-01",
+   "line": 43,
+   "function": "console_init",
+   "success": false,
+   "compiles": true,
+   "bug_removed": false,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch compiles, but the same rule still flags this bug type in function console_init. Fix the actual cause described in the rule.",
+   "explanation": "The USART2 clock enable is still after the first use in line 43. The fix is to enable the USART2 clock before the first use of the USART2 peripheral.",
+   "diff": "--- \n+++ \n@@ -45 +45 @@\n-    __HAL_RCC_USART2_CLK_ENABLE();\n+__HAL_RCC_USART2_CLK_ENABLE();",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <string.h>\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nUART_HandleTypeDef huart2;\n\nstatic void led_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void console_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_2 | GPIO_PIN_3;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART2;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    huart2.Instance          = USART2;\n    huart2.Init.BaudRate     = 57600U;\n    huart2.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart2.Init.StopBits     = UART_STOPBITS_1;\n    huart2.Init.Parity       = UART_PARITY_NONE;\n    huart2.Init.Mode         = UART_MODE_TX_RX;\n    huart2.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart2.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart2);\n\n__HAL_RCC_USART2_CLK_ENABLE();\n}\n\nstatic void send_text(const char *text)\n{\n    HAL_UART_Transmit(&huart2, (uint8_t *)text, (uint16_t)strlen(text), 100U);\n}\n\nint main(void)\n{\n    uint8_t c;\n\n    HAL_Init();\n    led_init();\n    console_init();\n\n    send_text(\"ready\\r\\n\");\n\n    for (;;) {\n        if (HAL_UART_Receive(&huart2, &c, 1U, 500U) == HAL_OK) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n            HAL_UART_Transmit(&huart2, &c, 1U, 50U);\n        }\n    }\n}\n",
+   "tokens": 3479,
+   "run": 1
+  },
+  {
+   "file": "files/f025.c",
+   "bug_type": "INT-03",
+   "line": 56,
+   "function": "HAL_UART_RxCpltCallback",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 4,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The bug is an unbounded while loop waiting on a peripheral flag in an ISR. This can cause the ISR to hang. The fix is to replace the while loop with a bounded loop or remove it if the flag is not needed.",
+   "diff": "--- \n+++ \n@@ -56,2 +56,2 @@\n-        while (__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET) {\n-        }\n+        // Remove or replace the unbounded while loop\n+        // with a bounded loop or remove if not needed",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_1\n\nUART_HandleTypeDef huart6;\n\nstatic uint8_t rx_byte;\nstatic volatile uint32_t echoed;\n\nstatic void uart6_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_USART6_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_11 | GPIO_PIN_12;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF8_USART6;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart6.Instance          = USART6;\n    huart6.Init.BaudRate     = 38400U;\n    huart6.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart6.Init.StopBits     = UART_STOPBITS_1;\n    huart6.Init.Parity       = UART_PARITY_NONE;\n    huart6.Init.Mode         = UART_MODE_TX_RX;\n    huart6.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart6.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart6);\n\n    HAL_NVIC_SetPriority(USART6_IRQn, 7, 0);\n    HAL_NVIC_EnableIRQ(USART6_IRQn);\n}\n\nvoid USART6_IRQHandler(void)\n{\n    HAL_UART_IRQHandler(&huart6);\n}\n\nvoid HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)\n{\n    if (huart->Instance == USART6) {\n        huart->Instance->DR = (uint32_t)rx_byte;\n        // Remove or replace the unbounded while loop\n        // with a bounded loop or remove if not needed\n        echoed++;\n        HAL_UART_Receive_IT(&huart6, &rx_byte, 1U);\n    }\n}\n\nint main(void)\n{\n    uint32_t last = 0U;\n\n    HAL_Init();\n    uart6_init();\n    HAL_UART_Receive_IT(&huart6, &rx_byte, 1U);\n\n    for (;;) {\n        uint32_t now = echoed;\n\n        if (now != last) {\n            last = now;\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        }\n    }\n}\n",
+   "tokens": 845,
+   "run": 1
+  },
+  {
+   "file": "files/f026.c",
+   "bug_type": "RTOS-03",
+   "line": 52,
+   "function": "HAL_TIM_PeriodElapsedCallback",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The ISR calls `vTaskNotifyGiveFromISR` with a priority < 5, which is not allowed. To fix this, we need to ensure the ISR's priority is >= 5.",
+   "diff": "--- \n+++ \n@@ -38 +38 @@\n-    HAL_NVIC_SetPriority(TIM3_IRQn, 4, 0);\n+    HAL_NVIC_SetPriority(TIM3_IRQn, 5, 0);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define WORKER_STACK    128U\n\nTIM_HandleTypeDef htim3;\n\nstatic TaskHandle_t worker_handle;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void timer3_init(void)\n{\n    __HAL_RCC_TIM3_CLK_ENABLE();\n\n    htim3.Instance               = TIM3;\n    htim3.Init.Prescaler         = 15999U;\n    htim3.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim3.Init.Period            = 499U;\n    htim3.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim3);\n\n    HAL_NVIC_SetPriority(TIM3_IRQn, 5, 0);\n    HAL_NVIC_EnableIRQ(TIM3_IRQn);\n}\n\nvoid TIM3_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim3);\n}\n\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    BaseType_t woken = pdFALSE;\n\n    if (htim->Instance == TIM3) {\n        vTaskNotifyGiveFromISR(worker_handle, &woken);\n    }\n    portYIELD_FROM_ISR(woken);\n}\n\nstatic void worker_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    xTaskCreate(worker_task, \"worker\", WORKER_STACK, NULL, 3, &worker_handle);\n\n    timer3_init();\n    HAL_TIM_Base_Start_IT(&htim3);\n\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 776,
+   "run": 1
+  },
+  {
+   "file": "files/f027.c",
+   "bug_type": "INT-03",
+   "line": 68,
+   "function": "update_contrast",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 6,
+   "changed_lines": 4,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 68, 'msg': \"'mutex_i2c' undeclared (first use in this function)\"}\n{'line': 68, 'msg': \"'portMAX_DELAY' undeclared (first use in this function); did you mean 'HAL_MAX_DELAY'?\"}\n{'line': 93, 'msg': 'expected declaration or statement at end of input'}",
+   "explanation": "The call to `HAL_I2C_Master_Transmit_IT` is still being made from an ISR, which is blocking and violates INT-03. The correct fix is to use a mutex or critical section to protect the I2C transmission from being called in an ISR.",
+   "diff": "--- \n+++ \n@@ -67,0 +68 @@\n+    xSemaphoreTake(mutex_i2c, portMAX_DELAY);\n@@ -69,2 +70 @@\n-}\n-\n+    xSemaphoreGive(mutex_i2c);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BTN_PORT        GPIOA\n#define BTN_PIN         GPIO_PIN_8\n#define DISPLAY_ADDR    (0x3CU << 1)\n#define CMD_CONTRAST    0x81U\n\nI2C_HandleTypeDef hi2c1;\n\nstatic uint8_t contrast = 0x20U;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin  = BTN_PIN;\n    gpio.Mode = GPIO_MODE_IT_FALLING;\n    gpio.Pull = GPIO_PULLUP;\n    HAL_GPIO_Init(BTN_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI9_5_IRQn, 8, 0);\n    HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);\n}\n\nstatic void i2c1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_I2C1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_6 | GPIO_PIN_7;\n    gpio.Mode      = GPIO_MODE_AF_OD;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF4_I2C1;\n    HAL_GPIO_Init(GPIOB, &gpio);\n\n    hi2c1.Instance             = I2C1;\n    hi2c1.Init.ClockSpeed      = 100000U;\n    hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;\n    hi2c1.Init.OwnAddress1     = 0U;\n    hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;\n    hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;\n    hi2c1.Init.OwnAddress2     = 0U;\n    hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;\n    hi2c1.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;\n    HAL_I2C_Init(&hi2c1);\n}\n\nstatic void update_contrast(void)\n{\n    uint8_t cmd[2];\n\n    contrast = (uint8_t)(contrast + 0x20U);\n    cmd[0] = CMD_CONTRAST;\n    cmd[1] = contrast;\n    xSemaphoreTake(mutex_i2c, portMAX_DELAY);\n    HAL_I2C_Master_Transmit(&hi2c1, DISPLAY_ADDR, cmd, 2U, 50U);\n    xSemaphoreGive(mutex_i2c);\nvoid EXTI9_5_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(BTN_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n{\n    if (pin == BTN_PIN) {\n        update_contrast();\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    i2c1_init();\n\n    for (;;) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        HAL_Delay(500U);\n    }\n}\n",
+   "tokens": 3311,
+   "run": 1
+  },
+  {
+   "file": "files/f028.c",
+   "bug_type": "MEM-01",
+   "line": 51,
+   "function": "send_status_frame",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The memcpy writes 20 bytes into a 16-byte buffer, causing a buffer overflow. The fix is to limit the memcpy size to the actual size of the header_template.",
+   "diff": "--- \n+++ \n@@ -51 +51 @@\n-    memcpy(frame, header_template, sizeof(header_template));\n+    memcpy(frame, header_template, sizeof(header_template) > FRAME_SIZE ? FRAME_SIZE : sizeof(header_template));",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <string.h>\n\n#define FRAME_SIZE      16U\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nUART_HandleTypeDef huart2;\n\nstatic const uint8_t header_template[20] = {\n    0xAA, 0x55, 0x01, 0x10, 0x00, 0x00, 0x00, 0x00,\n    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,\n    0x55, 0xAA, 0x0D, 0x0A\n};\n\nstatic void uart2_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART2_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_2;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART2;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart2.Instance          = USART2;\n    huart2.Init.BaudRate     = 115200U;\n    huart2.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart2.Init.StopBits     = UART_STOPBITS_1;\n    huart2.Init.Parity       = UART_PARITY_NONE;\n    huart2.Init.Mode         = UART_MODE_TX;\n    huart2.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart2.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart2);\n}\n\nstatic void send_status_frame(uint8_t seq)\n{\n    uint8_t frame[FRAME_SIZE];\n\n    memcpy(frame, header_template, sizeof(header_template) > FRAME_SIZE ? FRAME_SIZE : sizeof(header_template));\n    frame[4] = seq;\n    frame[5] = (uint8_t)(seq ^ 0xFFU);\n\n    HAL_UART_Transmit(&huart2, frame, FRAME_SIZE, 50U);\n}\n\nint main(void)\n{\n    uint8_t seq = 0U;\n\n    HAL_Init();\n    uart2_init();\n\n    for (;;) {\n        send_status_frame(seq++);\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        HAL_Delay(250U);\n    }\n}\n",
+   "tokens": 707,
+   "run": 1
+  },
+  {
+   "file": "files/f031.c",
+   "bug_type": "RTOS-02",
+   "line": 57,
+   "function": "sensor_read",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 3,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The bug is that the mutex is not released on the return at line 57. We need to add a `xSemaphoreGive(bus_mutex);` before the return.",
+   "diff": "--- \n+++ \n@@ -57 +57,2 @@\n-        return -2;\n+    xSemaphoreGive(bus_mutex);\n+    return -2;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n\n#define SENSOR_ADDR     (0x48U << 1)\n#define REG_TEMP        0x00U\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define TEMP_LIMIT      60U\n\nI2C_HandleTypeDef hi2c1;\n\nstatic SemaphoreHandle_t bus_mutex;\n\nstatic void i2c1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_I2C1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_8 | GPIO_PIN_9;\n    gpio.Mode      = GPIO_MODE_AF_OD;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF4_I2C1;\n    HAL_GPIO_Init(GPIOB, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    hi2c1.Instance             = I2C1;\n    hi2c1.Init.ClockSpeed      = 400000U;\n    hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;\n    hi2c1.Init.OwnAddress1     = 0U;\n    hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;\n    hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;\n    hi2c1.Init.OwnAddress2     = 0U;\n    hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;\n    hi2c1.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;\n    HAL_I2C_Init(&hi2c1);\n}\n\nstatic int sensor_read(uint8_t reg, uint8_t *out)\n{\n    if (xSemaphoreTake(bus_mutex, pdMS_TO_TICKS(20)) != pdTRUE) {\n        return -1;\n    }\n\n    if (HAL_I2C_Master_Transmit(&hi2c1, SENSOR_ADDR, &reg, 1U, 20U) != HAL_OK) {\n    xSemaphoreGive(bus_mutex);\n    return -2;\n    }\n\n    if (HAL_I2C_Master_Receive(&hi2c1, SENSOR_ADDR, out, 1U, 20U) != HAL_OK) {\n        xSemaphoreGive(bus_mutex);\n        return -3;\n    }\n\n    xSemaphoreGive(bus_mutex);\n    return 0;\n}\n\nstatic void temp_task(void *arg)\n{\n    uint8_t temp;\n\n    (void)arg;\n\n    for (;;) {\n        if (sensor_read(REG_TEMP, &temp) == 0) {\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN,\n                              (temp > TEMP_LIMIT) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n        }\n        vTaskDelay(pdMS_TO_TICKS(250));\n    }\n}\n\nstatic void probe_task(void *arg)\n{\n    uint8_t dummy;\n\n    (void)arg;\n\n    for (;;) {\n        (void)sensor_read(0x07U, &dummy);\n        vTaskDelay(pdMS_TO_TICKS(1000));\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    i2c1_init();\n\n    bus_mutex = xSemaphoreCreateMutex();\n\n    xTaskCreate(temp_task, \"temp\", 128, NULL, 2, NULL);\n    xTaskCreate(probe_task, \"probe\", 128, NULL, 1, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 833,
+   "run": 1
+  },
+  {
+   "file": "files/f032.c",
+   "bug_type": "RTOS-02",
+   "line": 89,
+   "function": "store_command",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 3,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The function takes the mutex but does not release it on all exit paths. The return statement on line 89 does not give the mutex, which is a bug. We need to add a give before returning.",
+   "diff": "--- \n+++ \n@@ -89 +89,2 @@\n-            return ERR_RANGE;\n+    xSemaphoreGive(store_mutex);\n+    return ERR_RANGE;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n\n#define CS_PORT         GPIOB\n#define CS_PIN          GPIO_PIN_12\n#define STORE_SIZE      0x10000UL\n#define ERR_BUSY        (-1)\n#define ERR_RANGE       (-2)\n#define ERR_CMD         (-3)\n\ntypedef enum {\n    STORE_READ,\n    STORE_ERASE,\n    STORE_PROBE\n} store_cmd_t;\n\nSPI_HandleTypeDef hspi2;\n\nstatic SemaphoreHandle_t store_mutex;\n\nstatic void spi2_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_SPI2_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF5_SPI2;\n    HAL_GPIO_Init(GPIOB, &gpio);\n\n    gpio.Pin       = CS_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(CS_PORT, &gpio);\n    HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET);\n\n    hspi2.Instance               = SPI2;\n    hspi2.Init.Mode              = SPI_MODE_MASTER;\n    hspi2.Init.Direction         = SPI_DIRECTION_2LINES;\n    hspi2.Init.DataSize          = SPI_DATASIZE_8BIT;\n    hspi2.Init.CLKPolarity       = SPI_POLARITY_LOW;\n    hspi2.Init.CLKPhase          = SPI_PHASE_1EDGE;\n    hspi2.Init.NSS               = SPI_NSS_SOFT;\n    hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;\n    hspi2.Init.FirstBit          = SPI_FIRSTBIT_MSB;\n    hspi2.Init.TIMode            = SPI_TIMODE_DISABLE;\n    hspi2.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLE;\n    hspi2.Init.CRCPolynomial     = 10U;\n    HAL_SPI_Init(&hspi2);\n}\n\nstatic int spi_op(uint8_t opcode, uint32_t addr)\n{\n    uint8_t frame[4];\n\n    frame[0] = opcode;\n    frame[1] = (uint8_t)(addr >> 16);\n    frame[2] = (uint8_t)(addr >> 8);\n    frame[3] = (uint8_t)addr;\n\n    HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_RESET);\n    HAL_StatusTypeDef st = HAL_SPI_Transmit(&hspi2, frame, 4U, 20U);\n    HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET);\n\n    return (st == HAL_OK) ? 0 : ERR_BUSY;\n}\n\nstatic int store_command(store_cmd_t cmd, uint32_t addr)\n{\n    int status;\n\n    if (xSemaphoreTake(store_mutex, pdMS_TO_TICKS(100)) != pdTRUE) {\n        return ERR_BUSY;\n    }\n\n    switch (cmd) {\n    case STORE_READ:\n        status = spi_op(0x03U, addr);\n        break;\n    case STORE_ERASE:\n        if (addr >= STORE_SIZE) {\n    xSemaphoreGive(store_mutex);\n    return ERR_RANGE;\n        }\n        status = spi_op(0x20U, addr);\n        break;\n    case STORE_PROBE:\n        status = spi_op(0x9FU, 0U);\n        break;\n    default:\n        status = ERR_CMD;\n        break;\n    }\n\n    xSemaphoreGive(store_mutex);\n    return status;\n}\n\nstatic void maintenance_task(void *arg)\n{\n    uint32_t sector = 0U;\n\n    (void)arg;\n\n    for (;;) {\n        (void)store_command(STORE_ERASE, sector);\n        sector = (sector + 0x1000UL) % (STORE_SIZE + 0x1000UL);\n        vTaskDelay(pdMS_TO_TICKS(2000));\n    }\n}\n\nstatic void reader_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        (void)store_command(STORE_READ, 0x100UL);\n        vTaskDelay(pdMS_TO_TICKS(200));\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    spi2_init();\n\n    store_mutex = xSemaphoreCreateMutex();\n\n    xTaskCreate(maintenance_task, \"maint\", 192, NULL, 1, NULL);\n    xTaskCreate(reader_task, \"reader\", 192, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 913,
+   "run": 1
+  },
+  {
+   "file": "files/f033.c",
+   "bug_type": "RTOS-03",
+   "line": 75,
+   "function": "HAL_ADC_ConvCpltCallback",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The ADC_IRQn has a priority less than 5, and the ISR calls xQueueSendFromISR. To fix this, we need to increase the priority of ADC_IRQn to at least 5.",
+   "diff": "--- \n+++ \n@@ -59 +59 @@\n-    HAL_NVIC_SetPriority(ADC_IRQn, ADC_IRQ_PRIO, 0U);\n+    HAL_NVIC_SetPriority(ADC_IRQn, 5, 0U);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"queue.h\"\n\n#define ADC_IRQ_PRIO    2U\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define SAMPLE_Q_LEN    8U\n#define LIMIT           2500U\n\nADC_HandleTypeDef hadc1;\n\nstatic QueueHandle_t sample_queue;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin  = GPIO_PIN_2;\n    gpio.Mode = GPIO_MODE_ANALOG;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void adc1_init(void)\n{\n    ADC_ChannelConfTypeDef ch = {0};\n\n    __HAL_RCC_ADC1_CLK_ENABLE();\n\n    hadc1.Instance                   = ADC1;\n    hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV8;\n    hadc1.Init.Resolution            = ADC_RESOLUTION_12B;\n    hadc1.Init.ScanConvMode          = DISABLE;\n    hadc1.Init.ContinuousConvMode    = ENABLE;\n    hadc1.Init.DiscontinuousConvMode = DISABLE;\n    hadc1.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;\n    hadc1.Init.ExternalTrigConv      = ADC_SOFTWARE_START;\n    hadc1.Init.DataAlign             = ADC_DATAALIGN_RIGHT;\n    hadc1.Init.NbrOfConversion       = 1U;\n    hadc1.Init.DMAContinuousRequests = DISABLE;\n    hadc1.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;\n    HAL_ADC_Init(&hadc1);\n\n    ch.Channel      = ADC_CHANNEL_2;\n    ch.Rank         = 1U;\n    ch.SamplingTime = ADC_SAMPLETIME_480CYCLES;\n    HAL_ADC_ConfigChannel(&hadc1, &ch);\n\n    HAL_NVIC_SetPriority(ADC_IRQn, 5, 0U);\n    HAL_NVIC_EnableIRQ(ADC_IRQn);\n}\n\nvoid ADC_IRQHandler(void)\n{\n    HAL_ADC_IRQHandler(&hadc1);\n}\n\nvoid HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)\n{\n    BaseType_t woken = pdFALSE;\n    uint16_t value;\n\n    if (hadc->Instance == ADC1) {\n        value = (uint16_t)HAL_ADC_GetValue(hadc);\n        xQueueSendFromISR(sample_queue, &value, &woken);\n    }\n    portYIELD_FROM_ISR(woken);\n}\n\nstatic void alarm_task(void *arg)\n{\n    uint16_t value;\n\n    (void)arg;\n\n    for (;;) {\n        if (xQueueReceive(sample_queue, &value, portMAX_DELAY) == pdTRUE) {\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN,\n                              (value > LIMIT) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    sample_queue = xQueueCreate(SAMPLE_Q_LEN, sizeof(uint16_t));\n    adc1_init();\n\n    xTaskCreate(alarm_task, \"alarm\", 128, NULL, 2, NULL);\n    HAL_ADC_Start_IT(&hadc1);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 819,
+   "run": 1
+  },
+  {
+   "file": "files/f035.c",
+   "bug_type": "INT-02",
+   "line": 64,
+   "function": "handle_events",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 3,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "too many edits (9); at most 3",
+   "explanation": "The original code had syntax errors due to incorrect function definitions and missing includes. The fix is to correct the function definitions and include necessary headers.",
+   "diff": "--- \n+++ \n@@ -52 +52,2 @@\n-{\n+#include \"FreeRTOS.h\"\n+#include \"task.h\"",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define EVT_BUTTON      0x01U\n#define EVT_LIMIT       0x02U\n\n#define BTN_PORT        GPIOC\n#define BTN_PIN         GPIO_PIN_0\n#define LIM_PORT        GPIOC\n#define LIM_PIN         GPIO_PIN_1\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BUZZ_PORT       GPIOA\n#define BUZZ_PIN        GPIO_PIN_8\n\nstatic volatile uint8_t event_flags;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOC_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN | BUZZ_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin  = BTN_PIN | LIM_PIN;\n    gpio.Mode = GPIO_MODE_IT_FALLING;\n    gpio.Pull = GPIO_PULLUP;\n    HAL_GPIO_Init(GPIOC, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI0_IRQn, 6, 0);\n    HAL_NVIC_SetPriority(EXTI1_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(EXTI0_IRQn);\n    HAL_NVIC_EnableIRQ(EXTI1_IRQn);\n}\n\nvoid EXTI0_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(BTN_PIN);\n}\n\nvoid EXTI1_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(LIM_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n    if (pin == BTN_PIN) {\n        event_flags |= EVT_BUTTON;\n    } else if (pin == LIM_PIN) {\n        event_flags |= EVT_LIMIT;\n    }\n}\n\nstatic void handle_events(void)\n{\n    if ((event_flags & EVT_BUTTON) != 0U) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        event_flags &= (uint8_t)~EVT_BUTTON;\n    }\n\n    if ((event_flags & EVT_LIMIT) != 0U) {\n        HAL_GPIO_WritePin(BUZZ_PORT, BUZZ_PIN, GPIO_PIN_SET);\n        HAL_Delay(100U);\n        HAL_GPIO_WritePin(BUZZ_PORT, BUZZ_PIN, GPIO_PIN_RESET);\n        event_flags &= (uint8_t)~EVT_LIMIT;\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    for (;;) {\n        handle_events();\n    }\n}\n",
+   "tokens": 4152,
+   "run": 1
+  },
+  {
+   "file": "files/f035.c",
+   "bug_type": "INT-02",
+   "line": 71,
+   "function": "handle_events",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 7,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "too many edits (4); at most 3",
+   "explanation": "The original code had syntax errors due to incorrect function definitions and missing includes. The fix is to correct the function definition and include necessary headers.",
+   "diff": "--- \n+++ \n@@ -52 +52,2 @@\n-{\n+    #include \"FreeRTOS.h\"\n+    #include \"task.h\"\n@@ -61 +62 @@\n-{\n+    taskENTER_CRITICAL();\n@@ -72 +73 @@\n-    }\n+    taskEXIT_CRITICAL();",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define EVT_BUTTON      0x01U\n#define EVT_LIMIT       0x02U\n\n#define BTN_PORT        GPIOC\n#define BTN_PIN         GPIO_PIN_0\n#define LIM_PORT        GPIOC\n#define LIM_PIN         GPIO_PIN_1\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define BUZZ_PORT       GPIOA\n#define BUZZ_PIN        GPIO_PIN_8\n\nstatic volatile uint8_t event_flags;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOC_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN | BUZZ_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin  = BTN_PIN | LIM_PIN;\n    gpio.Mode = GPIO_MODE_IT_FALLING;\n    gpio.Pull = GPIO_PULLUP;\n    HAL_GPIO_Init(GPIOC, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI0_IRQn, 6, 0);\n    HAL_NVIC_SetPriority(EXTI1_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(EXTI0_IRQn);\n    HAL_NVIC_EnableIRQ(EXTI1_IRQn);\n}\n\nvoid EXTI0_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(BTN_PIN);\n}\n\nvoid EXTI1_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(LIM_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n    #include \"FreeRTOS.h\"\n    #include \"task.h\"\n    if (pin == BTN_PIN) {\n        event_flags |= EVT_BUTTON;\n    } else if (pin == LIM_PIN) {\n        event_flags |= EVT_LIMIT;\n    }\n}\n\nstatic void handle_events(void)\n    taskENTER_CRITICAL();\n    if ((event_flags & EVT_BUTTON) != 0U) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        event_flags &= (uint8_t)~EVT_BUTTON;\n    }\n\n    if ((event_flags & EVT_LIMIT) != 0U) {\n        HAL_GPIO_WritePin(BUZZ_PORT, BUZZ_PIN, GPIO_PIN_SET);\n        HAL_Delay(100U);\n        HAL_GPIO_WritePin(BUZZ_PORT, BUZZ_PIN, GPIO_PIN_RESET);\n        event_flags &= (uint8_t)~EVT_LIMIT;\n    taskEXIT_CRITICAL();\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    for (;;) {\n        handle_events();\n    }\n}\n",
+   "tokens": 4116,
+   "run": 1
+  },
+  {
+   "file": "files/f038.c",
+   "bug_type": "MEM-02",
+   "line": 72,
+   "function": "expander_write",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The local array 'cmd' is passed to an asynchronous HAL function, which may return before the transfer completes. To fix this, we need to use a static buffer to avoid the stack buffer being passed to an async function.",
+   "diff": "--- \n+++ \n@@ -67 +67 @@\n-    uint8_t cmd[2];\n+    static uint8_t cmd[2];",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define EXPANDER_ADDR   (0x20U << 1)\n#define REG_OUTPUT      0x01U\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nI2C_HandleTypeDef hi2c1;\n\nstatic void hw_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_I2C1_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin       = GPIO_PIN_6 | GPIO_PIN_7;\n    gpio.Mode      = GPIO_MODE_AF_OD;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF4_I2C1;\n    HAL_GPIO_Init(GPIOB, &gpio);\n\n    hi2c1.Instance             = I2C1;\n    hi2c1.Init.ClockSpeed      = 100000U;\n    hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;\n    hi2c1.Init.OwnAddress1     = 0U;\n    hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;\n    hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;\n    hi2c1.Init.OwnAddress2     = 0U;\n    hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;\n    hi2c1.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;\n    HAL_I2C_Init(&hi2c1);\n\n    HAL_NVIC_SetPriority(I2C1_EV_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);\n    HAL_NVIC_SetPriority(I2C1_ER_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);\n}\n\nvoid I2C1_EV_IRQHandler(void)\n{\n    HAL_I2C_EV_IRQHandler(&hi2c1);\n}\n\nvoid I2C1_ER_IRQHandler(void)\n{\n    HAL_I2C_ER_IRQHandler(&hi2c1);\n}\n\nvoid HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)\n{\n    if (hi2c->Instance == I2C1) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nstatic void expander_write(uint8_t reg, uint8_t value)\n{\n    static uint8_t cmd[2];\n\n    cmd[0] = reg;\n    cmd[1] = value;\n\n    HAL_I2C_Master_Transmit_IT(&hi2c1, EXPANDER_ADDR, cmd, 2U);\n}\n\nint main(void)\n{\n    uint8_t pattern = 0x01U;\n\n    HAL_Init();\n    hw_init();\n\n    for (;;) {\n        expander_write(REG_OUTPUT, pattern);\n        pattern = (uint8_t)(pattern << 1);\n        if (pattern == 0U) {\n            pattern = 0x01U;\n        }\n        HAL_Delay(250U);\n    }\n}\n",
+   "tokens": 730,
+   "run": 1
+  },
+  {
+   "file": "files/f039.c",
+   "bug_type": "RTOS-03",
+   "line": 60,
+   "function": "HAL_UART_RxCpltCallback",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The bug is caused by calling `xQueueSendToBackFromISR` from an ISR with a priority less than 5. To fix this, we need to increase the priority of the USART1_IRQn to at least 5.",
+   "diff": "--- \n+++ \n@@ -46 +46 @@\n-    HAL_NVIC_SetPriority(USART1_IRQn, 3, 1);\n+    HAL_NVIC_SetPriority(USART1_IRQn, 5, 1);",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"queue.h\"\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n#define LINE_QUEUE_LEN  24U\n\nUART_HandleTypeDef huart1;\n\nstatic QueueHandle_t line_queue;\nstatic uint8_t rx_byte;\n\nstatic void uart1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_9 | GPIO_PIN_10;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART1;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart1.Instance          = USART1;\n    huart1.Init.BaudRate     = 921600U;\n    huart1.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart1.Init.StopBits     = UART_STOPBITS_1;\n    huart1.Init.Parity       = UART_PARITY_NONE;\n    huart1.Init.Mode         = UART_MODE_RX;\n    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart1.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart1);\n\n    HAL_NVIC_SetPriority(USART1_IRQn, 5, 1);\n    HAL_NVIC_EnableIRQ(USART1_IRQn);\n}\n\nvoid USART1_IRQHandler(void)\n{\n    HAL_UART_IRQHandler(&huart1);\n}\n\nvoid HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)\n{\n    BaseType_t woken = pdFALSE;\n\n    if (huart->Instance == USART1) {\n        xQueueSendToBackFromISR(line_queue, &rx_byte, &woken);\n        HAL_UART_Receive_IT(&huart1, &rx_byte, 1U);\n    }\n    portYIELD_FROM_ISR(woken);\n}\n\nstatic void line_task(void *arg)\n{\n    uint8_t c;\n    uint32_t count = 0U;\n\n    (void)arg;\n\n    for (;;) {\n        if (xQueueReceive(line_queue, &c, portMAX_DELAY) == pdTRUE) {\n            count++;\n            if (c == '\\n') {\n                HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n                count = 0U;\n            }\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n\n    line_queue = xQueueCreate(LINE_QUEUE_LEN, sizeof(uint8_t));\n    uart1_init();\n    HAL_UART_Receive_IT(&huart1, &rx_byte, 1U);\n\n    xTaskCreate(line_task, \"line\", 128, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 816,
+   "run": 1
+  },
+  {
+   "file": "files/f040.c",
+   "bug_type": "MEM-01",
+   "line": 70,
+   "function": "apply_command",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 2,
+   "failure": "",
+   "explanation": "The strncpy function is used with a length limit to prevent buffer overflow, but the compiler warns that the source string may be longer than the destination buffer. To silence the warning, we explicitly null-terminate the destination buffer after the copy.",
+   "diff": "--- \n+++ \n@@ -70 +70 @@\n-        strcpy(device_name, &rx_line[5]);\n+        strncpy(device_name, &rx_line[5], sizeof(device_name) - 1); device_name[sizeof(device_name) - 1] = '\\0';",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <string.h>\n\n#define LINE_MAX_LEN    64U\n#define NAME_LEN        16U\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nUART_HandleTypeDef huart6;\n\nstatic char rx_line[LINE_MAX_LEN];\nstatic char device_name[NAME_LEN] = \"unnamed\";\n\nstatic void uart6_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART6_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_11 | GPIO_PIN_12;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_PULLUP;\n    gpio.Speed     = GPIO_SPEED_FREQ_HIGH;\n    gpio.Alternate = GPIO_AF8_USART6;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart6.Instance          = USART6;\n    huart6.Init.BaudRate     = 9600U;\n    huart6.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart6.Init.StopBits     = UART_STOPBITS_1;\n    huart6.Init.Parity       = UART_PARITY_NONE;\n    huart6.Init.Mode         = UART_MODE_TX_RX;\n    huart6.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart6.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart6);\n}\n\nstatic int read_line(void)\n{\n    uint8_t c;\n    size_t n = 0U;\n\n    for (;;) {\n        if (HAL_UART_Receive(&huart6, &c, 1U, 500U) != HAL_OK) {\n            return -1;\n        }\n        if (c == '\\n') {\n            break;\n        }\n        if (n < (LINE_MAX_LEN - 1U)) {\n            rx_line[n++] = (char)c;\n        }\n    }\n\n    rx_line[n] = '\\0';\n    return (int)n;\n}\n\nstatic void apply_command(void)\n{\n    if (strncmp(rx_line, \"name=\", 5U) == 0) {\n        strncpy(device_name, &rx_line[5], sizeof(device_name) - 1); device_name[sizeof(device_name) - 1] = '\\0';\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    uart6_init();\n\n    for (;;) {\n        if (read_line() > 0) {\n            apply_command();\n        }\n    }\n}\n",
+   "tokens": 1543,
+   "run": 1
+  },
+  {
+   "file": "files/f042.c",
+   "bug_type": "PER-01",
+   "line": 35,
+   "function": "timer2_init",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 1,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 28, 'msg': \"expected identifier or '(' before '{' token\"}",
+   "explanation": "The error occurs because the variable htim2 was previously declared in an outer scope and is now being redeclared as static. The fix is to remove the static keyword and declare htim2 as a local variable inside the timer2_init function.",
+   "diff": "--- \n+++ \n@@ -27 +27 @@\n-static void timer2_init(void)\n+TIM_HandleTypeDef htim2;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define BEAT_PORT       GPIOA\n#define BEAT_PIN        GPIO_PIN_6\n\nTIM_HandleTypeDef htim2;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin = BEAT_PIN;\n    HAL_GPIO_Init(BEAT_PORT, &gpio);\n}\n\nTIM_HandleTypeDef htim2;\n{\n    htim2.Instance               = TIM2;\n    htim2.Init.Prescaler         = 15999U;\n    htim2.Init.CounterMode       = TIM_COUNTERMODE_UP;\n    htim2.Init.Period            = 249U;\n    htim2.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;\n    htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;\n    HAL_TIM_Base_Init(&htim2);\n\n    HAL_NVIC_SetPriority(TIM2_IRQn, 6, 0);\n    HAL_NVIC_EnableIRQ(TIM2_IRQn);\n    HAL_TIM_Base_Start_IT(&htim2);\n}\n\nvoid TIM2_IRQHandler(void)\n{\n    HAL_TIM_IRQHandler(&htim2);\n}\n\nvoid HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)\n{\n    if (htim->Instance == TIM2) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n    timer2_init();\n\n    for (;;) {\n        HAL_GPIO_TogglePin(BEAT_PORT, BEAT_PIN);\n        HAL_Delay(1000U);\n    }\n}\n",
+   "tokens": 3160,
+   "run": 1
+  },
+  {
+   "file": "files/f043.c",
+   "bug_type": "MEM-02",
+   "line": 62,
+   "function": "report_reading",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The local array 'line' is passed to an asynchronous HAL function, which may return before the transfer completes. To fix this, we need to ensure the buffer is not local and is properly managed to avoid stack buffer issues.",
+   "diff": "--- \n+++ \n@@ -58 +58 @@\n-    char line[40];\n+    static char line[40];",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <stdio.h>\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_1\n\nUART_HandleTypeDef huart1;\n\nstatic void uart1_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_USART1_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_9;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART1;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart1.Instance          = USART1;\n    huart1.Init.BaudRate     = 9600U;\n    huart1.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart1.Init.StopBits     = UART_STOPBITS_1;\n    huart1.Init.Parity       = UART_PARITY_NONE;\n    huart1.Init.Mode         = UART_MODE_TX;\n    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart1.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart1);\n\n    HAL_NVIC_SetPriority(USART1_IRQn, 7, 0);\n    HAL_NVIC_EnableIRQ(USART1_IRQn);\n}\n\nvoid USART1_IRQHandler(void)\n{\n    HAL_UART_IRQHandler(&huart1);\n}\n\nvoid HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)\n{\n    if (huart->Instance == USART1) {\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n    }\n}\n\nstatic void report_reading(uint32_t reading)\n{\n    static char line[40];\n    int n;\n\n    n = snprintf(line, sizeof(line), \"reading=%lu units, ok\\r\\n\", (unsigned long)reading);\n    HAL_UART_Transmit_IT(&huart1, (uint8_t *)line, (uint16_t)n);\n    HAL_Delay(5U);\n}\n\nint main(void)\n{\n    uint32_t reading = 0U;\n\n    HAL_Init();\n    uart1_init();\n\n    for (;;) {\n        report_reading(reading);\n        reading += 7U;\n        HAL_Delay(1000U);\n    }\n}\n",
+   "tokens": 782,
+   "run": 1
+  },
+  {
+   "file": "files/f044.c",
+   "bug_type": "RTOS-01",
+   "line": 69,
+   "function": "post_sample",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 83, 'msg': \"'arg' redeclared as different kind of symbol\"}\n{'line': 83, 'msg': \"'argument' undeclared (first use in this function)\"}",
+   "explanation": "The variable 'arg' was used in the function but not declared. The edit adds the declaration of 'arg' to fix the compilation error.",
+   "diff": "--- \n+++ \n@@ -83 +83 @@\n-    (void)arg;\n+    void *arg = (void *)argument;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"queue.h\"\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_0\n#define SAMPLE_QUEUE_LEN 16U\n#define LIMIT           3200U\n\nADC_HandleTypeDef hadc1;\n\nstatic QueueHandle_t sample_queue;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin  = GPIO_PIN_1;\n    gpio.Mode = GPIO_MODE_ANALOG;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void adc1_init(void)\n{\n    ADC_ChannelConfTypeDef ch = {0};\n\n    __HAL_RCC_ADC1_CLK_ENABLE();\n\n    hadc1.Instance                   = ADC1;\n    hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV8;\n    hadc1.Init.Resolution            = ADC_RESOLUTION_12B;\n    hadc1.Init.ScanConvMode          = DISABLE;\n    hadc1.Init.ContinuousConvMode    = ENABLE;\n    hadc1.Init.DiscontinuousConvMode = DISABLE;\n    hadc1.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;\n    hadc1.Init.ExternalTrigConv      = ADC_SOFTWARE_START;\n    hadc1.Init.DataAlign             = ADC_DATAALIGN_RIGHT;\n    hadc1.Init.NbrOfConversion       = 1U;\n    hadc1.Init.DMAContinuousRequests = DISABLE;\n    hadc1.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;\n    HAL_ADC_Init(&hadc1);\n\n    ch.Channel      = ADC_CHANNEL_1;\n    ch.Rank         = 1U;\n    ch.SamplingTime = ADC_SAMPLETIME_480CYCLES;\n    HAL_ADC_ConfigChannel(&hadc1, &ch);\n\n    HAL_NVIC_SetPriority(ADC_IRQn, 7, 0);\n    HAL_NVIC_EnableIRQ(ADC_IRQn);\n}\n\nvoid ADC_IRQHandler(void)\n{\n    HAL_ADC_IRQHandler(&hadc1);\n}\n\nstatic void post_sample(uint16_t value)\n{\n    xQueueSendToBack(sample_queue, &value, 0);\n}\n\nvoid HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)\n{\n    if (hadc->Instance == ADC1) {\n        post_sample((uint16_t)HAL_ADC_GetValue(hadc));\n    }\n}\n\nstatic void monitor_task(void *arg)\n{\n    uint16_t value;\n\n    void *arg = (void *)argument;\n\n    for (;;) {\n        if (xQueueReceive(sample_queue, &value, portMAX_DELAY) == pdTRUE) {\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN,\n                              (value > LIMIT) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    sample_queue = xQueueCreate(SAMPLE_QUEUE_LEN, sizeof(uint16_t));\n    adc1_init();\n\n    xTaskCreate(monitor_task, \"monitor\", 128, NULL, 2, NULL);\n    HAL_ADC_Start_IT(&hadc1);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 2808,
+   "run": 1
+  },
+  {
+   "file": "files/f045.c",
+   "bug_type": "RTOS-02",
+   "line": 57,
+   "function": "report_status",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 3,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The function takes the console_mutex but does not release it on all exit paths. The return at line 57 does not give the mutex back.",
+   "diff": "--- \n+++ \n@@ -57 +57,2 @@\n-        return;\n+    xSemaphoreGive(console_mutex);\n+    return;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n#include <string.h>\n\n#define LED_PORT        GPIOA\n#define LED_PIN         GPIO_PIN_5\n\nUART_HandleTypeDef huart2;\n\nstatic SemaphoreHandle_t console_mutex;\n\nstatic void uart2_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_USART2_CLK_ENABLE();\n\n    gpio.Pin       = GPIO_PIN_2;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART2;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin       = LED_PIN;\n    gpio.Mode      = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed     = GPIO_SPEED_FREQ_LOW;\n    gpio.Alternate = 0U;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    huart2.Instance          = USART2;\n    huart2.Init.BaudRate     = 115200U;\n    huart2.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart2.Init.StopBits     = UART_STOPBITS_1;\n    huart2.Init.Parity       = UART_PARITY_NONE;\n    huart2.Init.Mode         = UART_MODE_TX;\n    huart2.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart2.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart2);\n}\n\nstatic void console_print(const char *text)\n{\n    HAL_UART_Transmit(&huart2, (uint8_t *)text, (uint16_t)strlen(text), 50U);\n}\n\nstatic void report_status(uint8_t level)\n{\n    if (xSemaphoreTake(console_mutex, pdMS_TO_TICKS(50)) != pdTRUE) {\n        return;\n    }\n\n    if (level == 0U) {\n    xSemaphoreGive(console_mutex);\n    return;\n    }\n\n    console_print(\"status: level \");\n    console_print((level > 5U) ? \"high\\r\\n\" : \"ok\\r\\n\");\n\n    xSemaphoreGive(console_mutex);\n}\n\nstatic void monitor_task(void *arg)\n{\n    uint8_t level = 0U;\n\n    (void)arg;\n\n    for (;;) {\n        report_status(level);\n        level = (uint8_t)((level + 1U) % 8U);\n        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n        vTaskDelay(pdMS_TO_TICKS(300));\n    }\n}\n\nstatic void banner_task(void *arg)\n{\n    (void)arg;\n\n    for (;;) {\n        if (xSemaphoreTake(console_mutex, pdMS_TO_TICKS(50)) == pdTRUE) {\n            console_print(\"alive\\r\\n\");\n            xSemaphoreGive(console_mutex);\n        }\n        vTaskDelay(pdMS_TO_TICKS(5000));\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    uart2_init();\n\n    console_mutex = xSemaphoreCreateMutex();\n\n    xTaskCreate(monitor_task, \"monitor\", 192, NULL, 2, NULL);\n    xTaskCreate(banner_task, \"banner\", 192, NULL, 1, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 757,
+   "run": 1
+  },
+  {
+   "file": "files/f047.c",
+   "bug_type": "PER-01",
+   "line": 67,
+   "function": "adc1_init",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 1,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The ADC1 peripheral is initialized without enabling its clock. The fix is to call __HAL_RCC_ADC1_CLK_ENABLE() before the first use of the ADC1 peripheral.",
+   "diff": "--- \n+++ \n@@ -54,0 +55 @@\n+__HAL_RCC_ADC1_CLK_ENABLE();",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include <stdio.h>\n\n#define LED_PORT        GPIOB\n#define LED_PIN         GPIO_PIN_1\n#define WARN_LEVEL      3500U\n\nADC_HandleTypeDef hadc1;\nUART_HandleTypeDef huart1;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin  = GPIO_PIN_3;\n    gpio.Mode = GPIO_MODE_ANALOG;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(GPIOA, &gpio);\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n\n    gpio.Pin       = GPIO_PIN_9;\n    gpio.Mode      = GPIO_MODE_AF_PP;\n    gpio.Pull      = GPIO_NOPULL;\n    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;\n    gpio.Alternate = GPIO_AF7_USART1;\n    HAL_GPIO_Init(GPIOA, &gpio);\n}\n\nstatic void uart1_init(void)\n{\n    __HAL_RCC_USART1_CLK_ENABLE();\n\n    huart1.Instance          = USART1;\n    huart1.Init.BaudRate     = 115200U;\n    huart1.Init.WordLength   = UART_WORDLENGTH_8B;\n    huart1.Init.StopBits     = UART_STOPBITS_1;\n    huart1.Init.Parity       = UART_PARITY_NONE;\n    huart1.Init.Mode         = UART_MODE_TX;\n    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;\n    huart1.Init.OverSampling = UART_OVERSAMPLING_16;\n    HAL_UART_Init(&huart1);\n}\n\nstatic void adc1_init(void)\n{\n    ADC_ChannelConfTypeDef ch = {0};\n\n__HAL_RCC_ADC1_CLK_ENABLE();\n    hadc1.Instance                   = ADC1;\n    hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV4;\n    hadc1.Init.Resolution            = ADC_RESOLUTION_12B;\n    hadc1.Init.ScanConvMode          = DISABLE;\n    hadc1.Init.ContinuousConvMode    = DISABLE;\n    hadc1.Init.DiscontinuousConvMode = DISABLE;\n    hadc1.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;\n    hadc1.Init.ExternalTrigConv      = ADC_SOFTWARE_START;\n    hadc1.Init.DataAlign             = ADC_DATAALIGN_RIGHT;\n    hadc1.Init.NbrOfConversion       = 1U;\n    hadc1.Init.DMAContinuousRequests = DISABLE;\n    hadc1.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;\n    HAL_ADC_Init(&hadc1);\n\n    ch.Channel      = ADC_CHANNEL_3;\n    ch.Rank         = 1U;\n    ch.SamplingTime = ADC_SAMPLETIME_144CYCLES;\n    HAL_ADC_ConfigChannel(&hadc1, &ch);\n}\n\nint main(void)\n{\n    char line[24];\n    uint32_t level;\n    int n;\n\n    HAL_Init();\n    gpio_init();\n    uart1_init();\n    adc1_init();\n\n    for (;;) {\n        HAL_ADC_Start(&hadc1);\n        if (HAL_ADC_PollForConversion(&hadc1, 20U) == HAL_OK) {\n            level = HAL_ADC_GetValue(&hadc1);\n            HAL_GPIO_WritePin(LED_PORT, LED_PIN,\n                              (level > WARN_LEVEL) ? GPIO_PIN_SET : GPIO_PIN_RESET);\n            n = snprintf(line, sizeof(line), \"adc=%lu\\r\\n\", (unsigned long)level);\n            HAL_UART_Transmit(&huart1, (uint8_t *)line, (uint16_t)n, 50U);\n        }\n        HAL_ADC_Stop(&hadc1);\n        HAL_Delay(200U);\n    }\n}\n",
+   "tokens": 1003,
+   "run": 1
+  },
+  {
+   "file": "files/f048.c",
+   "bug_type": "RTOS-02",
+   "line": 42,
+   "function": "settings_save",
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 7,
+   "introduced_suspects": [],
+   "attempts": 2,
+   "failure": "",
+   "explanation": "The 'reject' label was not properly defined in the original code. The fix is to define the 'reject' label before use and add the mutex give before returning.",
+   "diff": "--- \n+++ \n@@ -42 +42,2 @@\n-        goto reject;\n+    reject:\n+\n@@ -53 +54,2 @@\n-reject:\n+    xSemaphoreGive(settings_mutex);\n+\n@@ -54,0 +57 @@\n+",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n#include <string.h>\n\n#define LED_PORT            GPIOB\n#define LED_PIN             GPIO_PIN_0\n#define SETTINGS_VERSION    3U\n#define SETTINGS_NAME_LEN   16U\n\ntypedef struct {\n    uint8_t  version;\n    uint8_t  brightness;\n    uint16_t blink_ms;\n    char     name[SETTINGS_NAME_LEN];\n    uint32_t checksum;\n} settings_t;\n\nstatic SemaphoreHandle_t settings_mutex;\nstatic settings_t stored;\n\nstatic uint32_t checksum_of(const settings_t *s)\n{\n    const uint8_t *p = (const uint8_t *)s;\n    uint32_t sum = 0U;\n    size_t i;\n\n    for (i = 0U; i < offsetof(settings_t, checksum); i++) {\n        sum = (sum << 1) ^ p[i];\n    }\n    return sum;\n}\n\nstatic int settings_save(const settings_t *s)\n{\n    if (xSemaphoreTake(settings_mutex, pdMS_TO_TICKS(100)) != pdTRUE) {\n        return -1;\n    }\n\n    if (s->version != SETTINGS_VERSION) {\n    reject:\n\n    }\n\n    if (checksum_of(s) != s->checksum) {\n        goto reject;\n    }\n\n    memcpy(&stored, s, sizeof(stored));\n    xSemaphoreGive(settings_mutex);\n    return 0;\n\n    xSemaphoreGive(settings_mutex);\n\n    return -2;\n\n}\n\nstatic int settings_load(settings_t *out)\n{\n    if (xSemaphoreTake(settings_mutex, pdMS_TO_TICKS(100)) != pdTRUE) {\n        return -1;\n    }\n\n    memcpy(out, &stored, sizeof(*out));\n    xSemaphoreGive(settings_mutex);\n    return 0;\n}\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void config_task(void *arg)\n{\n    settings_t next = { SETTINGS_VERSION, 80U, 500U, \"unit-a\", 0U };\n    uint16_t round = 0U;\n\n    (void)arg;\n\n    for (;;) {\n        next.blink_ms = (uint16_t)(200U + (round % 4U) * 100U);\n        next.version  = (round % 5U == 4U) ? 2U : SETTINGS_VERSION;\n        next.checksum = checksum_of(&next);\n        (void)settings_save(&next);\n        round++;\n        vTaskDelay(pdMS_TO_TICKS(1000));\n    }\n}\n\nstatic void blink_task(void *arg)\n{\n    settings_t cfg;\n\n    (void)arg;\n\n    for (;;) {\n        if (settings_load(&cfg) == 0 && cfg.blink_ms != 0U) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n            vTaskDelay(pdMS_TO_TICKS(cfg.blink_ms));\n        } else {\n            vTaskDelay(pdMS_TO_TICKS(100));\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    settings_mutex = xSemaphoreCreateMutex();\n\n    xTaskCreate(config_task, \"config\", 192, NULL, 1, NULL);\n    xTaskCreate(blink_task, \"blink\", 192, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 1907,
+   "run": 1
+  },
+  {
+   "file": "files/f048.c",
+   "bug_type": "RTOS-02",
+   "line": 46,
+   "function": "settings_save",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 2,
+   "changed_lines": 5,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "too many edits (4); at most 3",
+   "explanation": "The functions 'settings_load', 'gpio_init', 'config_task', 'blink_task' were declared with incorrect storage class. The fix is to remove the incorrect storage class and declare them as regular functions.",
+   "diff": "--- \n+++ \n@@ -53,0 +54,3 @@\n+\n+    xSemaphoreGive(settings_mutex);\n+\n@@ -55 +58 @@\n-}\n+",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n#include \"FreeRTOS.h\"\n#include \"task.h\"\n#include \"semphr.h\"\n#include <string.h>\n\n#define LED_PORT            GPIOB\n#define LED_PIN             GPIO_PIN_0\n#define SETTINGS_VERSION    3U\n#define SETTINGS_NAME_LEN   16U\n\ntypedef struct {\n    uint8_t  version;\n    uint8_t  brightness;\n    uint16_t blink_ms;\n    char     name[SETTINGS_NAME_LEN];\n    uint32_t checksum;\n} settings_t;\n\nstatic SemaphoreHandle_t settings_mutex;\nstatic settings_t stored;\n\nstatic uint32_t checksum_of(const settings_t *s)\n{\n    const uint8_t *p = (const uint8_t *)s;\n    uint32_t sum = 0U;\n    size_t i;\n\n    for (i = 0U; i < offsetof(settings_t, checksum); i++) {\n        sum = (sum << 1) ^ p[i];\n    }\n    return sum;\n}\n\nstatic int settings_save(const settings_t *s)\n{\n    if (xSemaphoreTake(settings_mutex, pdMS_TO_TICKS(100)) != pdTRUE) {\n        return -1;\n    }\n\n    if (s->version != SETTINGS_VERSION) {\n        goto reject;\n    }\n\n    if (checksum_of(s) != s->checksum) {\n        goto reject;\n    }\n\n    memcpy(&stored, s, sizeof(stored));\n    xSemaphoreGive(settings_mutex);\n    return 0;\n\nreject:\n\n    xSemaphoreGive(settings_mutex);\n\n    return -2;\n\n\nstatic int settings_load(settings_t *out)\n{\n    if (xSemaphoreTake(settings_mutex, pdMS_TO_TICKS(100)) != pdTRUE) {\n        return -1;\n    }\n\n    memcpy(out, &stored, sizeof(*out));\n    xSemaphoreGive(settings_mutex);\n    return 0;\n}\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = LED_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(LED_PORT, &gpio);\n}\n\nstatic void config_task(void *arg)\n{\n    settings_t next = { SETTINGS_VERSION, 80U, 500U, \"unit-a\", 0U };\n    uint16_t round = 0U;\n\n    (void)arg;\n\n    for (;;) {\n        next.blink_ms = (uint16_t)(200U + (round % 4U) * 100U);\n        next.version  = (round % 5U == 4U) ? 2U : SETTINGS_VERSION;\n        next.checksum = checksum_of(&next);\n        (void)settings_save(&next);\n        round++;\n        vTaskDelay(pdMS_TO_TICKS(1000));\n    }\n}\n\nstatic void blink_task(void *arg)\n{\n    settings_t cfg;\n\n    (void)arg;\n\n    for (;;) {\n        if (settings_load(&cfg) == 0 && cfg.blink_ms != 0U) {\n            HAL_GPIO_TogglePin(LED_PORT, LED_PIN);\n            vTaskDelay(pdMS_TO_TICKS(cfg.blink_ms));\n        } else {\n            vTaskDelay(pdMS_TO_TICKS(100));\n        }\n    }\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    settings_mutex = xSemaphoreCreateMutex();\n\n    xTaskCreate(config_task, \"config\", 192, NULL, 1, NULL);\n    xTaskCreate(blink_task, \"blink\", 192, NULL, 2, NULL);\n    vTaskStartScheduler();\n\n    for (;;) {\n    }\n}\n",
+   "tokens": 3320,
+   "run": 1
+  },
+  {
+   "file": "files/f049.c",
+   "bug_type": "PER-02",
+   "line": 49,
+   "function": "main",
+   "success": false,
+   "compiles": false,
+   "bug_removed": false,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 3,
+   "failure": "the patch does not compile:\n{'line': 24, 'msg': \"'GPIO_MODE_OUTPUT' undeclared (first use in this function); did you mean 'GPIO_MODE_OUTPUT_OD'?\"}",
+   "explanation": "The error indicates that the macro GPIO_MODE_OUTPUT is not recognized, likely due to a typo or incorrect macro name. The correct macro for output mode is GPIO_MODE_OUTPUT. This edit corrects the macro usage.",
+   "diff": "--- \n+++ \n@@ -24 +24 @@\n-    gpio.Mode = GPIO_MODE_INPUT;\n+    gpio.Mode = GPIO_MODE_OUTPUT;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define STATUS_PORT     GPIOB\n#define STATUS_PIN      GPIO_PIN_0\n#define HEARTBEAT_PORT  GPIOB\n#define HEARTBEAT_PIN   GPIO_PIN_1\n#define BTN_PORT        GPIOA\n#define BTN_PIN         GPIO_PIN_0\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOA_CLK_ENABLE();\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n\n    gpio.Pin   = STATUS_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(STATUS_PORT, &gpio);\n\n    gpio.Pin  = HEARTBEAT_PIN;\n    gpio.Mode = GPIO_MODE_OUTPUT;\n    gpio.Pull = GPIO_NOPULL;\n    HAL_GPIO_Init(HEARTBEAT_PORT, &gpio);\n\n    gpio.Pin  = BTN_PIN;\n    gpio.Mode = GPIO_MODE_INPUT;\n    gpio.Pull = GPIO_PULLDOWN;\n    HAL_GPIO_Init(BTN_PORT, &gpio);\n}\n\nint main(void)\n{\n    uint32_t last_beat = 0U;\n\n    HAL_Init();\n    gpio_init();\n\n    for (;;) {\n        if (HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN) == GPIO_PIN_SET) {\n            HAL_GPIO_WritePin(STATUS_PORT, STATUS_PIN, GPIO_PIN_SET);\n        } else {\n            HAL_GPIO_WritePin(STATUS_PORT, STATUS_PIN, GPIO_PIN_RESET);\n        }\n\n        if ((HAL_GetTick() - last_beat) >= 500U) {\n            HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);\n            last_beat = HAL_GetTick();\n        }\n    }\n}\n",
+   "tokens": 3433,
+   "run": 1
+  },
+  {
+   "file": "files/f050.c",
+   "bug_type": "INT-01",
+   "line": 10,
+   "function": null,
+   "success": true,
+   "compiles": true,
+   "bug_removed": true,
+   "new_warnings": 0,
+   "changed_lines": 2,
+   "introduced_suspects": [],
+   "attempts": 1,
+   "failure": "",
+   "explanation": "The variable 'home_found' is shared between an ISR and task code but is not declared as 'volatile', leading to potential issues with visibility across context switches. Adding 'volatile' ensures the compiler does not optimize away reads/writes to this variable.",
+   "diff": "--- \n+++ \n@@ -10 +10 @@\n-static uint8_t home_found;\n+static volatile uint8_t home_found;",
+   "patched_source": "#include \"stm32f4xx_hal.h\"\n\n#define LIMIT_PORT      GPIOB\n#define LIMIT_PIN       GPIO_PIN_4\n#define MOTOR_PORT      GPIOC\n#define MOTOR_EN_PIN    GPIO_PIN_0\n#define MOTOR_DIR_PIN   GPIO_PIN_1\n#define HOMING_LIMIT    2000000UL\n\nstatic volatile uint8_t home_found;\nstatic uint32_t home_failures;\n\nstatic void gpio_init(void)\n{\n    GPIO_InitTypeDef gpio = {0};\n\n    __HAL_RCC_GPIOB_CLK_ENABLE();\n    __HAL_RCC_GPIOC_CLK_ENABLE();\n\n    gpio.Pin   = MOTOR_EN_PIN | MOTOR_DIR_PIN;\n    gpio.Mode  = GPIO_MODE_OUTPUT_PP;\n    gpio.Pull  = GPIO_NOPULL;\n    gpio.Speed = GPIO_SPEED_FREQ_LOW;\n    HAL_GPIO_Init(MOTOR_PORT, &gpio);\n\n    gpio.Pin  = LIMIT_PIN;\n    gpio.Mode = GPIO_MODE_IT_RISING;\n    gpio.Pull = GPIO_PULLDOWN;\n    HAL_GPIO_Init(LIMIT_PORT, &gpio);\n\n    HAL_NVIC_SetPriority(EXTI4_IRQn, 8, 0);\n    HAL_NVIC_EnableIRQ(EXTI4_IRQn);\n}\n\nvoid EXTI4_IRQHandler(void)\n{\n    HAL_GPIO_EXTI_IRQHandler(LIMIT_PIN);\n}\n\nvoid HAL_GPIO_EXTI_Callback(uint16_t pin)\n{\n    if (pin == LIMIT_PIN) {\n        home_found = 1U;\n    }\n}\n\nstatic void motor_run(GPIO_PinState direction)\n{\n    HAL_GPIO_WritePin(MOTOR_PORT, MOTOR_DIR_PIN, direction);\n    HAL_GPIO_WritePin(MOTOR_PORT, MOTOR_EN_PIN, GPIO_PIN_SET);\n}\n\nstatic void motor_stop(void)\n{\n    HAL_GPIO_WritePin(MOTOR_PORT, MOTOR_EN_PIN, GPIO_PIN_RESET);\n}\n\nstatic uint8_t find_home(void)\n{\n    uint32_t spins = 0U;\n\n    home_found = 0U;\n    motor_run(GPIO_PIN_RESET);\n\n    while ((home_found == 0U) && (spins < HOMING_LIMIT)) {\n        spins++;\n    }\n\n    motor_stop();\n\n    if (home_found == 0U) {\n        home_failures++;\n        return 0U;\n    }\n    return 1U;\n}\n\nint main(void)\n{\n    HAL_Init();\n    gpio_init();\n\n    for (;;) {\n        if (find_home() == 0U) {\n            HAL_Delay(5000U);\n            continue;\n        }\n        HAL_Delay(2000U);\n        motor_run(GPIO_PIN_SET);\n        HAL_Delay(1500U);\n        motor_stop();\n    }\n}\n",
+   "tokens": 1018,
+   "run": 1
+  }
+ ]
+}

@@ -1,0 +1,1275 @@
+{
+ "results": {
+  "single": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 3,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 0
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 2,
+      "reported": 2,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 0,
+      "fn": 40,
+      "fp": 5,
+      "reported": 5,
+      "halluc": 0,
+      "loose": 0
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "PER-02",
+       28,
+       true
+      ],
+      [
+       "PER-01",
+       39,
+       true
+      ],
+      [
+       "INT-02",
+       67,
+       true
+      ],
+      [
+       "INT-03",
+       82,
+       true
+      ]
+     ],
+     "files/f006.c": [],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [],
+     "files/f010.c": [],
+     "files/f011.c": [],
+     "files/f012.c": [],
+     "files/f013.c": [],
+     "files/f014.c": [],
+     "files/f015.c": [],
+     "files/f016.c": [],
+     "files/f017.c": [],
+     "files/f018.c": [],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [],
+     "files/f023.c": [],
+     "files/f024.c": [],
+     "files/f025.c": [],
+     "files/f026.c": [],
+     "files/f027.c": [],
+     "files/f028.c": [],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [],
+     "files/f032.c": [],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [],
+     "files/f039.c": [],
+     "files/f040.c": [],
+     "files/f041.c": [],
+     "files/f042.c": [],
+     "files/f043.c": [],
+     "files/f044.c": [],
+     "files/f045.c": [],
+     "files/f046.c": [],
+     "files/f047.c": [],
+     "files/f048.c": [],
+     "files/f049.c": [],
+     "files/f050.c": []
+    },
+    "calls": 50,
+    "tokens": 133491
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 3,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 0
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 3,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 0,
+      "fn": 40,
+      "fp": 6,
+      "reported": 6,
+      "halluc": 0,
+      "loose": 0
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "PER-01",
+       23,
+       true
+      ],
+      [
+       "PER-01",
+       29,
+       true
+      ],
+      [
+       "PER-01",
+       39,
+       true
+      ],
+      [
+       "INT-02",
+       67,
+       true
+      ],
+      [
+       "INT-03",
+       82,
+       true
+      ]
+     ],
+     "files/f006.c": [],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [],
+     "files/f010.c": [],
+     "files/f011.c": [],
+     "files/f012.c": [],
+     "files/f013.c": [],
+     "files/f014.c": [],
+     "files/f015.c": [],
+     "files/f016.c": [],
+     "files/f017.c": [],
+     "files/f018.c": [],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [],
+     "files/f023.c": [],
+     "files/f024.c": [],
+     "files/f025.c": [],
+     "files/f026.c": [],
+     "files/f027.c": [],
+     "files/f028.c": [],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [],
+     "files/f032.c": [],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [],
+     "files/f039.c": [],
+     "files/f040.c": [],
+     "files/f041.c": [],
+     "files/f042.c": [],
+     "files/f043.c": [],
+     "files/f044.c": [],
+     "files/f045.c": [],
+     "files/f046.c": [],
+     "files/f047.c": [],
+     "files/f048.c": [],
+     "files/f049.c": [],
+     "files/f050.c": []
+    },
+    "calls": 50,
+    "tokens": 132523
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 3,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 0
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 3,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 8,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 0,
+      "fn": 40,
+      "fp": 6,
+      "reported": 6,
+      "halluc": 0,
+      "loose": 0
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ],
+      [
+       "PER-01",
+       23,
+       true
+      ],
+      [
+       "PER-01",
+       29,
+       true
+      ],
+      [
+       "PER-01",
+       39,
+       true
+      ],
+      [
+       "INT-02",
+       67,
+       true
+      ],
+      [
+       "INT-03",
+       82,
+       true
+      ]
+     ],
+     "files/f006.c": [],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [],
+     "files/f010.c": [],
+     "files/f011.c": [],
+     "files/f012.c": [],
+     "files/f013.c": [],
+     "files/f014.c": [],
+     "files/f015.c": [],
+     "files/f016.c": [],
+     "files/f017.c": [],
+     "files/f018.c": [],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [],
+     "files/f023.c": [],
+     "files/f024.c": [],
+     "files/f025.c": [],
+     "files/f026.c": [],
+     "files/f027.c": [],
+     "files/f028.c": [],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [],
+     "files/f032.c": [],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [],
+     "files/f039.c": [],
+     "files/f040.c": [],
+     "files/f041.c": [],
+     "files/f042.c": [],
+     "files/f043.c": [],
+     "files/f044.c": [],
+     "files/f045.c": [],
+     "files/f046.c": [],
+     "files/f047.c": [],
+     "files/f048.c": [],
+     "files/f049.c": [],
+     "files/f050.c": []
+    },
+    "calls": 50,
+    "tokens": 132528
+   }
+  ],
+  "full": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 10,
+      "fn": 2,
+      "fp": 0,
+      "reported": 10,
+      "halluc": 1,
+      "loose": 10
+     },
+     "RTOS": {
+      "tp": 10,
+      "fn": 2,
+      "fp": 0,
+      "reported": 11,
+      "halluc": 3,
+      "loose": 10
+     },
+     "peripherals/HAL": {
+      "tp": 4,
+      "fn": 4,
+      "fp": 1,
+      "reported": 5,
+      "halluc": 1,
+      "loose": 4
+     },
+     "memory": {
+      "tp": 7,
+      "fn": 1,
+      "fp": 0,
+      "reported": 7,
+      "halluc": 0,
+      "loose": 7
+     },
+     "ALL": {
+      "tp": 31,
+      "fn": 9,
+      "fp": 1,
+      "reported": 33,
+      "halluc": 5,
+      "loose": 31
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       false
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [],
+     "files/f012.c": [
+      [
+       "PER-02",
+       58,
+       true
+      ]
+     ],
+     "files/f013.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [
+      [
+       "INT-02",
+       49,
+       true
+      ]
+     ],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [
+      [
+       "INT-03",
+       50,
+       false
+      ]
+     ],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       true
+      ]
+     ],
+     "files/f023.c": [
+      [
+       "PER-01",
+       43,
+       true
+      ]
+     ],
+     "files/f024.c": [],
+     "files/f025.c": [
+      [
+       "INT-03",
+       56,
+       true
+      ]
+     ],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       false
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [
+      [
+       "INT-02",
+       64,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [
+      [
+       "MEM-01",
+       65,
+       true
+      ]
+     ],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       false
+      ],
+      [
+       "RTOS-02",
+       46,
+       false
+      ]
+     ],
+     "files/f049.c": [
+      [
+       "PER-02",
+       49,
+       true
+      ]
+     ],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 142,
+    "tokens": 144645
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 8,
+      "fn": 4,
+      "fp": 0,
+      "reported": 9,
+      "halluc": 0,
+      "loose": 8
+     },
+     "RTOS": {
+      "tp": 11,
+      "fn": 1,
+      "fp": 0,
+      "reported": 12,
+      "halluc": 3,
+      "loose": 11
+     },
+     "peripherals/HAL": {
+      "tp": 4,
+      "fn": 4,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 1,
+      "loose": 4
+     },
+     "memory": {
+      "tp": 7,
+      "fn": 1,
+      "fp": 0,
+      "reported": 7,
+      "halluc": 0,
+      "loose": 7
+     },
+     "ALL": {
+      "tp": 30,
+      "fn": 10,
+      "fp": 0,
+      "reported": 32,
+      "halluc": 4,
+      "loose": 30
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [],
+     "files/f004.c": [],
+     "files/f005.c": [],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       false
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [],
+     "files/f013.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       false
+      ]
+     ],
+     "files/f023.c": [],
+     "files/f024.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f025.c": [],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       false
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [
+      [
+       "INT-02",
+       64,
+       true
+      ],
+      [
+       "INT-02",
+       71,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [
+      [
+       "MEM-01",
+       65,
+       true
+      ]
+     ],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [
+      [
+       "PER-02",
+       21,
+       true
+      ]
+     ],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [
+      [
+       "PER-01",
+       67,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       true
+      ],
+      [
+       "RTOS-02",
+       46,
+       false
+      ]
+     ],
+     "files/f049.c": [],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 142,
+    "tokens": 144815
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 11,
+      "fn": 1,
+      "fp": 0,
+      "reported": 11,
+      "halluc": 1,
+      "loose": 11
+     },
+     "RTOS": {
+      "tp": 11,
+      "fn": 1,
+      "fp": 0,
+      "reported": 12,
+      "halluc": 4,
+      "loose": 11
+     },
+     "peripherals/HAL": {
+      "tp": 6,
+      "fn": 2,
+      "fp": 0,
+      "reported": 6,
+      "halluc": 1,
+      "loose": 6
+     },
+     "memory": {
+      "tp": 5,
+      "fn": 3,
+      "fp": 0,
+      "reported": 5,
+      "halluc": 0,
+      "loose": 5
+     },
+     "ALL": {
+      "tp": 33,
+      "fn": 7,
+      "fp": 0,
+      "reported": 34,
+      "halluc": 6,
+      "loose": 33
+     }
+    },
+    "findings": {
+     "files/f001.c": [],
+     "files/f002.c": [
+      [
+       "RTOS-01",
+       58,
+       true
+      ]
+     ],
+     "files/f003.c": [
+      [
+       "PER-01",
+       25,
+       true
+      ]
+     ],
+     "files/f004.c": [],
+     "files/f005.c": [],
+     "files/f006.c": [
+      [
+       "PER-02",
+       71,
+       false
+      ]
+     ],
+     "files/f007.c": [],
+     "files/f008.c": [],
+     "files/f009.c": [
+      [
+       "INT-03",
+       39,
+       true
+      ]
+     ],
+     "files/f010.c": [
+      [
+       "RTOS-01",
+       50,
+       true
+      ]
+     ],
+     "files/f011.c": [
+      [
+       "RTOS-01",
+       46,
+       true
+      ]
+     ],
+     "files/f012.c": [],
+     "files/f013.c": [],
+     "files/f014.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f015.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "files/f016.c": [
+      [
+       "INT-02",
+       49,
+       true
+      ]
+     ],
+     "files/f017.c": [
+      [
+       "MEM-02",
+       69,
+       true
+      ]
+     ],
+     "files/f018.c": [
+      [
+       "INT-02",
+       55,
+       true
+      ]
+     ],
+     "files/f019.c": [
+      [
+       "INT-03",
+       50,
+       false
+      ]
+     ],
+     "files/f020.c": [],
+     "files/f021.c": [],
+     "files/f022.c": [
+      [
+       "RTOS-03",
+       45,
+       false
+      ]
+     ],
+     "files/f023.c": [
+      [
+       "PER-01",
+       43,
+       true
+      ]
+     ],
+     "files/f024.c": [
+      [
+       "INT-01",
+       9,
+       true
+      ]
+     ],
+     "files/f025.c": [
+      [
+       "INT-03",
+       56,
+       true
+      ]
+     ],
+     "files/f026.c": [
+      [
+       "RTOS-03",
+       52,
+       false
+      ]
+     ],
+     "files/f027.c": [
+      [
+       "INT-03",
+       68,
+       true
+      ]
+     ],
+     "files/f028.c": [
+      [
+       "MEM-01",
+       51,
+       true
+      ]
+     ],
+     "files/f029.c": [],
+     "files/f030.c": [],
+     "files/f031.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f032.c": [
+      [
+       "RTOS-02",
+       89,
+       true
+      ]
+     ],
+     "files/f033.c": [],
+     "files/f034.c": [],
+     "files/f035.c": [
+      [
+       "INT-02",
+       71,
+       true
+      ]
+     ],
+     "files/f036.c": [],
+     "files/f037.c": [],
+     "files/f038.c": [
+      [
+       "MEM-02",
+       72,
+       true
+      ]
+     ],
+     "files/f039.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "files/f040.c": [
+      [
+       "MEM-01",
+       70,
+       true
+      ]
+     ],
+     "files/f041.c": [
+      [
+       "PER-02",
+       21,
+       true
+      ]
+     ],
+     "files/f042.c": [
+      [
+       "PER-01",
+       35,
+       true
+      ]
+     ],
+     "files/f043.c": [
+      [
+       "MEM-02",
+       62,
+       true
+      ]
+     ],
+     "files/f044.c": [
+      [
+       "RTOS-01",
+       69,
+       true
+      ]
+     ],
+     "files/f045.c": [
+      [
+       "RTOS-02",
+       57,
+       true
+      ]
+     ],
+     "files/f046.c": [],
+     "files/f047.c": [
+      [
+       "PER-01",
+       67,
+       true
+      ]
+     ],
+     "files/f048.c": [
+      [
+       "RTOS-02",
+       42,
+       false
+      ],
+      [
+       "RTOS-02",
+       46,
+       false
+      ]
+     ],
+     "files/f049.c": [],
+     "files/f050.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ]
+    },
+    "calls": 142,
+    "tokens": 144787
+   }
+  ]
+ },
+ "fixes": []
+}

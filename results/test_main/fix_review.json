@@ -1,0 +1,85 @@
+{
+ "_reviewer": "DRAFT by Claude from the diffs and patched code; Rushik must spot-check before the README says 'hand-verified'",
+ "entries": {
+  "f002|RTOS-01": {
+   "correct": true,
+   "note": "FromISR variant, no yield: valid"
+  },
+  "f006|PER-02": {
+   "correct": false,
+   "note": "turned the ADC input PA1 into an output (shared init call): breaks the light sensor"
+  },
+  "f013|MEM-02": {
+   "correct": true,
+   "note": "static buffer"
+  },
+  "f014|INT-01": {
+   "correct": true,
+   "note": "volatile"
+  },
+  "f015|INT-01": {
+   "correct": true,
+   "note": "volatile"
+  },
+  "f017|MEM-02": {
+   "correct": true,
+   "note": "static buffer"
+  },
+  "f025|INT-03": {
+   "correct": false,
+   "note": "deleted the wait and left a comment asking someone to fix it; not a fix"
+  },
+  "f026|RTOS-03": {
+   "correct": true,
+   "note": "priority 4 -> 5"
+  },
+  "f028|MEM-01": {
+   "correct": "partial",
+   "note": "no overflow, but silently truncates the 20-byte header to 16; the real fix is FRAME_SIZE >= 20"
+  },
+  "f031|RTOS-02": {
+   "correct": true,
+   "note": "give before the early return"
+  },
+  "f032|RTOS-02": {
+   "correct": true,
+   "note": "give before the early return"
+  },
+  "f033|RTOS-03": {
+   "correct": true,
+   "note": "priority 2 -> 5 (literal instead of the macro)"
+  },
+  "f038|MEM-02": {
+   "correct": true,
+   "note": "static buffer"
+  },
+  "f039|RTOS-03": {
+   "correct": true,
+   "note": "priority 3 -> 5"
+  },
+  "f040|MEM-01": {
+   "correct": true,
+   "note": "strncpy with terminator"
+  },
+  "f043|MEM-02": {
+   "correct": true,
+   "note": "static buffer"
+  },
+  "f045|RTOS-02": {
+   "correct": true,
+   "note": "give before the early return"
+  },
+  "f047|PER-01": {
+   "correct": true,
+   "note": "clock enable placed before the first ADC use"
+  },
+  "f048|RTOS-02": {
+   "correct": false,
+   "note": "label moved inside the if: BOTH validation failures now fall through to the save; give left in dead code after a return"
+  },
+  "f050|INT-01": {
+   "correct": true,
+   "note": "volatile"
+  }
+ }
+}
