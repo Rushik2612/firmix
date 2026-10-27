@@ -51,4 +51,13 @@ print("wrong model quote -> finding kept, quote replaced by real line text:", bo
 ok &= bool(mem01_at_59(f)) and "this text" not in mem01_at_59(f)[0].code_quote
 f, _ = run_setup(Fake(None, valid), "dev/d03.c", use_verifier=False)
 print("without verifier the same finding survives:", bool(mem01_at_59(f))); ok &= bool(mem01_at_59(f))
+from agents.verifier import refutation_defect
+from agents.findings import Finding
+mk = lambda bt, ln: Finding(file="x", bug_type=bt, line=ln, verdict="bug")
+g = lambda gl, why="the index is kept in range": {"guard_line": gl, "reason": why}
+print("RTOS-02: a guard AFTER the leaking return is rejected:", bool(refutation_defect(mk("RTOS-02", 50), g(54)))); ok &= bool(refutation_defect(mk("RTOS-02", 50), g(54)))
+print("MEM-01: a modulo update AFTER the write is an accepted guard:", not refutation_defect(mk("MEM-01", 52), g(53))); ok &= not refutation_defect(mk("MEM-01", 52), g(53))
+print("MEM-02: a completion wait AFTER the HAL call is accepted:", not refutation_defect(mk("MEM-02", 67), g(70))); ok &= not refutation_defect(mk("MEM-02", 67), g(70))
+print("any type: the suspect line itself is rejected:", bool(refutation_defect(mk("MEM-01", 64), g(64)))); ok &= bool(refutation_defect(mk("MEM-01", 64), g(64)))
+print("any type: hedged reasoning is rejected:", bool(refutation_defect(mk("MEM-01", 64), g(60, "it may be bounded")))); ok &= bool(refutation_defect(mk("MEM-01", 64), g(60, "it may be bounded")))
 print("\nPASS" if ok else "\nFAIL"); sys.exit(0 if ok else 1)

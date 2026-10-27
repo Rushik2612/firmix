@@ -65,8 +65,11 @@ def refutation_defect(finding: Finding, out: dict) -> str:
         return "guard_line is not a number"
     if gl == finding.line:
         return "the cited guard is the suspect line itself"
-    if gl > finding.line:
-        return "the cited guard comes AFTER the suspect line, so it cannot protect it"
+    # Only for exit-path bugs is "a guard AFTER the suspect cannot protect it" true: a later give does not run on an
+    # early return. For invariants (an index kept in range by a modulo update on the next line) and for completion
+    # waits after an async HAL call, the protecting line legitimately comes AFTER the suspect line.
+    if finding.bug_type == "RTOS-02" and gl > finding.line:
+        return "the cited guard comes AFTER the suspect line, so it cannot protect that exit path"
     low = " " + str(out.get("reason", "")).lower() + " "
     for h in HEDGES:
         if h in low:

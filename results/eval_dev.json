@@ -1,0 +1,825 @@
+{
+ "results": {
+  "single": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 0,
+      "fn": 4,
+      "fp": 6,
+      "reported": 6,
+      "halluc": 1,
+      "loose": 0
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 4,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 2,
+      "fp": 2,
+      "reported": 2,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 3,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 0,
+      "fn": 13,
+      "fp": 8,
+      "reported": 8,
+      "halluc": 1,
+      "loose": 0
+     }
+    },
+    "findings": {
+     "dev/d01.c": [],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-01",
+       11,
+       false
+      ],
+      [
+       "INT-01",
+       12,
+       true
+      ],
+      [
+       "INT-01",
+       13,
+       true
+      ]
+     ],
+     "dev/d04.c": [],
+     "dev/d05.c": [],
+     "dev/d06.c": [],
+     "dev/d07.c": [],
+     "dev/d08.c": [],
+     "dev/d09.c": [],
+     "dev/d10.c": [],
+     "dev/d11.c": [],
+     "dev/d12.c": [],
+     "dev/d13.c": [],
+     "dev/d14.c": [],
+     "dev/d15.c": [],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ],
+      [
+       "PER-02",
+       27,
+       true
+      ],
+      [
+       "PER-01",
+       40,
+       true
+      ],
+      [
+       "INT-02",
+       70,
+       true
+      ],
+      [
+       "INT-03",
+       84,
+       true
+      ]
+     ],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 20,
+    "tokens": 51539
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 1,
+      "fn": 3,
+      "fp": 10,
+      "reported": 11,
+      "halluc": 2,
+      "loose": 1
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 4,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 2,
+      "fp": 7,
+      "reported": 7,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 3,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 1,
+      "fn": 12,
+      "fp": 17,
+      "reported": 18,
+      "halluc": 2,
+      "loose": 1
+     }
+    },
+    "findings": {
+     "dev/d01.c": [],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-01",
+       11,
+       false
+      ],
+      [
+       "INT-01",
+       12,
+       true
+      ],
+      [
+       "INT-01",
+       13,
+       true
+      ],
+      [
+       "PER-01",
+       27,
+       true
+      ],
+      [
+       "PER-01",
+       34,
+       true
+      ],
+      [
+       "PER-01",
+       44,
+       true
+      ],
+      [
+       "INT-02",
+       60,
+       true
+      ],
+      [
+       "INT-03",
+       63,
+       true
+      ],
+      [
+       "INT-02",
+       66,
+       false
+      ],
+      [
+       "PER-02",
+       70,
+       true
+      ],
+      [
+       "PER-02",
+       72,
+       true
+      ],
+      [
+       "INT-02",
+       85,
+       true
+      ],
+      [
+       "INT-02",
+       86,
+       true
+      ]
+     ],
+     "dev/d04.c": [],
+     "dev/d05.c": [],
+     "dev/d06.c": [],
+     "dev/d07.c": [],
+     "dev/d08.c": [],
+     "dev/d09.c": [],
+     "dev/d10.c": [],
+     "dev/d11.c": [],
+     "dev/d12.c": [],
+     "dev/d13.c": [],
+     "dev/d14.c": [],
+     "dev/d15.c": [],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ],
+      [
+       "PER-02",
+       27,
+       true
+      ],
+      [
+       "PER-01",
+       40,
+       true
+      ],
+      [
+       "INT-02",
+       70,
+       true
+      ],
+      [
+       "INT-03",
+       84,
+       true
+      ]
+     ],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 20,
+    "tokens": 52108
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 1,
+      "fn": 3,
+      "fp": 10,
+      "reported": 11,
+      "halluc": 2,
+      "loose": 1
+     },
+     "RTOS": {
+      "tp": 0,
+      "fn": 4,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "peripherals/HAL": {
+      "tp": 0,
+      "fn": 2,
+      "fp": 5,
+      "reported": 5,
+      "halluc": 0,
+      "loose": 0
+     },
+     "memory": {
+      "tp": 0,
+      "fn": 3,
+      "fp": 0,
+      "reported": 0,
+      "halluc": 0,
+      "loose": 0
+     },
+     "ALL": {
+      "tp": 1,
+      "fn": 12,
+      "fp": 15,
+      "reported": 16,
+      "halluc": 2,
+      "loose": 1
+     }
+    },
+    "findings": {
+     "dev/d01.c": [],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-01",
+       11,
+       false
+      ],
+      [
+       "INT-01",
+       12,
+       true
+      ],
+      [
+       "INT-01",
+       13,
+       true
+      ],
+      [
+       "PER-01",
+       27,
+       true
+      ],
+      [
+       "PER-01",
+       34,
+       true
+      ],
+      [
+       "PER-01",
+       44,
+       true
+      ],
+      [
+       "INT-02",
+       60,
+       true
+      ],
+      [
+       "INT-02",
+       61,
+       true
+      ],
+      [
+       "INT-02",
+       66,
+       false
+      ],
+      [
+       "INT-02",
+       85,
+       true
+      ],
+      [
+       "INT-02",
+       86,
+       true
+      ]
+     ],
+     "dev/d04.c": [],
+     "dev/d05.c": [],
+     "dev/d06.c": [],
+     "dev/d07.c": [],
+     "dev/d08.c": [],
+     "dev/d09.c": [],
+     "dev/d10.c": [],
+     "dev/d11.c": [],
+     "dev/d12.c": [],
+     "dev/d13.c": [],
+     "dev/d14.c": [],
+     "dev/d15.c": [],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ],
+      [
+       "PER-02",
+       29,
+       true
+      ],
+      [
+       "PER-01",
+       40,
+       true
+      ],
+      [
+       "INT-02",
+       70,
+       true
+      ],
+      [
+       "INT-03",
+       84,
+       true
+      ]
+     ],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 20,
+    "tokens": 51994
+   }
+  ],
+  "full": [
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 4,
+      "fn": 0,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 0,
+      "loose": 4
+     },
+     "RTOS": {
+      "tp": 4,
+      "fn": 0,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 1,
+      "loose": 4
+     },
+     "peripherals/HAL": {
+      "tp": 2,
+      "fn": 0,
+      "fp": 0,
+      "reported": 2,
+      "halluc": 0,
+      "loose": 2
+     },
+     "memory": {
+      "tp": 1,
+      "fn": 2,
+      "fp": 0,
+      "reported": 1,
+      "halluc": 0,
+      "loose": 1
+     },
+     "ALL": {
+      "tp": 11,
+      "fn": 2,
+      "fp": 0,
+      "reported": 11,
+      "halluc": 1,
+      "loose": 11
+     }
+    },
+    "findings": {
+     "dev/d01.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-02",
+       86,
+       true
+      ]
+     ],
+     "dev/d04.c": [
+      [
+       "INT-03",
+       71,
+       true
+      ]
+     ],
+     "dev/d05.c": [
+      [
+       "RTOS-01",
+       42,
+       true
+      ]
+     ],
+     "dev/d06.c": [
+      [
+       "RTOS-02",
+       50,
+       false
+      ]
+     ],
+     "dev/d07.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "dev/d08.c": [
+      [
+       "PER-01",
+       51,
+       true
+      ]
+     ],
+     "dev/d09.c": [
+      [
+       "PER-02",
+       35,
+       true
+      ]
+     ],
+     "dev/d10.c": [],
+     "dev/d11.c": [
+      [
+       "MEM-02",
+       60,
+       true
+      ]
+     ],
+     "dev/d12.c": [],
+     "dev/d13.c": [
+      [
+       "RTOS-02",
+       54,
+       true
+      ]
+     ],
+     "dev/d14.c": [],
+     "dev/d15.c": [
+      [
+       "INT-03",
+       42,
+       true
+      ]
+     ],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 50,
+    "tokens": 49882
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 4,
+      "fn": 0,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 0,
+      "loose": 4
+     },
+     "RTOS": {
+      "tp": 4,
+      "fn": 0,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 1,
+      "loose": 4
+     },
+     "peripherals/HAL": {
+      "tp": 2,
+      "fn": 0,
+      "fp": 0,
+      "reported": 2,
+      "halluc": 0,
+      "loose": 2
+     },
+     "memory": {
+      "tp": 2,
+      "fn": 1,
+      "fp": 0,
+      "reported": 2,
+      "halluc": 0,
+      "loose": 2
+     },
+     "ALL": {
+      "tp": 12,
+      "fn": 1,
+      "fp": 0,
+      "reported": 12,
+      "halluc": 1,
+      "loose": 12
+     }
+    },
+    "findings": {
+     "dev/d01.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-02",
+       86,
+       true
+      ]
+     ],
+     "dev/d04.c": [
+      [
+       "INT-03",
+       71,
+       true
+      ]
+     ],
+     "dev/d05.c": [
+      [
+       "RTOS-01",
+       42,
+       true
+      ]
+     ],
+     "dev/d06.c": [
+      [
+       "RTOS-02",
+       50,
+       false
+      ]
+     ],
+     "dev/d07.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "dev/d08.c": [
+      [
+       "PER-01",
+       51,
+       true
+      ]
+     ],
+     "dev/d09.c": [
+      [
+       "PER-02",
+       35,
+       true
+      ]
+     ],
+     "dev/d10.c": [
+      [
+       "MEM-01",
+       64,
+       true
+      ]
+     ],
+     "dev/d11.c": [
+      [
+       "MEM-02",
+       60,
+       true
+      ]
+     ],
+     "dev/d12.c": [],
+     "dev/d13.c": [
+      [
+       "RTOS-02",
+       54,
+       true
+      ]
+     ],
+     "dev/d14.c": [],
+     "dev/d15.c": [
+      [
+       "INT-03",
+       42,
+       true
+      ]
+     ],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 50,
+    "tokens": 50072
+   },
+   {
+    "counts": {
+     "interrupts": {
+      "tp": 3,
+      "fn": 1,
+      "fp": 0,
+      "reported": 3,
+      "halluc": 0,
+      "loose": 3
+     },
+     "RTOS": {
+      "tp": 4,
+      "fn": 0,
+      "fp": 0,
+      "reported": 4,
+      "halluc": 1,
+      "loose": 4
+     },
+     "peripherals/HAL": {
+      "tp": 1,
+      "fn": 1,
+      "fp": 0,
+      "reported": 1,
+      "halluc": 0,
+      "loose": 1
+     },
+     "memory": {
+      "tp": 1,
+      "fn": 2,
+      "fp": 0,
+      "reported": 1,
+      "halluc": 0,
+      "loose": 1
+     },
+     "ALL": {
+      "tp": 9,
+      "fn": 4,
+      "fp": 0,
+      "reported": 9,
+      "halluc": 1,
+      "loose": 9
+     }
+    },
+    "findings": {
+     "dev/d01.c": [
+      [
+       "INT-01",
+       10,
+       true
+      ]
+     ],
+     "dev/d02.c": [],
+     "dev/d03.c": [
+      [
+       "INT-02",
+       86,
+       true
+      ]
+     ],
+     "dev/d04.c": [],
+     "dev/d05.c": [
+      [
+       "RTOS-01",
+       42,
+       true
+      ]
+     ],
+     "dev/d06.c": [
+      [
+       "RTOS-02",
+       50,
+       false
+      ]
+     ],
+     "dev/d07.c": [
+      [
+       "RTOS-03",
+       60,
+       true
+      ]
+     ],
+     "dev/d08.c": [
+      [
+       "PER-01",
+       51,
+       true
+      ]
+     ],
+     "dev/d09.c": [],
+     "dev/d10.c": [],
+     "dev/d11.c": [
+      [
+       "MEM-02",
+       60,
+       true
+      ]
+     ],
+     "dev/d12.c": [],
+     "dev/d13.c": [
+      [
+       "RTOS-02",
+       54,
+       true
+      ]
+     ],
+     "dev/d14.c": [],
+     "dev/d15.c": [
+      [
+       "INT-03",
+       42,
+       true
+      ]
+     ],
+     "dev/d16.c": [],
+     "dev/d17.c": [],
+     "dev/d18.c": [],
+     "dev/d19.c": [],
+     "dev/d20.c": []
+    },
+    "calls": 51,
+    "tokens": 50648
+   }
+  ]
+ },
+ "fixes": []
+}

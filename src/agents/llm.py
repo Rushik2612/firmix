@@ -18,15 +18,20 @@ class LLMError(RuntimeError):
 
 
 class OllamaLLM:
-    def __init__(self, model: str | None = None):
+    def __init__(self, model: str | None = None, seed: int | None = None, temperature: float | None = None):
         self.model = model or C.MODEL
+        self.options = dict(C.OPTIONS)
+        if seed is not None:                      # only for run-to-run variation studies; default = pinned seed
+            self.options["seed"] = seed
+        if temperature is not None:               # only for the sampled-robustness study; default = pinned 0
+            self.options["temperature"] = temperature
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.calls = 0
 
     def chat(self, messages, tools=None, fmt=None) -> dict:
         body = {"model": self.model, "messages": messages, "stream": False,
-                "think": C.THINK, "options": C.OPTIONS}
+                "think": C.THINK, "options": self.options}
         if tools:
             body["tools"] = tools
         if fmt:

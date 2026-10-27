@@ -69,3 +69,60 @@ LLM triage (variant): may only DROP existing candidates. Design finding BEFORE m
 49 reasoning calls on the whole test set while every skip risks a real bug. Kept deterministic as the default; triage is
 reported as an experiment. Limitation to state: the benchmark files are small and single-bug; on real multi-file firmware
 with many suspects a planner would matter more. (Only candidate COUNTS were read from the test split, no labels or results.)
+
+(20) Dev set extended from 12 to 20 files (d13-d20: 3 buggy + 5 clean near-misses), written AFTER all four agents were tuned
+on d01-d12, to measure out-of-sample behaviour. Test split untouched; test ground-truth entries verified byte-identical.
+All 8 compile with 0 errors and 0 warnings. d13 RTOS-02 (I2C mutex leaked on an error return), d14 MEM-01 (memcpy length
+from a received frame byte), d15 INT-03 (HAL_Delay in an EXTI callback); clean near-misses: d16 RTOS-02 (goto-out cleanup
+gives the mutex), d17 MEM-01 (modulo-guarded ring buffer), d18 MEM-02 (waits on a completion flag), d19 PER-01 (clock enable
+inside HAL_SPI_MspInit), d20 RTOS-03 (FromISR at the boundary priority 5).
+FIRST out-of-sample candidate-stage result, recorded BEFORE any change: buggy 2/3 (d13, d15 found; d14 MISSED -- the MEM-01
+rule covers 'i <= N' and constant sizes but not 'length taken from received data'). Clean: d16, d19, d20 give 0 suspects;
+d17 (2 suspects) and d18 (1 suspect) must be dismissed by reasoning+verifier. Decision: candidate rules stay FROZEN (v1);
+d14 is documented as a known coverage gap, not patched, because the v1 candidate recall on the test split is already measured.
+
+(21) OUT-OF-SAMPLE RESULT on d13-d20 (agents tuned on d01-d12 only), recorded BEFORE the change below:
+verified setup, dev (20 files): found 11/13 buggy (misses: d10 = the known verifier flicker, d14 = the known MEM-01 candidate
+gap), 1 false positive: d17 MEM-01 (clean near-miss). Fixer: 10/12 by rule (d03 and d15 failed: d03 broken edit as before;
+d15 needed 5 edits, over the 3-edit cap), d14 had no candidate.
+Cause of the d17 false positive: MY OWN entry-(14) rule. The verifier gave the correct refutation (head is kept in range by
+'head = (head + 1U) % RING_LEN' on the next line) and code rejected it because "a guard after the suspect line cannot protect
+it". That is only true for exit paths (RTOS-02); an index invariant or a completion wait (d18) legitimately comes after.
+I over-generalised from d06. Change: the 'guard after suspect' rejection now applies to RTOS-02 only. Plumbing tests added.
+From here d17 is no longer out-of-sample; the pre-fix numbers above are the honest out-of-sample record.
+
+(22) Step 9 harness added (dev only so far): src/agents/single.py (single-LLM baseline: whole file + all SPEC rules, no tools,
+same pinned model), tools/run_eval.py (setups rules / single / agents / full, repeated, per-group precision, recall,
+hallucination as mean +- sd; optional --fix), tools/test_eval_plumbing.py (12 checks of the scoring), OllamaLLM(seed=...) for
+variation studies. Hallucination = reported finding whose quoted code is not on the line it names. TEST split still refused
+without --allow-test.
+PLUMBING BUG FIXED in the fixer prompt: get_snippet text already carries 'NN: ' prefixes and the fixer added its own 'NN| ',
+so the model saw 'NN| NN: code' and copied the label into its edits. That, not model weakness, was the real cause of the
+'10: static volatile ...' failures that entry (16) patched around. Fixer now shows raw lines with ONE label. The earlier fixer dev
+numbers (9/10 and 10/12) were produced with the confusing prompt, so the fixer dev run is repeated before the test run.
+Also fixed: rules-only setup validated the wrong text (reported 100% hallucination); now 0%, as it must be.
+
+(23) FIRST FULL DEV EVALUATION (20 files: 13 buggy, 7 clean; 3 in-process repeats, pinned temp 0 / seed 42). All repeats were
+IDENTICAL (sd 0), so in-process repeats do not measure run-to-run variation (separate invocations did differ earlier).
+All groups: rules-only P 67% R 92% H 0%; single LLM P 6% R 8% H 25% (tp 1/13, 15 false positives); agents without verifier
+P 86% R 92% H 7%; full Firmix P 100% R 92% H 8%. Remaining miss: d14 (known MEM-01 candidate gap). Verifier: 86% -> 100% precision,
+no recall cost. Hallucination for the tool-grounded setups is a sloppy QUOTE (the line itself is tool-proposed), not an invented
+location. Fixer 10/12 (d03 broken edit; d15 needs 4-5 edits, cap is 3).
+Added to the harness (no change to any agent): lenient column "right bug type anywhere in the file" (so the single-LLM baseline is
+not judged only on exact line), per-file findings stored in the results JSON, --temperature for a sampled-robustness study.
+
+(24) ROBUSTNESS RESULT (dev, 20 files, temperature 0.3, seeds 42/43/44): full Firmix precision 100% in all three runs (0 false
+positives each), recall 82% +- 12 (11, 12, 9 of 13 found); misses = d14 every time (known candidate gap), d10 sometimes, d04 and d09
+in one run. Single LLM: precision 4% +- 3, recall 5% +- 4, and its lenient recall (right bug type anywhere in the file) is the same
+5%, so the baseline is not merely being punished for off-by-one lines. Full Firmix's 'hallucination' is one finding per run: d06
+RTOS-02, correct tool-proposed line with a sloppy model quote.
+
+(25) PRE-REGISTRATION OF THE TEST-SET RUN (written BEFORE any agent has seen a test file). From this entry on, NOTHING in src/,
+SPEC.md, prompts, config.py or the benchmark is changed because of test results. Run once, at the git tag `pre-test-eval`:
+  A) python tools/run_eval.py --split test --allow-test --setups rules,single,agents,full --repeats 1 --fix --out results/test_main
+  B) python tools/run_eval.py --split test --allow-test --setups single,full --repeats 3 --vary-seed --temperature 0.3 --out results/test_robust
+  (A = pinned deterministic configuration, the main table; B = sampled run-to-run spread. GCC + cppcheck: results/baseline_summary.md.)
+Predictions, stated in advance: candidate stage ceiling is 38/40 = 95% recall on test (measured earlier); full Firmix exact-line
+recall will land between 60% and 85%; precision between 85% and 100%, lower than on dev because the agents were tuned on dev; the
+single LLM stays below 15% recall; the fixer's rule-based success rate is below 90% and the hand-verified rate is lower still.
+Whatever comes out is what the README reports, including anything worse than predicted.

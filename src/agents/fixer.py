@@ -94,8 +94,11 @@ class FixResult:
 
 
 def _numbered(file: str, start: int, end: int) -> str:
-    text = cf.get_snippet(file, start, end)["text"].splitlines()
-    return "\n".join(f"{start + i:4d}| {t}" for i, t in enumerate(text))
+    """Raw source lines with ONE line-number label. (get_snippet's text already carries its own 'NN: ' prefix,
+    which used to produce a confusing double label 'NN| NN: code' that the model then copied into its edits.)"""
+    lines = cf.load(file).lines
+    end = min(end, len(lines))
+    return "\n".join(f"{i:4d}| {lines[i - 1]}" for i in range(max(1, start), end + 1))
 
 
 def _context(file: str, cand: dict) -> str:

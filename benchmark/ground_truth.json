@@ -140,6 +140,77 @@
       "note": "Two ISRs (EXTI0 and EXTI1) at equal priority 6 both do press_events++ through the shared callback. Equal priority never preempts, so the increment is never interrupted, and main reads the counter with one aligned 32-bit load. Not a bug per INT-02 'is not'."
     },
     {
+      "file": "dev/d13.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "RTOS-02",
+      "anchor_line": 54,
+      "accepted_lines": [
+        54
+      ],
+      "anchor_snippet": "return -2;",
+      "note": "The task takes i2c_mutex successfully, then HAL_I2C_Mem_Read fails and the function returns -2 without xSemaphoreGive. The mutex stays held, so the next call times out at the take and the bus is dead. The earlier 'return -1' is fine: the take did not succeed."
+    },
+    {
+      "file": "dev/d14.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "MEM-01",
+      "anchor_line": 66,
+      "accepted_lines": [
+        66
+      ],
+      "anchor_snippet": "memcpy(cfg_payload, &rx_frame[2], len);",
+      "note": "len comes straight from a received frame byte (rx_frame[1], 0..255) and is used as the memcpy size into the 16-byte cfg_payload with no bounds check. A length above 16 overwrites the neighbouring static data. rx_frame is 32 bytes, so cfg_payload is the buffer that overflows."
+    },
+    {
+      "file": "dev/d15.c",
+      "split": "dev",
+      "label": "buggy",
+      "bug_type": "INT-03",
+      "anchor_line": 42,
+      "accepted_lines": [
+        42
+      ],
+      "anchor_snippet": "HAL_Delay(DEBOUNCE_MS);",
+      "note": "HAL_Delay is called inside HAL_GPIO_EXTI_Callback, which runs in the EXTI15_10 ISR at priority 6. HAL_Delay waits on the SysTick tick counter; SysTick keeps its default (lowest) priority 15 via HAL_Init, so it can never preempt the ISR and HAL_Delay never returns."
+    },
+    {
+      "file": "dev/d16.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "RTOS-02",
+      "note": "Mutex is taken, and every failure path uses goto out, which always gives the mutex before the single return. The only return before the label is when the take itself failed. Not a bug per RTOS-02."
+    },
+    {
+      "file": "dev/d17.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "MEM-01",
+      "note": "ring[head] is written with head always reduced modulo RING_LEN, and the read-back index is also taken modulo RING_LEN. The averaging count is clamped to WINDOW (<= RING_LEN). Guarded writes: not a bug per MEM-01."
+    },
+    {
+      "file": "dev/d18.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "MEM-02",
+      "note": "line[32] is a local array passed to HAL_UART_Transmit_IT, but the function waits on tx_done (volatile, set by the TxCplt callback) before returning. Waiting for completion with a flag loop: not a bug per MEM-02."
+    },
+    {
+      "file": "dev/d19.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "PER-01",
+      "note": "SPI1 and GPIOA clocks are enabled inside the file's own HAL_SPI_MspInit, which HAL_SPI_Init calls. GPIOA is also enabled in cs_init before use. Not a bug per PER-01 (enable inside MspInit)."
+    },
+    {
+      "file": "dev/d20.c",
+      "split": "dev",
+      "label": "clean",
+      "near_miss_of": "RTOS-03",
+      "note": "xQueueSendFromISR is called from the EXTI0 ISR at priority 5, exactly the allowed boundary (configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY = 5, priority >= 5 is allowed). Not a bug per RTOS-03."
+    },
+    {
       "file": "files/f001.c",
       "split": "test",
       "label": "clean",
