@@ -61,3 +61,11 @@ d03 fails all 3 attempts (the model picks the right idea, a critical section, bu
 does not compile). d09 still WRONG (changes the door-sensor input pin to an output); it passes every code check, so it is
 documented as a known wrong fix and is why the final evaluation reports hand-verified correctness next to the rule-based number.
 No further fixer tuning.
+
+(19) Step 8d: planner added (src/agents/planner.py, run_planned in pipeline.py, setups 'planned' and 'planned_llm').
+Code planner (default): deterministic grouping/ordering of tool-found candidates; cannot lose a bug the candidate stage found.
+LLM triage (variant): may only DROP existing candidates. Design finding BEFORE measuring: candidates per file are ~1.0
+(dev 13 over 12 files; test 49 over 50 files, only 7 files with >1, 8 with none), so an LLM planner could save at most ~7 of
+49 reasoning calls on the whole test set while every skip risks a real bug. Kept deterministic as the default; triage is
+reported as an experiment. Limitation to state: the benchmark files are small and single-bug; on real multi-file firmware
+with many suspects a planner would matter more. (Only candidate COUNTS were read from the test split, no labels or results.)

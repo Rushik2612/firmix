@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from agents.llm import OllamaLLM, LLMError          # noqa: E402
-from agents.pipeline import run_setup               # noqa: E402
+from agents.pipeline import run_setup, run_planned               # noqa: E402
 
 
 def score(entry, findings):
@@ -31,7 +31,7 @@ def score(entry, findings):
 
 def main(argv=None, llm=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--setup", default="reasoning", choices=["reasoning", "verified"])
+    ap.add_argument("--setup", default="reasoning", choices=["reasoning", "verified", "planned", "planned_llm"])
     ap.add_argument("--split", default="dev", choices=["dev", "test"])
     ap.add_argument("--files", default=None, help="comma list of file stems, e.g. d05,d06")
     ap.add_argument("--allow-test", action="store_true")
@@ -54,7 +54,10 @@ def main(argv=None, llm=None):
         stem = Path(e["file"]).stem
         t = time.time()
         try:
-            findings, log = run_setup(llm, e["file"], use_verifier=(a.setup == "verified"))
+            if a.setup in ("planned", "planned_llm"):
+                findings, log = run_planned(llm, e["file"], use_verifier=True, triage=(a.setup == "planned_llm"))
+            else:
+                findings, log = run_setup(llm, e["file"], use_verifier=(a.setup == "verified"))
         except LLMError as err:
             sys.exit(f"LLM problem: {err}\nIs Ollama running and the model pulled (ollama pull qwen3:8b)?")
         s = score(e, findings)
