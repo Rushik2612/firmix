@@ -1,0 +1,8 @@
+# Render Blueprint: free Docker web service built from this repo's Dockerfile.
+services:
+  - type: web
+    name: firmix
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true

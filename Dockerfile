@@ -1,4 +1,4 @@
-# Hugging Face Space (Docker) image for the Firmix demo. Rules + compiler only; no LLM runs in the container.
+# Docker image for the Firmix demo (deployed on Render free tier). Rules + compiler only; no LLM runs in the container.
 FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,4 +19,5 @@ COPY app ./app
 
 ENV PORT=7860
 EXPOSE 7860
-CMD ["gunicorn", "-b", "0.0.0.0:7860", "-w", "2", "--timeout", "120", "app.server:app"]
+# Render injects $PORT; 7860 is the local default. 1 worker + threads to fit the 512 MB free instance.
+CMD gunicorn -b 0.0.0.0:${PORT:-7860} -w 1 --threads 4 --timeout 120 app.server:app
