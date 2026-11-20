@@ -6,7 +6,11 @@ Firmix 2.0 is a tool-grounded multi-agent bug finder for **STM32F4 firmware**. I
 cleanly and pass basic tests (ISR/main data races, missing `volatile`, FreeRTOS misuse, wrong GPIO or clock setup, buffer overflows),
 backs every finding with tool evidence, and proposes a fix that is checked to compile.
 
-> **Demo:** _live link and demo GIF are added at the end of Step 10._
+> **Live demo: [firmix.onrender.com](https://firmix.onrender.com)** (free tier: the first visit after 15 idle minutes takes about a minute to wake up).
+> The *Analyze* tab runs the deterministic rules and the ARM compile check on pasted code (no LLM). The *Benchmark replay* tab shows the
+> recorded agent runs: pinned findings and fixes for the 50 test files, full reasoning/verifier traces for the 20 dev files.
+
+![Firmix demo: rules + compile check on a dev file, then the recorded agent trace and fix for d05](docs/firmix_demo.gif)
 
 ## The problem
 
@@ -20,7 +24,9 @@ single local LLM with the same rules found **0 of 40** (best prompt variant: 9 o
 Frozen test set: **40 buggy + 10 clean near-miss files**, ground truth fixed before any detector existed (git tag `benchmark-frozen`).
 One local model for every LLM row: `qwen3:8b` via Ollama, temperature 0, seed 42. Run once, at git tag `pre-test-eval`, with the
 predictions written down first ([CHANGELOG entry 25](CHANGELOG.md)). Recall counts a bug only if the right type is reported on the
-right line.
+right line. Some bugs span lines, so the ground truth lists every accepted line; a second report on another accepted line of a bug
+already found counts as neither an extra TP nor an FP. That is why full Firmix shows 33/33 although it made 35 reports (f035 and f048
+were each reported on two accepted lines), and rules-only shows 38/45 from 49 reports.
 
 | Setup | Precision | Recall (40 bugs) | 95% CI for recall | LLM calls | Tokens |
 |---|---|---|---|---|---|
