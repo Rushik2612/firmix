@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firmix 2.0 demo</title>
+<style>
+:root{--bg:#fafaf8;--fg:#1c1c1a;--mut:#6b6b66;--card:#fff;--line:#e4e3de;--acc:#1f5eff;--ok:#16794a;--bad:#b3261e;--warn:#9a6700;--code:#f3f2ee}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ececea;--mut:#9a9a94;--card:#1c1c1a;--line:#2e2e2b;--acc:#7aa2ff;--ok:#5fcf93;--bad:#ff8b82;--warn:#e3b341;--code:#222220}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:22px;margin:0}.tag{color:var(--mut);margin:2px 0 14px}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:14px 0}
+.tabs button{background:none;border:0;padding:8px 14px;color:var(--mut);font:inherit;cursor:pointer;border-bottom:2px solid transparent}
+.tabs button.on{color:var(--fg);border-color:var(--acc);font-weight:600}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);padding:10px 12px;border-radius:6px;color:var(--mut);margin:10px 0;font-size:14px}
+textarea{width:100%;min-height:260px;font:13px/1.45 ui-monospace,Consolas,monospace;background:var(--code);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:10px;resize:vertical}
+button.act{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:8px 16px;font:inherit;cursor:pointer}
+select{font:inherit;padding:6px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:6px;max-width:100%}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;border:1px solid var(--line);margin-right:6px}
+.ok{color:var(--ok);border-color:var(--ok)}.bad{color:var(--bad);border-color:var(--bad)}.warn{color:var(--warn);border-color:var(--warn)}
+pre{margin:6px 0;background:var(--code);padding:8px;border-radius:6px;overflow:auto;font:12.5px/1.45 ui-monospace,Consolas,monospace}
+.src{max-height:420px;overflow:auto}.src div{white-space:pre;padding:0 6px}.src .n{color:var(--mut);display:inline-block;width:3.2em;user-select:none}
+.src .truth{background:rgba(179,38,30,.18)}.src .rep{background:rgba(31,94,255,.18)}.src .cand{border-left:3px solid var(--warn)}
+.diff .a{color:var(--ok)}.diff .d{color:var(--bad)}
+.muted{color:var(--mut)}.small{font-size:13px}
+table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);font-size:14px}
+tr.click{cursor:pointer}tr.click:hover{background:var(--code)}
+</style>
+</head>
+<body><div class="wrap">
+<h1>Firmix 2.0</h1>
+<div class="tag">GCC compiles it. ChatGPT explains it. Firmix catches it before it crashes your device. &middot; STM32F4 firmware, 10 bug types</div>
+
+<div class="tabs"><button id="t1" class="on">Analyze your code</button><button id="t2">Benchmark replay</button></div>
+
+<section id="p1">
+  <div class="note"><b>This tab runs the deterministic rules only (tree-sitter + compiler). No LLM runs here.</b>
+  On the 40-bug benchmark the rules alone find 95% of bugs at 84% precision; the full agent pipeline (reasoning + verifier) reaches 100% precision but 82% recall: it removes every false alarm and also rejects some real bugs. The agents need a local model, so they are shown in the replay tab with real recorded runs.
+  Candidates below are <i>suspects</i>, not confirmed bugs.</div>
+  <div class="row"><label class="small muted">Load an example:</label><select id="ex"><option value="">(pick a benchmark file)</option></select></div>
+  <textarea id="code" spellcheck="false" placeholder="Paste STM32F4 HAL / FreeRTOS C code here (max 30,000 characters; only plain #include &quot;name.h&quot; lines are allowed)"></textarea>
+  <div class="row"><button class="act" id="go">Analyze</button><span id="st" class="muted small"></span></div>
+  <div id="out"></div>
+</section>
+
+<section id="p2" hidden>
+  <div class="note" id="rnote"></div>
+  <div id="list"></div><div id="det"></div>
+</section>
+</div>
+
+<script>
+const $=s=>document.querySelector(s), esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+$("#t1").onclick=()=>tab(1);$("#t2").onclick=()=>tab(2);
+function tab(n){$("#p1").hidden=n!=1;$("#p2").hidden=n!=2;$("#t1").className=n==1?"on":"";$("#t2").className=n==2?"on":"";if(n==2&&!window._l)loadList()}
+function srcView(src,truth,rep,cand){
+  const T=new Set(truth||[]),R=new Set(rep||[]),C=new Set(cand||[]);
+  return '<pre class="src">'+src.split("\n").map((l,i)=>{const n=i+1;return `<div class="${T.has(n)?"truth ":""}${R.has(n)?"rep ":""}${C.has(n)?"cand":""}"><span class="n">${n}</span>${esc(l)}</div>`}).join("")+"</pre>";
+}
+function diffView(d){return '<pre class="diff">'+esc(d).split("\n").map(l=>l.startsWith("+")&&!l.startsWith("+++")?`<span class="a">${l}</span>`:l.startsWith("-")&&!l.startsWith("---")?`<span class="d">${l}</span>`:l).join("\n")+"</pre>"}
+
+// ---- tab 1
+let EX=[];
+fetch("/api/replay").then(r=>r.json()).then(j=>{EX=j.items;const s=$("#ex");j.items.filter(i=>i.split=="dev").forEach(i=>{const o=document.createElement("option");o.value=i.id;o.textContent=`${i.id} (${i.label==="clean"?"clean file":i.bug_type})`;s.appendChild(o)})});
+$("#ex").onchange=async e=>{if(!e.target.value)return;const j=await (await fetch("/api/replay/"+e.target.value)).json();$("#code").value=j.source};
+$("#go").onclick=async()=>{
+  $("#st").textContent="analysing...";$("#out").innerHTML="";
+  const r=await fetch("/api/analyze",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({source:$("#code").value})});
+  const j=await r.json();$("#st").textContent="";
+  if(j.error){$("#out").innerHTML=`<div class="card"><span class="pill bad">error</span>${esc(j.error)}</div>`;return}
+  let h="";
+  h+=`<div class="card"><b>Rule candidates: ${j.candidates.length}</b>`;
+  if(!j.candidates.length)h+=`<div class="muted">No suspects found by the 10 rules.</div>`;
+  j.candidates.forEach(c=>{h+=`<div class="card"><span class="pill warn">${esc(c.bug_type)}</span><b>line ${c.line}</b> `+(c.function?`in <code>${esc(c.function)}</code>`:`(global)`)+`<pre>${esc(c.code)}</pre><div>${esc(c.summary)}</div>`+(c.evidence||[]).map(e=>`<div class="small muted">evidence, line ${e.line}: ${esc(e.fact)}</div>`).join("")+`</div>`});
+  h+=`</div>`;
+  const c=j.compile;
+  h+=`<div class="card"><b>Compile check</b> (arm-none-eabi-gcc -Wall -Wextra, -O0 and -O2) `+(c.errors&&c.errors.length?'<span class="pill bad">does not compile</span>':'<span class="pill ok">compiles</span>')+
+    `<div class="small muted">${(c.warnings||[]).length} warning(s)</div>`+[...(c.errors||[]),...(c.warnings||[])].slice(0,8).map(w=>`<div class="small">line ${w.line}: ${esc(w.msg)}</div>`).join("")+`</div>`;
+  $("#out").innerHTML=h;
+};
+
+// ---- tab 2
+async function loadList(){
+  const j=await (await fetch("/api/replay")).json();window._l=1;
+  $("#rnote").innerHTML=`Recorded outputs, not live inference. Model for every LLM step: <b>${esc(j.model)}</b>.<br>
+  <b>f001&ndash;f050 (test)</b>: the pinned, pre-registered run &mdash; findings and fixes shown, reasoning text was not stored.<br>
+  <b>d01&ndash;d20 (dev)</b>: full step-by-step traces. Dev files were used to tune prompts and rules, so these are <b>illustrations, not results</b>.`;
+  let h='<table><tr><th>File</th><th>Set</th><th>Truth</th><th>Reported</th><th>Correct</th></tr>';
+  j.items.forEach(i=>{h+=`<tr class="click" data-id="${i.id}"><td>${i.id}</td><td>${i.split}</td><td>${i.label=="clean"?"clean file":i.bug_type}</td><td>${i.n_reported}</td><td>${i.label=="clean"?(i.n_reported?'<span class="pill bad">false alarm</span>':'<span class="pill ok">silent</span>'):(i.n_correct?'<span class="pill ok">found</span>':'<span class="pill bad">missed</span>')}</td></tr>`});
+  $("#list").innerHTML=h+"</table>";
+  document.querySelectorAll("tr.click").forEach(tr=>tr.onclick=()=>show(tr.dataset.id));
+}
+async function show(id){
+  const it=await (await fetch("/api/replay/"+id)).json();
+  const truth=it.label=="buggy"?(it.truth.accepted_lines||[]):[], rep=it.reported.map(r=>r.line), cand=it.candidates.map(c=>c.line);
+  let h=`<div class="card"><b>${it.id}</b> <span class="pill">${it.split}</span> `+(it.label=="clean"?'<span class="pill ok">clean file: no bug seeded</span>':`<span class="pill warn">truth: ${esc(it.truth.bug_type)} at line ${it.truth.line}</span>`)+
+   `<div class="small muted">red = true bug line &middot; blue = reported by Firmix &middot; orange bar = rule candidate</div>`+srcView(it.source,truth,rep,cand);
+  if(it.truth.note)h+=`<div class="small muted">Author note: ${esc(it.truth.note)}</div>`;
+  h+=`</div>`;
+  if(it.trace){h+=`<div class="card"><b>Pipeline trace</b>`;it.trace.forEach(t=>{h+=`<div class="card"><span class="pill warn">${esc(t.candidate.bug_type)}</span>line ${t.candidate.line} `+(t.candidate.function?`&middot; <code>${esc(t.candidate.function)}</code>`:`(global)`)+`
+    <div class="small">${esc(t.candidate.summary)}</div>
+    <div><b>Reasoning agent:</b> <span class="pill ${t.verdict=="bug"?"warn":"ok"}">${esc(t.verdict)}</span> <span class="small">${esc(t.reason)}</span></div>`+
+    (t.verdict=="bug"?`<div><b>Verifier:</b> <span class="pill ${t.verified&&t.grounded?"ok":"bad"}">${t.verified&&t.grounded?"kept":"refuted"}</span> <span class="small">${esc(t.verifier_reason)}</span></div>`:"")+
+    `<div><b>Final:</b> ${t.reported?"reported":"not reported"}</div></div>`});h+=`</div>`}
+  h+=`<div class="card"><b>Reported by full Firmix</b>`;
+  if(!it.reported.length)h+=`<div class="muted">nothing</div>`;
+  it.reported.forEach(r=>{h+=`<div class="card"><span class="pill warn">${esc(r.bug_type)}</span>line ${r.line} `+(it.label=="clean"?'<span class="pill bad">false alarm</span>':(r.correct?'<span class="pill ok">true positive</span>':'<span class="pill bad">false positive</span>'))+
+    (r.fix?`<div class="small" style="margin-top:6px"><b>Proposed fix</b> ${r.fix.compiles?'<span class="pill ok">compiles</span>':'<span class="pill bad">does not compile</span>'}${r.fix.bug_removed?'<span class="pill ok">rule no longer flags it</span>':'<span class="pill bad">rule still flags it</span>'}<span class="pill">${r.fix.changed_lines} lines changed</span><span class="pill">${r.fix.attempts} attempt(s)</span><div class="muted">${esc(r.fix.explanation)}</div>${diffView(r.fix.diff)}<div class="muted">Passing these checks is not proof the fix is right: about half of the test-set fixes were fully correct on hand review.</div></div>`:"")+`</div>`});
+  h+=`</div>`;
+  $("#det").innerHTML=h;$("#det").scrollIntoView({behavior:"smooth"});
+}
+</script></body></html>

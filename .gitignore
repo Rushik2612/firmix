@@ -1,3 +1,9 @@
 deps/
 __pycache__/
 *.o
+
+# step zips, generated index, Space build folder
+*.zip
+knowledge/index.json
+space_build/
+new_dev_entries.json

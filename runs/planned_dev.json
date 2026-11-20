@@ -1,0 +1,992 @@
+[
+ {
+  "file": "dev/d01.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d01.c",
+    "bug_type": "INT-01",
+    "line": 10,
+    "verdict": "bug",
+    "reason": "The variable 'button_pressed' is accessed in both ISR and task contexts, with at least one write in the ISR. It is not declared as 'volatile', matching the 'Bug' description of INT-01. No applicable 'Not a bug' exemption is present.",
+    "code_quote": "static uint8_t button_pressed;",
+    "exemption_checked": "none",
+    "candidate_rule": "shared-nonvolatile",
+    "candidate_summary": "'button_pressed' is shared between ISR and task code but not volatile",
+    "tool_calls": [],
+    "model_line": 10,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "no valid refutation: The variable 'button_pressed' is not an RTOS object handle, so this exemption does not apply.",
+    "tokens": 3192
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "INT-01",
+     "line": 10,
+     "function": null,
+     "rule": "shared-nonvolatile",
+     "summary": "'button_pressed' is shared between ISR and task code but not volatile",
+     "evidence": [
+      {
+       "line": 10,
+       "fact": "'button_pressed' declared 'uint8_t' without volatile"
+      },
+      {
+       "line": 44,
+       "fact": "write of 'button_pressed' in ISR context (HAL_GPIO_EXTI_Callback)"
+      },
+      {
+       "line": 57,
+       "fact": "read of 'button_pressed' in task context (main) inside loop condition"
+      }
+     ],
+     "flags": {
+      "all_task_accesses_in_critical_section": false,
+      "task_read_in_loop_condition": true
+     },
+     "alt_lines": [
+      57
+     ]
+    },
+    "finding": {
+     "file": "dev/d01.c",
+     "bug_type": "INT-01",
+     "line": 10,
+     "verdict": "bug",
+     "reason": "The variable 'button_pressed' is accessed in both ISR and task contexts, with at least one write in the ISR. It is not declared as 'volatile', matching the 'Bug' description of INT-01. No applicable 'Not a bug' exemption is present.",
+     "code_quote": "static uint8_t button_pressed;",
+     "exemption_checked": "none",
+     "candidate_rule": "shared-nonvolatile",
+     "candidate_summary": "'button_pressed' is shared between ISR and task code but not volatile",
+     "tool_calls": [],
+     "model_line": 10,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "no valid refutation: The variable 'button_pressed' is not an RTOS object handle, so this exemption does not apply.",
+     "tokens": 3192
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "interrupts"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d02.c",
+  "score": {
+   "tp": 0,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "INT-01",
+     "line": 10,
+     "function": null,
+     "rule": "shared-nonvolatile",
+     "summary": "'button_pressed' is shared between ISR and task code but not volatile",
+     "evidence": [
+      {
+       "line": 10,
+       "fact": "'button_pressed' declared 'uint8_t' without volatile"
+      },
+      {
+       "line": 44,
+       "fact": "write of 'button_pressed' in ISR context (HAL_GPIO_EXTI_Callback)"
+      },
+      {
+       "line": 53,
+       "fact": "read of 'button_pressed' in task context (button_was_pressed) inside critical section"
+      }
+     ],
+     "flags": {
+      "all_task_accesses_in_critical_section": true,
+      "task_read_in_loop_condition": false
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d02.c",
+     "bug_type": "INT-01",
+     "line": 10,
+     "verdict": "not_bug",
+     "reason": "The task-side access to 'button_pressed' is inside a critical section, which may prevent the need for 'volatile'.",
+     "code_quote": "static uint8_t button_pressed;",
+     "exemption_checked": "all_task_accesses_in_critical_section",
+     "candidate_rule": "shared-nonvolatile",
+     "candidate_summary": "'button_pressed' is shared between ISR and task code but not volatile",
+     "tool_calls": [],
+     "model_line": 10,
+     "quote_on_line": true,
+     "grounded": null,
+     "verified": null,
+     "verifier_reason": "",
+     "tokens": 2179
+    },
+    "reported": false
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "interrupts"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d03.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d03.c",
+    "bug_type": "INT-02",
+    "line": 86,
+    "verdict": "bug",
+    "reason": "The code involves a read-modify-write operation on a volatile uint8_t variable 'rx_count' in main, which is also modified in an ISR. This matches the rule's 'Bug' description. The 'Not a bug' exemption for single aligned load/store does not apply here as the operation is a read-modify-write, not a single load/store.",
+    "code_quote": "rx_count--;",
+    "exemption_checked": "single aligned load or store of <= 32 bits",
+    "candidate_rule": "nonatomic-shared",
+    "candidate_summary": "'rx_count' read-modify-write in main while an ISR also writes it",
+    "tool_calls": [],
+    "model_line": 86,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "refutation rejected by code (the cited guard is the suspect line itself); finding kept. (The operation 'rx_count--' is a read-modify-write, which is explicitly excluded from the 'Not a bug' exemption for single aligned load/store. However, the rule')",
+    "tokens": 3519
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "MEM-01",
+     "line": 59,
+     "function": "HAL_UART_RxCpltCallback",
+     "rule": "unguarded-index",
+     "summary": "'rx_buf[rx_head]' (array has 32 elements): no bound check on the index found before line 59",
+     "evidence": [
+      {
+       "line": 59,
+       "fact": "access: rx_buf[rx_head]"
+      }
+     ],
+     "flags": {
+      "is_write": true,
+      "array_size": 32
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d03.c",
+     "bug_type": "MEM-01",
+     "line": 59,
+     "verdict": "bug",
+     "reason": "The code does not have a guarded write. The index `rx_head` is used to write to `rx_buf` without any bounds check before line 59.",
+     "code_quote": "rx_buf[rx_head] = rx_byte;",
+     "exemption_checked": "guarded writes",
+     "candidate_rule": "unguarded-index",
+     "candidate_summary": "'rx_buf[rx_head]' (array has 32 elements): no bound check on the index found before line 59",
+     "tool_calls": [],
+     "model_line": 59,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": false,
+     "verifier_reason": "refuted by line 58 (if (rx_count < RX_BUF_LEN) {): The write to rx_buf is guarded by the condition 'rx_count < RX_BUF_LEN', which ensures that the buffer is not overflowed. This satisfies the 'guarded writes' exemption under MEM-01.",
+     "tokens": 2610
+    },
+    "reported": false
+   },
+   {
+    "candidate": {
+     "bug_type": "MEM-01",
+     "line": 84,
+     "function": "main",
+     "rule": "unguarded-index",
+     "summary": "'rx_buf[rx_tail]' (array has 32 elements): no bound check on the index found before line 84",
+     "evidence": [
+      {
+       "line": 84,
+       "fact": "access: rx_buf[rx_tail]"
+      }
+     ],
+     "flags": {
+      "is_write": false,
+      "array_size": 32
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d03.c",
+     "bug_type": "MEM-01",
+     "line": 84,
+     "verdict": "not_bug",
+     "reason": "The code does not match the rule's 'Bug' description because there is no write to a fixed-size array with an index/length that is out of range. The line in question is a read from the array, not a write. The rule's 'Bug' applies to writes, not reads.",
+     "code_quote": "uint8_t b = rx_buf[rx_tail];",
+     "exemption_checked": "none",
+     "candidate_rule": "unguarded-index",
+     "candidate_summary": "'rx_buf[rx_tail]' (array has 32 elements): no bound check on the index found before line 84",
+     "tool_calls": [],
+     "model_line": 84,
+     "quote_on_line": true,
+     "grounded": null,
+     "verified": null,
+     "verifier_reason": "",
+     "tokens": 1919
+    },
+    "reported": false
+   },
+   {
+    "candidate": {
+     "bug_type": "INT-02",
+     "line": 86,
+     "function": "main",
+     "rule": "nonatomic-shared",
+     "summary": "'rx_count' read-modify-write in main while an ISR also writes it",
+     "evidence": [
+      {
+       "line": 86,
+       "fact": "rmw of 'rx_count' in main, outside any critical section: rx_count--;"
+      },
+      {
+       "line": 61,
+       "fact": "ISR-context write of 'rx_count' in HAL_UART_RxCpltCallback"
+      }
+     ],
+     "flags": {
+      "type": "uint8_t",
+      "volatile": true
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d03.c",
+     "bug_type": "INT-02",
+     "line": 86,
+     "verdict": "bug",
+     "reason": "The code involves a read-modify-write operation on a volatile uint8_t variable 'rx_count' in main, which is also modified in an ISR. This matches the rule's 'Bug' description. The 'Not a bug' exemption for single aligned load/store does not apply here as the operation is a read-modify-write, not a single load/store.",
+     "code_quote": "rx_count--;",
+     "exemption_checked": "single aligned load or store of <= 32 bits",
+     "candidate_rule": "nonatomic-shared",
+     "candidate_summary": "'rx_count' read-modify-write in main while an ISR also writes it",
+     "tool_calls": [],
+     "model_line": 86,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "refutation rejected by code (the cited guard is the suspect line itself); finding kept. (The operation 'rx_count--' is a read-modify-write, which is explicitly excluded from the 'Not a bug' exemption for single aligned load/store. However, the rule')",
+     "tokens": 3519
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "memory",
+      "interrupts"
+     ],
+     "skipped": [],
+     "n_candidates": 3
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d04.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d04.c",
+    "bug_type": "INT-03",
+    "line": 71,
+    "verdict": "bug",
+    "reason": "The code matches the rule's 'Bug' description: an ISR-context call to `HAL_UART_Transmit`, which is a polling HAL transfer that waits for hardware. There are no applicable 'Not a bug' exemptions flagged by the tool.",
+    "code_quote": "HAL_UART_Transmit(&huart2, heartbeat_msg, sizeof(heartbeat_msg) - 1U, 100U);",
+    "exemption_checked": "none",
+    "candidate_rule": "blocking-call-in-isr",
+    "candidate_summary": "'HAL_UART_Transmit' is a polling HAL transfer (needs the HAL tick / waits for hardware), reached from ISR via HAL_TIM_PeriodElapsedCallback",
+    "tool_calls": [],
+    "model_line": 71,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "refutation rejected by code (hedged reasoning ('suggests')); finding kept. (The code is inside an if statement that checks for a specific timer instance (TIM2), which suggests that the HAL_UART_Transmit is only called in a bounded conte)",
+    "tokens": 2972
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "INT-03",
+     "line": 71,
+     "function": "HAL_TIM_PeriodElapsedCallback",
+     "rule": "blocking-call-in-isr",
+     "summary": "'HAL_UART_Transmit' is a polling HAL transfer (needs the HAL tick / waits for hardware), reached from ISR via HAL_TIM_PeriodElapsedCallback",
+     "evidence": [
+      {
+       "line": 71,
+       "fact": "call: HAL_UART_Transmit(&huart2, heartbeat_msg, sizeof(heartbeat_msg) - 1U, 100U)"
+      },
+      {
+       "line": 68,
+       "fact": "ISR path: HAL_TIM_PeriodElapsedCallback"
+      }
+     ],
+     "flags": {
+      "also_called_from_task": false
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d04.c",
+     "bug_type": "INT-03",
+     "line": 71,
+     "verdict": "bug",
+     "reason": "The code matches the rule's 'Bug' description: an ISR-context call to `HAL_UART_Transmit`, which is a polling HAL transfer that waits for hardware. There are no applicable 'Not a bug' exemptions flagged by the tool.",
+     "code_quote": "HAL_UART_Transmit(&huart2, heartbeat_msg, sizeof(heartbeat_msg) - 1U, 100U);",
+     "exemption_checked": "none",
+     "candidate_rule": "blocking-call-in-isr",
+     "candidate_summary": "'HAL_UART_Transmit' is a polling HAL transfer (needs the HAL tick / waits for hardware), reached from ISR via HAL_TIM_PeriodElapsedCallback",
+     "tool_calls": [],
+     "model_line": 71,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "refutation rejected by code (hedged reasoning ('suggests')); finding kept. (The code is inside an if statement that checks for a specific timer instance (TIM2), which suggests that the HAL_UART_Transmit is only called in a bounded conte)",
+     "tokens": 2972
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "interrupts"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d05.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d05.c",
+    "bug_type": "RTOS-01",
+    "line": 42,
+    "verdict": "bug",
+    "reason": "The code matches the rule's 'Bug' description: 'xSemaphoreGive' is called from an ISR context (HAL_GPIO_EXTI_Callback), which is an ISR callback function. There are no applicable 'Not a bug' exemptions flagged by the tool.",
+    "code_quote": "xSemaphoreGive(button_sem);",
+    "exemption_checked": "none",
+    "candidate_rule": "plain-rtos-api-in-isr",
+    "candidate_summary": "'xSemaphoreGive' has a FromISR variant but is called from ISR context (HAL_GPIO_EXTI_Callback)",
+    "tool_calls": [],
+    "model_line": 42,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "no valid refutation: The call to xSemaphoreGive is a FromISR variant, and the code is called from an ISR context (HAL_GPIO_EXTI_Callback). However, the rule explicitly states that this is a 'Bug' and there are no applicab",
+    "tokens": 2483
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "RTOS-01",
+     "line": 42,
+     "function": "HAL_GPIO_EXTI_Callback",
+     "rule": "plain-rtos-api-in-isr",
+     "summary": "'xSemaphoreGive' has a FromISR variant but is called from ISR context (HAL_GPIO_EXTI_Callback)",
+     "evidence": [
+      {
+       "line": 42,
+       "fact": "call: xSemaphoreGive(button_sem)"
+      },
+      {
+       "line": 39,
+       "fact": "ISR path: HAL_GPIO_EXTI_Callback"
+      }
+     ],
+     "flags": {
+      "also_called_from_task": false
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d05.c",
+     "bug_type": "RTOS-01",
+     "line": 42,
+     "verdict": "bug",
+     "reason": "The code matches the rule's 'Bug' description: 'xSemaphoreGive' is called from an ISR context (HAL_GPIO_EXTI_Callback), which is an ISR callback function. There are no applicable 'Not a bug' exemptions flagged by the tool.",
+     "code_quote": "xSemaphoreGive(button_sem);",
+     "exemption_checked": "none",
+     "candidate_rule": "plain-rtos-api-in-isr",
+     "candidate_summary": "'xSemaphoreGive' has a FromISR variant but is called from ISR context (HAL_GPIO_EXTI_Callback)",
+     "tool_calls": [],
+     "model_line": 42,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "no valid refutation: The call to xSemaphoreGive is a FromISR variant, and the code is called from an ISR context (HAL_GPIO_EXTI_Callback). However, the rule explicitly states that this is a 'Bug' and there are no applicab",
+     "tokens": 2483
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "RTOS"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d06.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d06.c",
+    "bug_type": "RTOS-02",
+    "line": 50,
+    "verdict": "bug",
+    "reason": "The code matches the rule's 'Bug' description: a mutex is taken on line 45, and there is a return on line 50 without a corresponding xSemaphoreGive. No 'Not a bug' exemptions apply as the tool did not flag any, and the mutex is a recursive mutex (assumed from context).",
+    "code_quote": "return LOG_ERR_TOO_LONG;",
+    "exemption_checked": "none",
+    "candidate_rule": "exit-without-give",
+    "candidate_summary": "return at line 50 after taking 'uart_mutex' (line 45) with no give on the way out",
+    "tool_calls": [],
+    "model_line": 50,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "refutation rejected by code (the cited guard comes AFTER the suspect line, so it cannot protect it); finding kept. (The mutex is a recursive mutex, and the code includes a give in another function (line 54), which satisfies the 'Not a bug' exemption for binary/counting semaph)",
+    "tokens": 3266
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "RTOS-02",
+     "line": 50,
+     "function": "log_write",
+     "rule": "exit-without-give",
+     "summary": "return at line 50 after taking 'uart_mutex' (line 45) with no give on the way out",
+     "evidence": [
+      {
+       "line": 45,
+       "fact": "take: xSemaphoreTake(uart_mutex, pdMS_TO_TICKS(50))"
+      },
+      {
+       "line": 50,
+       "fact": "exit: return LOG_ERR_TOO_LONG;"
+      },
+      {
+       "line": 54,
+       "fact": "first give is at line 54"
+      }
+     ],
+     "flags": {
+      "mutex_confirmed": true
+     },
+     "alt_lines": [
+      45
+     ]
+    },
+    "finding": {
+     "file": "dev/d06.c",
+     "bug_type": "RTOS-02",
+     "line": 50,
+     "verdict": "bug",
+     "reason": "The code matches the rule's 'Bug' description: a mutex is taken on line 45, and there is a return on line 50 without a corresponding xSemaphoreGive. No 'Not a bug' exemptions apply as the tool did not flag any, and the mutex is a recursive mutex (assumed from context).",
+     "code_quote": "return LOG_ERR_TOO_LONG;",
+     "exemption_checked": "none",
+     "candidate_rule": "exit-without-give",
+     "candidate_summary": "return at line 50 after taking 'uart_mutex' (line 45) with no give on the way out",
+     "tool_calls": [],
+     "model_line": 50,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "refutation rejected by code (the cited guard comes AFTER the suspect line, so it cannot protect it); finding kept. (The mutex is a recursive mutex, and the code includes a give in another function (line 54), which satisfies the 'Not a bug' exemption for binary/counting semaph)",
+     "tokens": 3266
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "RTOS"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d07.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d07.c",
+    "bug_type": "RTOS-03",
+    "line": 60,
+    "verdict": "bug",
+    "reason": "The priority is 2, which is < 5, so the exemption does not apply.",
+    "code_quote": "xQueueSendFromISR(rx_queue, &rx_byte, &woken);",
+    "exemption_checked": "priority >= 5",
+    "candidate_rule": "fromisr-above-max-syscall-priority",
+    "candidate_summary": "USART2_IRQn has priority 2 (< 5) and its handler path calls 'xQueueSendFromISR'",
+    "tool_calls": [],
+    "model_line": 60,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "refutation rejected by code (hedged reasoning ('however')); finding kept. (The priority is set to 2, which is < 5, so the exemption does not apply. However, the code contains a critical section around the FromISR call via the use of po)",
+    "tokens": 2897
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "RTOS-03",
+     "line": 60,
+     "function": "HAL_UART_RxCpltCallback",
+     "rule": "fromisr-above-max-syscall-priority",
+     "summary": "USART2_IRQn has priority 2 (< 5) and its handler path calls 'xQueueSendFromISR'",
+     "evidence": [
+      {
+       "line": 46,
+       "fact": "priority set: HAL_NVIC_SetPriority(USART2_IRQn, 2, 0) (resolves to preempt priority 2)"
+      },
+      {
+       "line": 60,
+       "fact": "call: xQueueSendFromISR(rx_queue, &rx_byte, &woken)"
+      },
+      {
+       "line": 1,
+       "fact": "configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY = 5"
+      }
+     ],
+     "flags": {
+      "priority_given_via_macro": false
+     },
+     "alt_lines": [
+      46
+     ]
+    },
+    "finding": {
+     "file": "dev/d07.c",
+     "bug_type": "RTOS-03",
+     "line": 60,
+     "verdict": "bug",
+     "reason": "The priority is 2, which is < 5, so the exemption does not apply.",
+     "code_quote": "xQueueSendFromISR(rx_queue, &rx_byte, &woken);",
+     "exemption_checked": "priority >= 5",
+     "candidate_rule": "fromisr-above-max-syscall-priority",
+     "candidate_summary": "USART2_IRQn has priority 2 (< 5) and its handler path calls 'xQueueSendFromISR'",
+     "tool_calls": [],
+     "model_line": 60,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "refutation rejected by code (hedged reasoning ('however')); finding kept. (The priority is set to 2, which is < 5, so the exemption does not apply. However, the code contains a critical section around the FromISR call via the use of po)",
+     "tokens": 2897
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "RTOS"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d08.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d08.c",
+    "bug_type": "PER-01",
+    "line": 51,
+    "verdict": "bug",
+    "reason": "The code matches the rule's 'Bug' description: SPI1 is initialized (via HAL_SPI_Init) without any __HAL_RCC_SPI1_CLK_ENABLE() in the file. No 'Not a bug' exemptions apply as the enable is not inside HAL_*_MspInit or for peripherals not used.",
+    "code_quote": "HAL_SPI_Init(&hspi1);",
+    "exemption_checked": "none",
+    "candidate_rule": "no-clock-enable",
+    "candidate_summary": "SPI1 initialized (handle hspi1): no __HAL_RCC_SPI1_CLK_ENABLE() anywhere in the file",
+    "tool_calls": [],
+    "model_line": 51,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "no valid refutation: The code does not contain a call to __HAL_RCC_SPI1_CLK_ENABLE() in the file, and the HAL_SPI_Init is called before any such enable. However, the code does not have a HAL_*_MspInit function that contai",
+    "tokens": 3127
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "PER-01",
+     "line": 51,
+     "function": "spi1_init",
+     "rule": "no-clock-enable",
+     "summary": "SPI1 initialized (handle hspi1): no __HAL_RCC_SPI1_CLK_ENABLE() anywhere in the file",
+     "evidence": [
+      {
+       "line": 51,
+       "fact": "SPI1 initialized (handle hspi1) at line 51"
+      },
+      {
+       "line": 1,
+       "fact": "calls to __HAL_RCC_*_CLK_ENABLE in file: ['GPIOA', 'GPIOB']"
+      }
+     ],
+     "flags": {},
+     "alt_lines": [
+      39
+     ]
+    },
+    "finding": {
+     "file": "dev/d08.c",
+     "bug_type": "PER-01",
+     "line": 51,
+     "verdict": "bug",
+     "reason": "The code matches the rule's 'Bug' description: SPI1 is initialized (via HAL_SPI_Init) without any __HAL_RCC_SPI1_CLK_ENABLE() in the file. No 'Not a bug' exemptions apply as the enable is not inside HAL_*_MspInit or for peripherals not used.",
+     "code_quote": "HAL_SPI_Init(&hspi1);",
+     "exemption_checked": "none",
+     "candidate_rule": "no-clock-enable",
+     "candidate_summary": "SPI1 initialized (handle hspi1): no __HAL_RCC_SPI1_CLK_ENABLE() anywhere in the file",
+     "tool_calls": [],
+     "model_line": 51,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "no valid refutation: The code does not contain a call to __HAL_RCC_SPI1_CLK_ENABLE() in the file, and the HAL_SPI_Init is called before any such enable. However, the code does not have a HAL_*_MspInit function that contai",
+     "tokens": 3127
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "peripherals"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d09.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d09.c",
+    "bug_type": "PER-02",
+    "line": 35,
+    "verdict": "bug",
+    "reason": "The code writes to a pin configured as input, which matches the rule's Bug (a).",
+    "code_quote": "HAL_GPIO_WritePin(DOOR_PORT, DOOR_PIN, GPIO_PIN_SET)",
+    "exemption_checked": "reading an output pin",
+    "candidate_rule": "write-to-input-or-analog-pin",
+    "candidate_summary": "PB2 is configured GPIO_MODE_INPUT (line 25) but written by HAL_GPIO_WritePin",
+    "tool_calls": [],
+    "model_line": 35,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "refutation rejected by code (hedged reasoning ('implies')); finding kept. (The code reads the pin before writing to it, which implies the pin is configured as an output. The read operation is a guard that ensures the pin is in the corr)",
+    "tokens": 3021
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "PER-02",
+     "line": 35,
+     "function": "main",
+     "rule": "write-to-input-or-analog-pin",
+     "summary": "PB2 is configured GPIO_MODE_INPUT (line 25) but written by HAL_GPIO_WritePin",
+     "evidence": [
+      {
+       "line": 25,
+       "fact": "HAL_GPIO_Init config: mode=GPIO_MODE_INPUT pins=[2]"
+      },
+      {
+       "line": 35,
+       "fact": "HAL_GPIO_WritePin on PB2: HAL_GPIO_WritePin(DOOR_PORT, DOOR_PIN, GPIO_PIN_SET)"
+      }
+     ],
+     "flags": {
+      "pin_also_configured_output_elsewhere": false
+     },
+     "alt_lines": [
+      25
+     ]
+    },
+    "finding": {
+     "file": "dev/d09.c",
+     "bug_type": "PER-02",
+     "line": 35,
+     "verdict": "bug",
+     "reason": "The code writes to a pin configured as input, which matches the rule's Bug (a).",
+     "code_quote": "HAL_GPIO_WritePin(DOOR_PORT, DOOR_PIN, GPIO_PIN_SET)",
+     "exemption_checked": "reading an output pin",
+     "candidate_rule": "write-to-input-or-analog-pin",
+     "candidate_summary": "PB2 is configured GPIO_MODE_INPUT (line 25) but written by HAL_GPIO_WritePin",
+     "tool_calls": [],
+     "model_line": 35,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "refutation rejected by code (hedged reasoning ('implies')); finding kept. (The code reads the pin before writing to it, which implies the pin is configured as an output. The read operation is a guard that ensures the pin is in the corr)",
+     "tokens": 3021
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "peripherals"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d10.c",
+  "score": {
+   "tp": 0,
+   "fn": 1,
+   "fp": 0
+  },
+  "findings": [],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "MEM-01",
+     "line": 64,
+     "function": "average_adc",
+     "rule": "unguarded-index",
+     "summary": "'samples[i]' (array has 16 elements): no bound check on the index found before line 64",
+     "evidence": [
+      {
+       "line": 64,
+       "fact": "access: samples[i]"
+      }
+     ],
+     "flags": {
+      "is_write": true,
+      "array_size": 16
+     },
+     "alt_lines": []
+    },
+    "finding": {
+     "file": "dev/d10.c",
+     "bug_type": "MEM-01",
+     "line": 64,
+     "verdict": "bug",
+     "reason": "The code writes to 'samples[i]' with 'i' ranging from 0 to SAMPLE_COUNT. The array 'samples' has 16 elements, but the loop condition 'i <= SAMPLE_COUNT' may exceed the array size if SAMPLE_COUNT is greater than 15. There is no bound check on 'i' before accessing 'samples[i]'.",
+     "code_quote": "samples[i] = (uint16_t)HAL_ADC_GetValue(&hadc1);",
+     "exemption_checked": "guarded writes; bounded snprintf/strncpy",
+     "candidate_rule": "unguarded-index",
+     "candidate_summary": "'samples[i]' (array has 16 elements): no bound check on the index found before line 64",
+     "tool_calls": [],
+     "model_line": 64,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": false,
+     "verifier_reason": "refuted by line 61 (for (i = 0U; i <= SAMPLE_COUNT; i++) {): The loop variable 'i' is bounded by 'SAMPLE_COUNT', which is a constant. The code uses a fixed-size buffer 'samples' of size 16, and the loop condition 'i <= SAMPLE_COUNT' ensures that 'i' does not exceed the array bounds. The loop is bounded by a constant, and the array access is within the bounds of the buffer.",
+     "tokens": 2994
+    },
+    "reported": false
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "memory"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d11.c",
+  "score": {
+   "tp": 1,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [
+   {
+    "file": "dev/d11.c",
+    "bug_type": "MEM-02",
+    "line": 60,
+    "verdict": "bug",
+    "reason": "The code matches the rule's 'Bug' description: a local non-static array 'msg' is passed to HAL_UART_Transmit_IT, and the function may return before the transfer completes. No 'Not a bug' exemptions apply as per the tool's findings.",
+    "code_quote": "HAL_UART_Transmit_IT(&huart2, (uint8_t *)msg, (uint16_t)n);",
+    "exemption_checked": "none",
+    "candidate_rule": "stack-buffer-to-async-hal",
+    "candidate_summary": "local array 'msg' (declared line 57) passed to HAL_UART_Transmit_IT; function may return before the transfer completes",
+    "tool_calls": [],
+    "model_line": 60,
+    "quote_on_line": true,
+    "grounded": true,
+    "verified": true,
+    "verifier_reason": "no valid refutation: The buffer 'msg' is a local non-static array, so the exemption for static/global buffer does not apply. However, the code does not have any guard or invariant that ensures the buffer is not accessed w",
+    "tokens": 2814
+   }
+  ],
+  "log": [
+   {
+    "candidate": {
+     "bug_type": "MEM-02",
+     "line": 60,
+     "function": "send_status",
+     "rule": "stack-buffer-to-async-hal",
+     "summary": "local array 'msg' (declared line 57) passed to HAL_UART_Transmit_IT; function may return before the transfer completes",
+     "evidence": [
+      {
+       "line": 57,
+       "fact": "'msg' is a non-static local array"
+      },
+      {
+       "line": 60,
+       "fact": "call: HAL_UART_Transmit_IT(&huart2, (uint8_t *)msg, (uint16_t)n)"
+      }
+     ],
+     "flags": {
+      "function_waits_for_completion": false,
+      "wait_evidence": [],
+      "uses_HAL_Delay_only": false
+     },
+     "alt_lines": [
+      57
+     ]
+    },
+    "finding": {
+     "file": "dev/d11.c",
+     "bug_type": "MEM-02",
+     "line": 60,
+     "verdict": "bug",
+     "reason": "The code matches the rule's 'Bug' description: a local non-static array 'msg' is passed to HAL_UART_Transmit_IT, and the function may return before the transfer completes. No 'Not a bug' exemptions apply as per the tool's findings.",
+     "code_quote": "HAL_UART_Transmit_IT(&huart2, (uint8_t *)msg, (uint16_t)n);",
+     "exemption_checked": "none",
+     "candidate_rule": "stack-buffer-to-async-hal",
+     "candidate_summary": "local array 'msg' (declared line 57) passed to HAL_UART_Transmit_IT; function may return before the transfer completes",
+     "tool_calls": [],
+     "model_line": 60,
+     "quote_on_line": true,
+     "grounded": true,
+     "verified": true,
+     "verifier_reason": "no valid refutation: The buffer 'msg' is a local non-static array, so the exemption for static/global buffer does not apply. However, the code does not have any guard or invariant that ensures the buffer is not accessed w",
+     "tokens": 2814
+    },
+    "reported": true
+   },
+   {
+    "plan": {
+     "planner": "code",
+     "order": [
+      "memory"
+     ],
+     "skipped": [],
+     "n_candidates": 1
+    }
+   }
+  ]
+ },
+ {
+  "file": "dev/d12.c",
+  "score": {
+   "tp": 0,
+   "fn": 0,
+   "fp": 0
+  },
+  "findings": [],
+  "log": [
+   {
+    "plan": {
+     "planner": "code",
+     "order": [],
+     "skipped": [],
+     "n_candidates": 0
+    }
+   }
+  ]
+ }
+]

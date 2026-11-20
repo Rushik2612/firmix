@@ -1,0 +1,30 @@
+{
+  "note": "Written BEFORE the first retrieval run. Each query lists symbols or sources that count as a correct hit. Metric: recall@3 and MRR. Not tuned.",
+  "queries": [
+    {"q": "which function sends an item to a queue from an interrupt service routine", "expect": ["xQueueSendFromISR", "xQueueSendToBackFromISR"]},
+    {"q": "give a semaphore from an ISR", "expect": ["xSemaphoreGiveFromISR"]},
+    {"q": "notify a task from an interrupt", "expect": ["vTaskNotifyGiveFromISR", "xTaskNotifyFromISR", "xTaskGenericNotifyFromISR"]},
+    {"q": "set NVIC priority grouping", "expect": ["HAL_NVIC_SetPriorityGrouping", "NVIC_SetPriorityGrouping"]},
+    {"q": "set interrupt preempt priority and subpriority", "expect": ["HAL_NVIC_SetPriority", "NVIC_SetPriority"]},
+    {"q": "enable an interrupt in the NVIC", "expect": ["HAL_NVIC_EnableIRQ", "NVIC_EnableIRQ"]},
+    {"q": "HAL_Delay blocking delay uses SysTick", "expect": ["HAL_Delay"]},
+    {"q": "start UART reception in interrupt mode", "expect": ["HAL_UART_Receive_IT"]},
+    {"q": "transmit UART data with DMA", "expect": ["HAL_UART_Transmit_DMA"]},
+    {"q": "transmit data over UART in non-blocking interrupt mode", "expect": ["HAL_UART_Transmit_IT"]},
+    {"q": "initialize GPIO pin mode speed pull alternate", "expect": ["HAL_GPIO_Init", "GPIO_InitTypeDef"]},
+    {"q": "toggle a GPIO output pin", "expect": ["HAL_GPIO_TogglePin"]},
+    {"q": "take a mutex or semaphore with timeout", "expect": ["xSemaphoreTake", "xQueueSemaphoreTake"]},
+    {"q": "yield to a higher priority task at the end of an ISR", "expect": ["portYIELD_FROM_ISR", "portEND_SWITCHING_ISR"]},
+    {"q": "enter a critical section in a task", "expect": ["taskENTER_CRITICAL", "vPortEnterCritical"]},
+    {"q": "highest interrupt priority from which FreeRTOS API calls can be made", "expect": ["configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY", "configMAX_SYSCALL_INTERRUPT_PRIORITY"]},
+    {"q": "block a task for a number of ticks", "expect": ["vTaskDelay"]},
+    {"q": "I2C master transmit in interrupt mode", "expect": ["HAL_I2C_Master_Transmit_IT"]},
+    {"q": "SPI transmit in interrupt mode", "expect": ["HAL_SPI_Transmit_IT"]},
+    {"q": "mask all interrupts disable irq", "expect": ["__disable_irq"]},
+    {"q": "ISR calls a blocking function", "expect": ["INT-03"]},
+    {"q": "mutex not released on every return path", "expect": ["RTOS-02"]},
+    {"q": "variable shared with interrupt must be volatile", "expect": ["INT-01"]},
+    {"q": "enable the clock of a peripheral before use", "expect": ["PER-01"]},
+    {"q": "stack buffer passed to an asynchronous HAL transfer", "expect": ["MEM-02"]}
+  ]
+}
